@@ -172,6 +172,9 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
   }
+  .brand-col {
+    grid-column: span 2;
+  }
   .newsletter-col {
     grid-column: span 2;
   }
@@ -192,6 +195,9 @@
   .footer-top {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  .brand-col {
+    grid-column: span 1;
   }
   .newsletter-col {
     grid-column: span 1;
