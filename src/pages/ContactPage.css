@@ -1,0 +1,338 @@
+/* ── CONTACT PAGE LAYOUT & POLISH ── */
+.contact-page {
+  background-color: #fdfaf8; /* Very light warm background to match image */
+  position: relative;
+  overflow: hidden; /* For floral absolute positioning */
+  min-height: 100vh;
+}
+
+/* Floral Background Images */
+.contact-floral-left {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 350px;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-floral-right {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 350px;
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 0;
+  transform: scaleX(-1); /* Mirror it for the right side */
+}
+
+/* ── HERO SECTION ── */
+.contact-hero {
+  padding: 6rem 0 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-subtitle-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.contact-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.heart-divider-small {
+  color: #c9a367;
+  font-size: 0.7rem;
+  margin-top: 0.2rem;
+  display: flex;
+  align-items: center;
+}
+.heart-divider-small::before,
+.heart-divider-small::after {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 1px;
+  background-color: #d8c3a5;
+  margin: 0 10px;
+}
+
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  color: #333;
+  line-height: 1.2;
+  font-weight: 400;
+  margin: 1rem 0 1.5rem;
+}
+
+.contact-desc {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ── MAIN CONTACT SECTION ── */
+.contact-main {
+  padding: 1rem 0 6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(189, 106, 113, 0.06); /* Soft pinkish shadow */
+  display: flex;
+  overflow: hidden;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Left side (Info) */
+.contact-info-section {
+  flex: 0 0 42%;
+  padding: 3rem 2rem;
+  border-right: 1px solid rgba(189, 106, 113, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Right side (Form) */
+.contact-form-section {
+  flex: 1;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Section Titles inside card */
+.section-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* Info List */
+.contact-info-list {
+  max-width: 260px;
+  width: 100%;
+  margin: 0 auto 3rem;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-icon-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fdf5f5;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-info-text {
+  padding-top: 0.1rem;
+}
+
+.contact-info-text h4 {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 0.3rem 0;
+}
+
+.contact-info-text p {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: #555;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Follow Us */
+.follow-us-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+}
+
+.follow-us-title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.contact-social {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fdf5f5;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-icon-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Form */
+.contact-form {
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-input {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: #333;
+  background: #fff;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: rgba(189, 106, 113, 0.5);
+  box-shadow: 0 0 0 2px rgba(189, 106, 113, 0.05);
+}
+
+.form-input.full-width {
+  margin-bottom: 1.5rem;
+}
+
+.date-input {
+  color: #999;
+}
+.date-input:focus,
+.date-input:valid {
+  color: #333;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  margin-bottom: 2rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-send-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.8rem 2rem;
+  background-color: #cb7b83;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-send-message:hover {
+  background-color: #b56b73;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 992px) {
+  .contact-card {
+    flex-direction: column;
+    max-width: 700px;
+  }
+  .contact-info-section {
+    border-right: none;
+    border-bottom: 1px solid rgba(189, 106, 113, 0.1);
+    padding: 3rem 2rem;
+  }
+  .contact-form-section {
+    padding: 3rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-title {
+    font-size: 2.2rem;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .contact-floral-left, .contact-floral-right {
+    display: none;
+  }
+}
