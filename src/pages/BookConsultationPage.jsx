@@ -4,7 +4,7 @@ import {
   User, Phone, Mail, MapPin, Calendar, 
   ChevronDown, MessageSquare, Lock, Heart,
   Settings, Award, Briefcase, Smile, CheckCircle,
-  CalendarCheck
+  CalendarCheck, Users, Megaphone, Scissors, ShieldCheck, Shirt, Gift, CalendarDays
 } from 'lucide-react';
 
 const BookConsultationPage = () => {
@@ -37,14 +37,15 @@ const BookConsultationPage = () => {
 
   return (
     <div className="book-page">
+      <img src="/images/floral_left_edge.png" alt="" className="book-floral-bottom float-anim" />
       {/* HERO SECTION */}
       <section className="book-hero">
-        <div className="book-hero-bg"></div>
+        <div className="book-hero-bg" data-aos="fade-down" data-aos-duration="1500"></div>
         <div className="book-hero-content container">
-          <div className="book-hero-text">
+          <div className="book-hero-text" data-aos="fade-up" data-aos-duration="1200">
             <div className="book-subtitle-wrapper">
               <span className="book-subtitle">BOOK A CONSULTATION</span>
-              <Heart size={14} className="book-heart-icon" fill="#c9a367" color="#c9a367" />
+              <Heart size={14} className="book-heart-icon float-anim" fill="#c9a367" color="#c9a367" />
               <div className="book-subtitle-line"></div>
             </div>
             <h1 className="book-title">
@@ -63,8 +64,8 @@ const BookConsultationPage = () => {
         <div className="book-grid">
           
           {/* LEFT COLUMN: FORM */}
-          <div className="book-form-col">
-            <form className="consultation-form" onSubmit={handleSubmit}>
+          <div className="book-form-col" data-aos="fade-right" data-aos-duration="1000">
+            <form className="consultation-form hover-lift" onSubmit={handleSubmit}>
               
               {/* YOUR DETAILS */}
               <div className="form-section">
@@ -174,7 +175,7 @@ const BookConsultationPage = () => {
                   <label>Guest Count (Approx.)</label>
                   <div className="select-wrapper">
                     <div className="input-icon-wrapper">
-                      <User size={18} className="input-icon" />
+                      <Users size={18} className="input-icon" />
                     </div>
                     <select 
                       name="guestCount" 
@@ -195,7 +196,7 @@ const BookConsultationPage = () => {
                   <label>How did you hear about us?</label>
                   <div className="select-wrapper">
                     <div className="input-icon-wrapper">
-                      <MessageSquare size={18} className="input-icon" />
+                      <Megaphone size={18} className="input-icon" />
                     </div>
                     <select 
                       name="hearAboutUs" 
@@ -238,7 +239,7 @@ const BookConsultationPage = () => {
               </div>
 
               {/* SUBMIT BUTTON */}
-              <button type="submit" className="book-submit-btn">
+              <button type="submit" className="book-submit-btn hover-glow hover-lift">
                 <CalendarCheck size={20} />
                 Book Consultation
               </button>
@@ -252,38 +253,39 @@ const BookConsultationPage = () => {
           </div>
 
           {/* RIGHT COLUMN: INFO PANEL */}
-          <div className="book-info-col">
-            
-            {/* WHY BOOK */}
-            <div className="info-card why-book-card">
-              <div className="card-header-center">
-                <h3>WHY BOOK A CONSULTATION?</h3>
-                <Heart size={12} className="section-heart" fill="#c9a367" color="#c9a367" />
-                <div className="section-line"></div>
-              </div>
+          <div className="book-info-col" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <div className="info-panel-wrapper hover-lift">
+              
+              {/* WHY BOOK */}
+              <div className="why-book-section">
+                <div className="card-header-center">
+                  <h3>WHY BOOK A CONSULTATION?</h3>
+                  <Heart size={12} className="section-heart" fill="#c9a367" color="#c9a367" />
+                  <div className="section-line"></div>
+                </div>
 
               <div className="features-grid">
                 <div className="feature-item">
                   <div className="feature-icon">
-                    <Settings size={22} color="#ba8387" />
+                    <Scissors size={22} color="#bd6a71" />
                   </div>
                   <p>Personalized<br/>Wedding Planning</p>
                 </div>
                 <div className="feature-item">
                   <div className="feature-icon">
-                    <Award size={22} color="#ba8387" />
+                    <ShieldCheck size={22} color="#bd6a71" />
                   </div>
                   <p>Expert Guidance<br/>from Start to Finish</p>
                 </div>
                 <div className="feature-item">
                   <div className="feature-icon">
-                    <Briefcase size={22} color="#ba8387" />
+                    <Shirt size={22} color="#bd6a71" />
                   </div>
                   <p>Tailored Solutions<br/>for Your Needs</p>
                 </div>
                 <div className="feature-item">
                   <div className="feature-icon">
-                    <Smile size={22} color="#ba8387" />
+                    <Gift size={22} color="#bd6a71" />
                   </div>
                   <p>Stress-Free<br/>Wedding Experience</p>
                 </div>
@@ -291,7 +293,7 @@ const BookConsultationPage = () => {
             </div>
 
             {/* GET IN TOUCH */}
-            <div className="info-card contact-card mt-4">
+            <div className="contact-section mt-4">
               <div className="card-header-left">
                 <h3>GET IN TOUCH</h3>
                 <Heart size={12} className="section-heart" fill="#c9a367" color="#c9a367" />
@@ -300,28 +302,30 @@ const BookConsultationPage = () => {
 
               <ul className="book-contact-list">
                 <li>
-                  <Phone size={18} color="#ba8387" />
+                  <Phone size={18} color="#bd6a71" />
                   <span>+91 98765 43210</span>
                 </li>
                 <li>
-                  <Mail size={18} color="#ba8387" />
+                  <Mail size={18} color="#bd6a71" />
                   <span>hello@ippowedding.com</span>
                 </li>
                 <li>
-                  <MapPin size={18} color="#ba8387" />
+                  <MapPin size={18} color="#bd6a71" />
                   <span>Chennai, Tamil Nadu, India</span>
                 </li>
               </ul>
 
               <div className="talk-banner">
                 <div className="talk-icon">
-                  <Calendar size={24} color="#ba8387" />
+                  <CalendarDays size={24} color="#bd6a71" />
                 </div>
                 <div className="talk-text">
                   <h4>Prefer to talk?</h4>
                   <p>Call us or drop a message, we're happy to help!</p>
                 </div>
               </div>
+            </div>
+            
             </div>
 
           </div>

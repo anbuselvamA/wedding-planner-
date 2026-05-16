@@ -14,7 +14,7 @@ const PackagesPage = () => {
       {/* ── HERO BANNER ── */}
       <section className="pkg-hero">
         <div className="pkg-hero-container">
-          <div className="pkg-hero-left">
+          <div className="pkg-hero-left" data-aos="fade-right" data-aos-duration="1200">
             <p className="pkg-hero-subtitle">OUR PACKAGES</p>
             <h1 className="pkg-hero-title">
               Perfect Planning,<br />
@@ -53,15 +53,15 @@ const PackagesPage = () => {
               </div>
             </div>
           </div>
-          <div className="pkg-hero-right">
-            <img src="/images/svc_catering.png" alt="Wedding Table Setup" />
+          <div className="pkg-hero-right" data-aos="fade-left" data-aos-duration="1500">
+            <img src="/images/svc_catering.png" alt="Wedding Table Setup" className="float-anim" />
           </div>
         </div>
       </section>
 
       {/* ── PRICING CARDS ── */}
       <section className="pkg-pricing">
-        <div className="pkg-section-header">
+        <div className="pkg-section-header" data-aos="fade-up">
           <h2 className="pkg-section-title">CHOOSE YOUR PERFECT PACKAGE</h2>
           <p className="pkg-section-subtitle">Thoughtfully crafted packages for your perfect celebration</p>
           <div className="diamond-gold">♦</div>
@@ -71,7 +71,7 @@ const PackagesPage = () => {
           <div className="pkg-cards-wrapper">
             
             {/* Silver Package */}
-            <div className="pkg-card">
+            <div className="pkg-card hover-lift" data-aos="fade-up" data-aos-delay="100">
               <div className="pkg-card-badge silver-badge">
                 <Award size={20} />
               </div>
@@ -97,7 +97,7 @@ const PackagesPage = () => {
             </div>
 
             {/* Gold Package (Highlighted) */}
-            <div className="pkg-card highlighted">
+            <div className="pkg-card highlighted hover-lift" data-aos="fade-up" data-aos-delay="200">
               <div className="pkg-popular-ribbon">MOST POPULAR</div>
               <div className="pkg-card-badge gold-badge">
                 <Award size={20} />
@@ -126,7 +126,7 @@ const PackagesPage = () => {
             </div>
 
             {/* Premium Royal Package */}
-            <div className="pkg-card">
+            <div className="pkg-card hover-lift" data-aos="fade-up" data-aos-delay="300">
               <div className="pkg-card-badge royal-badge">
                 <Award size={20} />
               </div>
@@ -160,11 +160,11 @@ const PackagesPage = () => {
       {/* ── COMPARE TABLE ── */}
       <section className="pkg-compare">
         <div className="container">
-          <div className="pkg-section-header">
+          <div className="pkg-section-header" data-aos="fade-up">
             <h2 className="pkg-section-title">COMPARE PACKAGES</h2>
           </div>
           
-          <div className="pkg-table-container">
+          <div className="pkg-table-container" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
             <table className="pkg-table">
               <thead>
                 <tr>
@@ -238,28 +238,28 @@ const PackagesPage = () => {
       <section className="pkg-features-banner">
         <div className="container">
           <div className="pkg-features-grid">
-            <div className="pkg-feature-item">
+            <div className="pkg-feature-item" data-aos="fade-right" data-aos-delay="100">
               <HeartHandshake className="feature-icon" size={32} strokeWidth={1.5} />
               <div>
                 <h4>Personalized Planning</h4>
                 <p>Tailored to your needs</p>
               </div>
             </div>
-            <div className="pkg-feature-item">
+            <div className="pkg-feature-item" data-aos="fade-right" data-aos-delay="200">
               <ShieldCheck className="feature-icon" size={32} strokeWidth={1.5} />
               <div>
                 <h4>Trusted Vendors</h4>
                 <p>We work with the best</p>
               </div>
             </div>
-            <div className="pkg-feature-item">
+            <div className="pkg-feature-item" data-aos="fade-right" data-aos-delay="300">
               <Clock className="feature-icon" size={32} strokeWidth={1.5} />
               <div>
                 <h4>On-Time Delivery</h4>
                 <p>We value your time</p>
               </div>
             </div>
-            <div className="pkg-feature-item">
+            <div className="pkg-feature-item" data-aos="fade-right" data-aos-delay="400">
               <HeadphonesIcon className="feature-icon" size={32} strokeWidth={1.5} />
               <div>
                 <h4>24/7 Support</h4>

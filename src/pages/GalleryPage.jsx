@@ -28,10 +28,10 @@ const GalleryPage = () => {
     <div className="gallery-page">
       {/* ── HERO BANNER ── */}
       <section className="gallery-hero-banner">
-        <img src="/images/floral_left_edge.png" alt="floral" className="floral-edge floral-left" />
-        <img src="/images/floral_left_edge.png" alt="floral" className="floral-edge floral-right" />
+        <img src="/images/floral_left_edge.png" alt="floral" className="floral-edge floral-left float-anim" />
+        <img src="/images/floral_left_edge.png" alt="floral" className="floral-edge floral-right float-anim" />
         
-        <div className="gallery-hero-content">
+        <div className="gallery-hero-content" data-aos="zoom-in" data-aos-duration="1200">
           <p className="gallery-hero-subtitle">OUR GALLERY</p>
           <h1 className="gallery-hero-title">
             Moments We Create,<br />
@@ -49,7 +49,7 @@ const GalleryPage = () => {
       </section>
 
       {/* ── FILTER TABS ── */}
-      <section className="gallery-filters-section">
+      <section className="gallery-filters-section" data-aos="fade-up" data-aos-delay="200">
         <div className="container">
           <div className="gallery-tabs">
             {tabs.map(tab => (
@@ -70,7 +70,7 @@ const GalleryPage = () => {
         <div className="container">
           <div className="gallery-masonry">
             {filteredItems.map((item, index) => (
-              <div className="gallery-masonry-item" key={`${item.id}-${index}`}>
+              <div className="gallery-masonry-item hover-lift" key={`${item.id}-${index}`} data-aos="zoom-in" data-aos-delay={(index % 3) * 100}>
                 <img src={item.src} alt={`Wedding ${item.category}`} />
               </div>
             ))}
@@ -79,10 +79,10 @@ const GalleryPage = () => {
       </section>
 
       {/* ── CTA BANNER ── */}
-      <section className="gallery-cta">
+      <section className="gallery-cta" data-aos="fade-up" data-aos-duration="1000">
         <div className="container">
           <div className="gallery-cta-inner">
-            <div className="cta-icon-box">
+            <div className="cta-icon-box float-anim">
               <svg viewBox="0 0 24 24" fill="none" stroke="#bd6a71" strokeWidth="1.5">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                 <line x1="16" y1="2" x2="16" y2="6" />
@@ -94,7 +94,7 @@ const GalleryPage = () => {
               <h2>Ready to Create Your Beautiful Memories?</h2>
               <p>Let us plan your dream wedding with perfection and love.</p>
             </div>
-            <Link to="/book-consultation" className="btn btn-primary cta-button-right">Book Free Consultation →</Link>
+            <Link to="/book-consultation" className="btn btn-primary cta-button-right hover-glow hover-lift">Book Free Consultation →</Link>
           </div>
         </div>
       </section>

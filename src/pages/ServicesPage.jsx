@@ -76,7 +76,7 @@ const ServicesPage = () => {
 
       {/* ── HERO BANNER ── */}
       <section className="svc-hero-banner">
-        <div className="svc-hero-left">
+        <div className="svc-hero-left" data-aos="fade-right" data-aos-duration="1200">
           <p className="svc-hero-subtitle">OUR SERVICES</p>
           <h1 className="svc-hero-title">
             We Handle Every Detail,<br />
@@ -91,15 +91,15 @@ const ServicesPage = () => {
             From the first consultation to the final farewell, we take care of everything so you can focus on celebrating love.
           </p>
         </div>
-        <div className="svc-hero-right">
-          <img src="/images/svc_hero_banner.png" alt="Wedding Table Setup" />
+        <div className="svc-hero-right" data-aos="fade-left" data-aos-duration="1500">
+          <img src="/images/svc_hero_banner.png" alt="Wedding Table Setup" className="float-anim" />
         </div>
       </section>
 
       {/* ── SERVICE CARDS ── */}
       <section className="services-section">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header" data-aos="fade-up">
             <p className="section-subtitle">OUR WEDDING PLANNING SERVICES</p>
             <div className="section-divider">
               <span></span>
@@ -109,8 +109,8 @@ const ServicesPage = () => {
           </div>
 
           <div className="services-grid-new">
-            {serviceCards.map((svc) => (
-              <div className="svc-card" key={svc.id}>
+            {serviceCards.map((svc, index) => (
+              <div className="svc-card hover-lift" key={svc.id} data-aos="fade-up" data-aos-delay={index * 100}>
                 <div className="svc-card-icon">{svc.icon}</div>
                 <h3 className="svc-card-title">{svc.title}</h3>
                 <div className="svc-card-image">
@@ -127,7 +127,7 @@ const ServicesPage = () => {
       {/* ── PLANNING PROCESS ── */}
       <section className="planning-process">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header" data-aos="fade-up">
             <p className="section-subtitle">OUR PLANNING PROCESS</p>
             <div className="section-divider">
               <span></span>
@@ -139,7 +139,7 @@ const ServicesPage = () => {
           <div className="process-steps">
             {planningSteps.map((step, index) => (
               <React.Fragment key={step.num}>
-                <div className="process-step">
+                <div className="process-step hover-lift" data-aos="fade-up" data-aos-delay={index * 150}>
                   <div className="process-icon-wrap">{step.icon}</div>
                   <p className="process-num">{step.num}</p>
                   <h4 className="process-title">{step.title}</h4>
@@ -157,11 +157,11 @@ const ServicesPage = () => {
       </section>
 
       {/* ── CTA BANNER ── */}
-      <section className="services-cta">
+      <section className="services-cta" data-aos="zoom-in" data-aos-duration="1000">
         <div className="services-cta-inner">
           <h2>Let's Plan Something Beautiful Together</h2>
           <p>Book a free consultation and take the first step towards your dream wedding.</p>
-          <Link to="/book-consultation" className="btn btn-cta-white">Book Free Consultation</Link>
+          <Link to="/book-consultation" className="btn btn-cta-white hover-glow hover-lift">Book Free Consultation</Link>
         </div>
       </section>
 

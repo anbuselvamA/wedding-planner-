@@ -25,10 +25,10 @@ const AboutPage = () => {
     <div className="about-page">
       {/* ── ABOUT HERO ── */}
       <section className="about-hero">
-        <img src="/images/floral_left_edge.png" alt="" className="about-floral left-floral" />
-        <img src="/images/floral_left_edge.png" alt="" className="about-floral right-floral" style={{ transform: 'scaleX(-1)' }} />
+        <img src="/images/floral_left_edge.png" alt="" className="about-floral left-floral float-anim" />
+        <img src="/images/floral_left_edge.png" alt="" className="about-floral right-floral float-anim" style={{ transform: 'scaleX(-1)' }} />
         
-        <div className="container">
+        <div className="container" data-aos="zoom-in" data-aos-duration="1200">
           <div className="about-hero-content">
             <div className="about-subtitle">ABOUT US</div>
             <div className="about-divider">
@@ -53,7 +53,7 @@ const AboutPage = () => {
             </p>
             
             <div className="about-hero-action">
-              <Link to="/book-consultation" className="btn btn-primary about-btn">
+              <Link to="/book-consultation" className="btn btn-primary about-btn hover-glow hover-lift">
                 Book Free Consultation
               </Link>
               <svg className="heart-trail" width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +68,7 @@ const AboutPage = () => {
       {/* ── OUR STORY ── */}
       <section className="about-story">
         <div className="container">
-          <div className="story-header">
+          <div className="story-header" data-aos="fade-up">
             <div className="about-subtitle">OUR STORY <span className="feather-icon">✒</span></div>
             <h2 className="story-title">A Passion That Turned Into A Promise</h2>
             <div className="about-divider">
@@ -85,7 +85,7 @@ const AboutPage = () => {
           </div>
           
           <div className="story-stats">
-            <div className="story-stat-item">
+            <div className="story-stat-item hover-lift" data-aos="fade-up" data-aos-delay="100">
               <div className="stat-icon-circle">
                 <Heart size={28} strokeWidth={1.5} color="#c97a82" />
               </div>
@@ -93,7 +93,7 @@ const AboutPage = () => {
               <p className="stat-label">Successful Weddings</p>
             </div>
             
-            <div className="story-stat-item">
+            <div className="story-stat-item hover-lift" data-aos="fade-up" data-aos-delay="200">
               <div className="stat-icon-circle">
                 <MapPin size={28} strokeWidth={1.5} color="#c97a82" />
               </div>
@@ -101,7 +101,7 @@ const AboutPage = () => {
               <p className="stat-label">Cities Across India</p>
             </div>
             
-            <div className="story-stat-item">
+            <div className="story-stat-item hover-lift" data-aos="fade-up" data-aos-delay="300">
               <div className="stat-icon-circle">
                 <Award size={28} strokeWidth={1.5} color="#c97a82" />
               </div>
@@ -109,7 +109,7 @@ const AboutPage = () => {
               <p className="stat-label">Years of Experience</p>
             </div>
             
-            <div className="story-stat-item">
+            <div className="story-stat-item hover-lift" data-aos="fade-up" data-aos-delay="400">
               <div className="stat-icon-circle">
                 <ThumbsUp size={28} strokeWidth={1.5} color="#c97a82" />
               </div>
@@ -123,7 +123,7 @@ const AboutPage = () => {
       {/* ── WHY CHOOSE US ── */}
       <section className="about-features">
         <div className="container">
-          <div className="features-header">
+          <div className="features-header" data-aos="fade-up">
             <div className="about-subtitle">WHY CHOOSE US?</div>
             <div className="about-divider">
               <span className="diamond-gold">♥</span>
@@ -131,7 +131,7 @@ const AboutPage = () => {
           </div>
           
           <div className="features-grid">
-            <div className="feature-card">
+            <div className="feature-card hover-lift" data-aos="fade-up" data-aos-delay="100">
               <div className="feature-icon-wrapper">
                 <Gem size={32} strokeWidth={1.5} color="#c97a82" />
               </div>
@@ -139,7 +139,7 @@ const AboutPage = () => {
               <p>Customized solutions<br/>for your unique needs.</p>
             </div>
             
-            <div className="feature-card">
+            <div className="feature-card hover-lift" data-aos="fade-up" data-aos-delay="200">
               <div className="feature-icon-wrapper">
                 <ClipboardCheck size={32} strokeWidth={1.5} color="#c97a82" />
               </div>
@@ -147,7 +147,7 @@ const AboutPage = () => {
               <p>Every detail matters,<br/>and we perfect it.</p>
             </div>
             
-            <div className="feature-card">
+            <div className="feature-card hover-lift" data-aos="fade-up" data-aos-delay="300">
               <div className="feature-icon-wrapper">
                 <Users size={32} strokeWidth={1.5} color="#c97a82" />
               </div>
@@ -155,7 +155,7 @@ const AboutPage = () => {
               <p>We work with the best<br/>vendors in the industry.</p>
             </div>
             
-            <div className="feature-card">
+            <div className="feature-card hover-lift" data-aos="fade-up" data-aos-delay="400">
               <div className="feature-icon-wrapper">
                 <Clock size={32} strokeWidth={1.5} color="#c97a82" />
               </div>
@@ -163,7 +163,7 @@ const AboutPage = () => {
               <p>Timely execution for a<br/>stress-free experience.</p>
             </div>
             
-            <div className="feature-card">
+            <div className="feature-card hover-lift" data-aos="fade-up" data-aos-delay="500">
               <div className="feature-icon-wrapper">
                 <IndianRupee size={32} strokeWidth={1.5} color="#c97a82" />
               </div>
@@ -171,7 +171,7 @@ const AboutPage = () => {
               <p>No hidden costs,<br/>just honest pricing.</p>
             </div>
             
-            <div className="feature-card">
+            <div className="feature-card hover-lift" data-aos="fade-up" data-aos-delay="600">
               <div className="feature-icon-wrapper">
                 <HeartHandshake size={32} strokeWidth={1.5} color="#c97a82" />
               </div>
@@ -183,7 +183,7 @@ const AboutPage = () => {
       </section>
 
       {/* ── CTA BANNER ── */}
-      <section className="about-cta">
+      <section className="about-cta" data-aos="zoom-in" data-aos-duration="1000">
         <div className="about-cta-bg">
           <img src="/images/svc_catering.png" alt="" className="cta-bg-left" />
           <img src="/images/svc_catering.png" alt="" className="cta-bg-right" />
@@ -191,7 +191,7 @@ const AboutPage = () => {
         <div className="container about-cta-content">
           <h2>Let's Create Your Unforgettable Story</h2>
           <p>Book a free consultation and let's start planning your dream wedding.</p>
-          <Link to="/book-consultation" className="btn btn-cta-white">
+          <Link to="/book-consultation" className="btn btn-cta-white hover-glow hover-lift">
             Book Free Consultation <ArrowRight size={18} />
           </Link>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Navbar.css';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Calendar } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
@@ -47,7 +47,9 @@ const Navbar = () => {
         </ul>
         
         <div className="navbar-actions">
-          <NavLink to="/book-consultation" className="btn btn-primary d-none-mobile">Book Consultation</NavLink>
+          <NavLink to="/book-consultation" className="btn btn-primary d-none-mobile nav-book-btn">
+            <Calendar size={18} /> Book Consultation
+          </NavLink>
           <button className="menu-btn" onClick={toggleMobileMenu}>
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -63,7 +65,7 @@ const Navbar = () => {
           <li><NavLink to="/packages" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>Packages</NavLink></li>
           <li><NavLink to="/about" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>About Us</NavLink></li>
           <li><NavLink to="/contact" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>Contact</NavLink></li>
-          <li><NavLink to="/book-consultation" className="btn btn-primary mobile-book-btn" onClick={closeMobileMenu}>Book Consultation</NavLink></li>
+          <li><NavLink to="/book-consultation" className="btn btn-primary mobile-book-btn nav-book-btn" onClick={closeMobileMenu}><Calendar size={18} /> Book Consultation</NavLink></li>
         </ul>
       </div>
     </nav>

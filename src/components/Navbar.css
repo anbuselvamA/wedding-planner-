@@ -153,6 +153,18 @@
   padding: 1rem;
 }
 
+.nav-book-btn {
+  background-color: #bd6a71 !important;
+  color: #fff !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-book-btn:hover {
+  background-color: #a85a60 !important;
+}
+
 @media (max-width: 992px) {
   .navbar-links,
   .d-none-mobile {
