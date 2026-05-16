@@ -30,7 +30,7 @@
 
 /* ── HERO SECTION ── */
 .contact-hero {
-  padding: 6rem 0 2rem;
+  padding: clamp(4rem, 8vw, 6rem) 0 clamp(1rem, 5vw, 2rem);
   text-align: center;
   position: relative;
   z-index: 1;
@@ -78,7 +78,7 @@
 
 .contact-title {
   font-family: var(--font-serif);
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
   color: #333;
   line-height: 1.2;
   font-weight: 400;
@@ -96,7 +96,7 @@
 
 /* ── MAIN CONTACT SECTION ── */
 .contact-main {
-  padding: 1rem 0 6rem;
+  padding: clamp(1rem, 3vw, 2rem) 0 clamp(4rem, 8vw, 6rem);
   position: relative;
   z-index: 1;
 }
@@ -114,7 +114,7 @@
 /* Left side (Info) */
 .contact-info-section {
   flex: 0 0 42%;
-  padding: 3rem 2rem;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 2rem);
   border-right: 1px solid rgba(189, 106, 113, 0.1);
   display: flex;
   flex-direction: column;
@@ -124,7 +124,7 @@
 /* Right side (Form) */
 .contact-form-section {
   flex: 1;
-  padding: 3rem 4rem;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 4rem);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -140,7 +140,7 @@
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
   color: var(--primary-color);
   font-weight: 500;
 }
@@ -213,8 +213,8 @@
 }
 
 .social-icon-btn {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: #fdf5f5;
   color: var(--primary-color);
@@ -222,6 +222,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  touch-action: manipulation;
 }
 
 .social-icon-btn:hover {
@@ -252,6 +253,7 @@
   background: #fff;
   transition: all 0.3s ease;
   width: 100%;
+  min-height: 48px;
 }
 
 .form-input::placeholder {
@@ -278,7 +280,7 @@
 
 .form-textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 120px;
   margin-bottom: 2rem;
 }
 
@@ -302,6 +304,14 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-height: 48px;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .btn-send-message {
+    width: auto;
+  }
 }
 
 .btn-send-message:hover {
@@ -317,17 +327,10 @@
   .contact-info-section {
     border-right: none;
     border-bottom: 1px solid rgba(189, 106, 113, 0.1);
-    padding: 3rem 2rem;
-  }
-  .contact-form-section {
-    padding: 3rem 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .contact-title {
-    font-size: 2.2rem;
-  }
   .form-row {
     flex-direction: column;
     gap: 1.5rem;

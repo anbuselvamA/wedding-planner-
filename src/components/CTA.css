@@ -1,5 +1,5 @@
 .cta-section {
-  padding: 0 0 5rem 0;
+  padding: 0 0 clamp(3rem, 8vw, 5rem) 0;
   background-color: var(--bg-section);
 }
 
@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4rem 2rem;
+  padding: clamp(3rem, 8vw, 4rem) clamp(1.5rem, 5vw, 2rem);
   box-shadow: 0 10px 30px rgba(189, 106, 113, 0.2);
 }
 
@@ -36,13 +36,14 @@
 }
 
 .cta-content h2 {
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
   margin-bottom: 0.8rem;
   color: white;
+  line-height: 1.2;
 }
 
 .cta-content p {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 3vw, 1.1rem);
   margin-bottom: 2rem;
   opacity: 0.9;
 }
@@ -52,20 +53,11 @@
   color: var(--primary-color);
   border-color: white;
   font-weight: 600;
-  padding: 0.8rem 2rem;
+  padding: 1rem 2rem;
 }
 
 .cta-btn:hover {
   background-color: transparent;
   color: white;
   border-color: white;
-}
-
-@media (max-width: 768px) {
-  .cta-content h2 {
-    font-size: 1.5rem;
-  }
-  .cta-content p {
-    font-size: 1rem;
-  }
 }

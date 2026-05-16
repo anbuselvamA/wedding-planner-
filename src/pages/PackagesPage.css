@@ -5,7 +5,7 @@
 
 .pkg-hero {
   background: #fdf5f5;
-  padding: 4rem 0;
+  padding: clamp(3rem, 6vw, 4rem) 0;
   border-bottom: 1px solid rgba(189, 106, 113, 0.1);
 }
 
@@ -14,7 +14,7 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: clamp(2rem, 5vw, 3rem);
   padding: 0 1.5rem;
 }
 
@@ -34,7 +34,7 @@
 
 .pkg-hero-title {
   font-family: var(--font-serif);
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
   color: #222;
   line-height: 1.1;
   font-weight: 500;
@@ -42,7 +42,7 @@
 
 .pkg-hero-script {
   font-family: var(--font-script);
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
   color: var(--primary-color);
   font-weight: 400;
   display: block;
@@ -80,7 +80,7 @@
 
 .pkg-hero-stats {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -120,18 +120,18 @@
 
 /* ── PRICING SECTION ── */
 .pkg-pricing {
-  padding: 5rem 0;
+  padding: clamp(3rem, 6vw, 5rem) 0;
   background-color: #fff;
 }
 
 .pkg-section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
 }
 
 .pkg-section-title {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   color: var(--primary-color);
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -156,7 +156,7 @@
   flex: 1;
   background: #fff;
   border-radius: 16px;
-  padding: 3rem 2rem 2.5rem;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2rem) clamp(1.5rem, 5vw, 2.5rem);
   text-align: center;
   position: relative;
   border: 1px solid #eaeaea;
@@ -203,7 +203,7 @@
 
 .pkg-card-price {
   font-family: var(--font-serif);
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
   color: var(--primary-color);
   font-weight: 600;
   margin-bottom: 0.2rem;
@@ -250,6 +250,10 @@
   border-radius: 6px;
   font-size: 0.85rem;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
 }
 
 .gold-outline {
@@ -310,7 +314,7 @@
 
 /* ── COMPARE PACKAGES TABLE ── */
 .pkg-compare {
-  padding: 2rem 0 5rem;
+  padding: clamp(2rem, 4vw, 2rem) 0 clamp(3rem, 6vw, 5rem);
   background-color: #fff;
 }
 
@@ -319,16 +323,27 @@
   border-radius: 12px;
   border: 1px solid #eaeaea;
   box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -1rem; /* Negative margin to allow full-width scroll on mobile */
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .pkg-table-container {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 .pkg-table {
   width: 100%;
   border-collapse: collapse;
   text-align: center;
+  min-width: 650px; /* Ensure table doesn't squish too much and triggers horizontal scroll */
 }
 
 .pkg-table th, .pkg-table td {
-  padding: 1.2rem;
+  padding: clamp(0.8rem, 2vw, 1.2rem);
   border-bottom: 1px solid #eaeaea;
   font-size: 0.85rem;
 }
@@ -373,7 +388,7 @@
 
 /* ── FEATURES BANNER ── */
 .pkg-features-banner {
-  padding: 0 0 5rem;
+  padding: 0 0 clamp(3rem, 6vw, 5rem);
   background: #fff;
 }
 
@@ -381,7 +396,7 @@
   display: flex;
   background: #fdf5f5;
   border-radius: 12px;
-  padding: 2.5rem 2rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 4vw, 2rem);
   justify-content: space-between;
   border: 1px solid rgba(189, 106, 113, 0.1);
   box-shadow: 0 4px 15px rgba(189, 106, 113, 0.05);
@@ -435,5 +450,11 @@
   }
   .pkg-hero-stats {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .pkg-card-actions {
+    flex-direction: column;
   }
 }

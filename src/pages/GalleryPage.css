@@ -6,7 +6,7 @@
 .gallery-hero-banner {
   position: relative;
   text-align: center;
-  padding: 6rem 1rem 4rem;
+  padding: clamp(4rem, 8vw, 6rem) 1rem clamp(3rem, 6vw, 4rem);
   background: linear-gradient(180deg, #fef6f6 0%, #fff 100%);
   overflow: hidden;
 }
@@ -51,7 +51,7 @@
 
 .gallery-hero-title {
   font-family: var(--font-serif);
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
   color: #222;
   line-height: 1.2;
   margin-bottom: 1.5rem;
@@ -60,7 +60,7 @@
 
 .gallery-hero-script {
   font-family: var(--font-script);
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
   color: var(--primary-color);
   font-weight: 400;
   display: block;
@@ -95,7 +95,7 @@
 
 /* ── FILTER TABS ── */
 .gallery-filters-section {
-  padding: 1rem 0 3rem;
+  padding: clamp(1rem, 3vw, 2rem) 0 clamp(2rem, 5vw, 3rem);
   background: #fff;
 }
 
@@ -118,6 +118,10 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px; /* Touch target */
 }
 
 .gallery-tab:hover {
@@ -136,7 +140,7 @@
 
 /* ── GALLERY GRID (Masonry via CSS columns) ── */
 .gallery-grid-section {
-  padding: 0 0 5rem;
+  padding: 0 0 clamp(3rem, 8vw, 5rem);
   background: #fff;
 }
 
@@ -171,13 +175,13 @@
 
 /* ── CTA BANNER ── */
 .gallery-cta {
-  padding: 0 0 4rem;
+  padding: 0 0 clamp(2rem, 5vw, 4rem);
 }
 
 .gallery-cta-inner {
   background: linear-gradient(90deg, #fdf5f5 0%, #f9eaea 100%);
   border-radius: 16px;
-  padding: 2.5rem 3rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 5vw, 3rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -213,7 +217,7 @@
 
 .cta-text-content h2 {
   font-family: var(--font-serif);
-  font-size: 1.6rem;
+  font-size: clamp(1.2rem, 4vw, 1.6rem);
   color: var(--primary-color);
   margin-bottom: 0.5rem;
   font-weight: 500;
@@ -233,12 +237,6 @@
 @media (max-width: 992px) {
   .gallery-masonry {
     column-count: 2;
-  }
-  .gallery-hero-title {
-    font-size: 2.2rem;
-  }
-  .gallery-hero-script {
-    font-size: 2.8rem;
   }
   .gallery-cta-inner {
     flex-direction: column;

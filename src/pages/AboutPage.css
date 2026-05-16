@@ -49,7 +49,7 @@
 /* ── HERO SECTION ── */
 .about-hero {
   position: relative;
-  padding: 6rem 0 4rem;
+  padding: clamp(4rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 4rem);
   overflow: hidden;
   text-align: center;
   background: linear-gradient(180deg, #fef6f6 0%, #fdfaf8 100%);
@@ -79,7 +79,7 @@
 
 .about-title {
   font-family: var(--font-serif);
-  font-size: 2.8rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
   color: #222;
   line-height: 1.2;
   margin-bottom: 0.5rem;
@@ -88,7 +88,7 @@
 
 .about-script {
   font-family: var(--font-script);
-  font-size: 3.5rem;
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
   color: var(--primary-color);
   font-weight: 400;
   display: block;
@@ -129,19 +129,19 @@
 
 /* ── OUR STORY ── */
 .about-story {
-  padding: 4rem 0 5rem;
+  padding: clamp(3rem, 6vw, 4rem) 0 clamp(3rem, 8vw, 5rem);
   background-color: #fff;
 }
 
 .story-header {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto 4rem;
+  margin: 0 auto clamp(2rem, 5vw, 4rem);
 }
 
 .story-title {
   font-family: var(--font-serif);
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
   color: #222;
   font-weight: 500;
   margin-bottom: 1rem;
@@ -197,7 +197,7 @@
 
 .stat-number {
   font-family: var(--font-serif);
-  font-size: 1.8rem;
+  font-size: clamp(1.5rem, 4vw, 1.8rem);
   color: #222;
   font-weight: 500;
   margin-bottom: 0.3rem;
@@ -213,13 +213,13 @@
 
 /* ── WHY CHOOSE US ── */
 .about-features {
-  padding: 5rem 0;
+  padding: clamp(3rem, 8vw, 5rem) 0;
   background-color: #fdfaf8;
 }
 
 .features-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
 }
 
 .features-grid {
@@ -239,6 +239,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .feature-card:hover {
@@ -284,7 +285,7 @@
 .about-cta {
   position: relative;
   background: linear-gradient(135deg, #c97a82 0%, #b5606a 100%);
-  padding: 4.5rem 0;
+  padding: clamp(3rem, 8vw, 4.5rem) 0;
   overflow: hidden;
   text-align: center;
   color: #fff;
@@ -325,7 +326,7 @@
 
 .about-cta-content h2 {
   font-family: var(--font-serif);
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 5vw, 2.2rem);
   font-weight: 500;
   margin-bottom: 0.8rem;
 }
@@ -368,15 +369,12 @@
 }
 
 @media (max-width: 992px) {
-  .about-title { font-size: 2.4rem; }
-  .about-script { font-size: 3rem; }
-  .story-title { font-size: 1.8rem; }
   .about-floral { opacity: 0.3; }
 }
 
 @media (max-width: 768px) {
   .features-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* Stack entirely on mobile */
   }
   .story-stats {
     gap: 1.5rem;
@@ -389,11 +387,11 @@
 }
 
 @media (max-width: 480px) {
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
   .story-stat-item {
     width: 100%;
     max-width: none;
+  }
+  .about-floral {
+    display: none;
   }
 }

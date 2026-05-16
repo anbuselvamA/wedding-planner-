@@ -20,18 +20,23 @@
   padding: 0;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-color);
   color: var(--text-dark);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 a {
   text-decoration: none;
   color: inherit;
   transition: color 0.3s ease;
+  touch-action: manipulation;
 }
 
 ul {
@@ -47,6 +52,13 @@ img {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
 }
 
 /* Typography */
@@ -74,6 +86,8 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   font-family: var(--font-sans);
   letter-spacing: 0.5px;
+  min-height: 48px; /* Touch friendly */
+  touch-action: manipulation;
 }
 
 .btn-primary {
@@ -115,8 +129,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
   color: var(--text-dark);
 }
