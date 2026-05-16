@@ -3,6 +3,14 @@
   background-color: var(--bg-alt);
 }
 
+.gallery-wrapper {
+  position: relative;
+}
+
+.gallery-counter {
+  display: none;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -51,6 +59,32 @@
 
 @media (max-width: 480px) {
   .gallery-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .gallery-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  .gallery-item {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    aspect-ratio: 4 / 5;
+  }
+  
+  .gallery-counter {
+    display: block;
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    font-weight: 500;
   }
 }
