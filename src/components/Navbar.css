@@ -168,7 +168,7 @@
 @media (max-width: 992px) {
   .navbar-links,
   .d-none-mobile {
-    display: none;
+    display: none !important;
   }
   .menu-btn {
     display: flex;
