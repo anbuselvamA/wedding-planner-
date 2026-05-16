@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Heart, 
   MapPin, 
@@ -52,9 +53,9 @@ const AboutPage = () => {
             </p>
             
             <div className="about-hero-action">
-              <button className="btn btn-primary about-btn">
+              <Link to="/book-consultation" className="btn btn-primary about-btn">
                 Book Free Consultation
-              </button>
+              </Link>
               <svg className="heart-trail" width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 10C10 20 20 0 35 10" stroke="#c97a82" strokeWidth="1" strokeDasharray="2 2" fill="none"/>
                 <path d="M35 10C35 10 38 7 39 10C40 13 35 15 35 15C35 15 30 13 31 10C32 7 35 10 35 10Z" stroke="#c97a82" strokeWidth="1" fill="none"/>
@@ -190,9 +191,9 @@ const AboutPage = () => {
         <div className="container about-cta-content">
           <h2>Let's Create Your Unforgettable Story</h2>
           <p>Book a free consultation and let's start planning your dream wedding.</p>
-          <button className="btn btn-cta-white">
+          <Link to="/book-consultation" className="btn btn-cta-white">
             Book Free Consultation <ArrowRight size={18} />
-          </button>
+          </Link>
         </div>
       </section>
 

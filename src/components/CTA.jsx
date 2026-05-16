@@ -1,5 +1,6 @@
 import React from 'react';
 import './CTA.css';
+import { Link } from 'react-router-dom';
 
 const CTA = () => {
   return (
@@ -9,7 +10,7 @@ const CTA = () => {
           <div className="cta-content">
             <h2>Ready to start planning your dream wedding?</h2>
             <p>Let's create unforgettable memories together.</p>
-            <button className="btn btn-outline cta-btn">Book Free Consultation</button>
+            <Link to="/book-consultation" className="btn btn-outline cta-btn">Book Free Consultation</Link>
           </div>
         </div>
       </div>

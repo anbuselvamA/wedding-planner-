@@ -1,6 +1,7 @@
 import React from 'react';
 import './Hero.css';
 import { Play, Star, Award, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -19,7 +20,7 @@ const Hero = () => {
           </p>
           
           <div className="hero-actions">
-            <button className="btn btn-primary">Book Free Consultation</button>
+            <Link to="/book-consultation" className="btn btn-primary">Book Free Consultation</Link>
             <button className="btn-play">
               <span className="play-icon-wrapper">
                 <Play size={18} fill="var(--primary-color)" color="var(--primary-color)" />

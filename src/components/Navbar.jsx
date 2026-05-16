@@ -47,7 +47,7 @@ const Navbar = () => {
         </ul>
         
         <div className="navbar-actions">
-          <button className="btn btn-primary d-none-mobile">Book Consultation</button>
+          <NavLink to="/book-consultation" className="btn btn-primary d-none-mobile">Book Consultation</NavLink>
           <button className="menu-btn" onClick={toggleMobileMenu}>
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -63,7 +63,7 @@ const Navbar = () => {
           <li><NavLink to="/packages" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>Packages</NavLink></li>
           <li><NavLink to="/about" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>About Us</NavLink></li>
           <li><NavLink to="/contact" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>Contact</NavLink></li>
-          <li><button className="btn btn-primary mobile-book-btn" onClick={closeMobileMenu}>Book Consultation</button></li>
+          <li><NavLink to="/book-consultation" className="btn btn-primary mobile-book-btn" onClick={closeMobileMenu}>Book Consultation</NavLink></li>
         </ul>
       </div>
     </nav>

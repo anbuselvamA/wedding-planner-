@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './GalleryPage.css';
 
 const GalleryPage = () => {
@@ -93,7 +94,7 @@ const GalleryPage = () => {
               <h2>Ready to Create Your Beautiful Memories?</h2>
               <p>Let us plan your dream wedding with perfection and love.</p>
             </div>
-            <button className="btn btn-primary cta-button-right">Book Free Consultation →</button>
+            <Link to="/book-consultation" className="btn btn-primary cta-button-right">Book Free Consultation →</Link>
           </div>
         </div>
       </section>

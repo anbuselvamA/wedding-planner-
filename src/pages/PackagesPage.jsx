@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Award, Heart, ShieldCheck, Clock, CheckCircle2, XCircle, HeartHandshake, HeadphonesIcon } from 'lucide-react';
 import './PackagesPage.css';
 
@@ -91,7 +92,7 @@ const PackagesPage = () => {
               
               <div className="pkg-card-actions">
                 <button className="btn btn-outline pkg-btn-outline">View Details</button>
-                <button className="btn btn-primary pkg-btn-primary">Book Now</button>
+                <Link to="/book-consultation" className="btn btn-primary pkg-btn-primary">Book Now</Link>
               </div>
             </div>
 
@@ -120,7 +121,7 @@ const PackagesPage = () => {
               
               <div className="pkg-card-actions">
                 <button className="btn btn-outline pkg-btn-outline gold-outline">View Details</button>
-                <button className="btn pkg-btn-gold">Book Now</button>
+                <Link to="/book-consultation" className="btn pkg-btn-gold">Book Now</Link>
               </div>
             </div>
 
@@ -148,7 +149,7 @@ const PackagesPage = () => {
               
               <div className="pkg-card-actions">
                 <button className="btn btn-outline pkg-btn-outline">View Details</button>
-                <button className="btn btn-primary pkg-btn-primary">Book Now</button>
+                <Link to="/book-consultation" className="btn btn-primary pkg-btn-primary">Book Now</Link>
               </div>
             </div>
 

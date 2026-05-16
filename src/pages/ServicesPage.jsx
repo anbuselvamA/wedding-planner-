@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ServicesPage.css';
 import { Heart, Building2, Sparkles, Camera, Utensils, Users, Mic2, Palette, MessageCircle, ClipboardList, Brush, HeartHandshake, Star } from 'lucide-react';
 
@@ -160,7 +161,7 @@ const ServicesPage = () => {
         <div className="services-cta-inner">
           <h2>Let's Plan Something Beautiful Together</h2>
           <p>Book a free consultation and take the first step towards your dream wedding.</p>
-          <button className="btn btn-cta-white">Book Free Consultation</button>
+          <Link to="/book-consultation" className="btn btn-cta-white">Book Free Consultation</Link>
         </div>
       </section>
 
