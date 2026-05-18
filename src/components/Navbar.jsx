@@ -1,29 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Navbar.css';
-import { Menu, X, Calendar } from 'lucide-react';
+import { Menu, Calendar } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetClose,
+} from '@/components/ui/sheet';
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-    if (!isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-    document.body.style.overflow = 'auto';
-  };
+  const closeSheet = () => setOpen(false);
 
   return (
     <nav className="navbar">
       <div className="container navbar-container">
-        <NavLink to="/" className="navbar-logo" onClick={closeMobileMenu}>
+        <NavLink to="/" className="navbar-logo" onClick={closeSheet}>
           <div className="logo-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z" fill="#c9a367" stroke="none" />
@@ -35,7 +30,7 @@ const Navbar = () => {
             <span>WEDDING PLANNER</span>
           </div>
         </NavLink>
-        
+
         {/* Desktop Links */}
         <ul className="navbar-links">
           <li><NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink></li>
@@ -45,28 +40,68 @@ const Navbar = () => {
           <li><NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : '')}>About Us</NavLink></li>
           <li><NavLink to="/contact" className={({ isActive }) => (isActive ? 'active' : '')}>Contact</NavLink></li>
         </ul>
-        
+
         <div className="navbar-actions">
           <NavLink to="/book-consultation" className="btn btn-primary d-none-mobile nav-book-btn">
             <Calendar size={18} /> Book Consultation
           </NavLink>
-          <button className="menu-btn" onClick={toggleMobileMenu}>
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </div>
-      </div>
 
-      {/* Mobile Menu Overlay */}
-      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
-        <ul className="mobile-navbar-links">
-          <li><NavLink to="/" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink></li>
-          <li><NavLink to="/services" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>Services</NavLink></li>
-          <li><NavLink to="/gallery" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>Gallery</NavLink></li>
-          <li><NavLink to="/packages" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>Packages</NavLink></li>
-          <li><NavLink to="/about" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>About Us</NavLink></li>
-          <li><NavLink to="/contact" onClick={closeMobileMenu} className={({ isActive }) => (isActive ? 'active' : '')}>Contact</NavLink></li>
-          <li><NavLink to="/book-consultation" className="btn btn-primary mobile-book-btn nav-book-btn" onClick={closeMobileMenu}><Calendar size={18} /> Book Consultation</NavLink></li>
-        </ul>
+          {/* Mobile menu trigger using shadcn Sheet */}
+          <Sheet open={open} onOpenChange={setOpen}>
+            <button
+              className="menu-btn"
+              onClick={() => setOpen(true)}
+              aria-label="Open menu"
+            >
+              <Menu size={28} />
+            </button>
+
+            <SheetContent side="right" className="w-[300px] flex flex-col">
+              <SheetHeader className="border-b border-[#ececec] pb-4 mb-2">
+                <SheetTitle className="flex items-center gap-2 text-[#c9a367]">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+                    <path d="M12 2L15 8L22 9L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9L9 8L12 2Z" fill="#c9a367" stroke="none" />
+                  </svg>
+                  IPPO Wedding Planner
+                </SheetTitle>
+              </SheetHeader>
+
+              <nav className="flex flex-col gap-1 px-6 flex-1">
+                {[
+                  { to: '/', label: 'Home' },
+                  { to: '/services', label: 'Services' },
+                  { to: '/gallery', label: 'Gallery' },
+                  { to: '/packages', label: 'Packages' },
+                  { to: '/about', label: 'About Us' },
+                  { to: '/contact', label: 'Contact' },
+                ].map(({ to, label }) => (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    onClick={closeSheet}
+                    className={({ isActive }) =>
+                      `block py-3 px-2 font-serif text-lg border-b border-[#ececec]/60 transition-colors last:border-0 ${
+                        isActive ? 'text-[#bd6a71]' : 'text-[#222] hover:text-[#bd6a71]'
+                      }`
+                    }
+                  >
+                    {label}
+                  </NavLink>
+                ))}
+              </nav>
+
+              <div className="px-6 pb-6 mt-auto">
+                <NavLink
+                  to="/book-consultation"
+                  onClick={closeSheet}
+                  className="btn btn-primary w-full flex items-center justify-center gap-2 hover-glow"
+                >
+                  <Calendar size={18} /> Book Free Consultation
+                </NavLink>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </nav>
   );

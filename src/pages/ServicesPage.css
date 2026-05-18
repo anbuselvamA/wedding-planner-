@@ -386,3 +386,19 @@
     flex: 0 0 100%;
   }
 }
+
+/* FAQ Accordion Section */
+.services-faq {
+  padding: clamp(3rem, 8vw, 5rem) 0;
+  background-color: var(--bg-color);
+}
+
+.faq-accordion-wrapper {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 2rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}

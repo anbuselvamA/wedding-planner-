@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ServicesPage.css';
 import { Heart, Building2, Sparkles, Camera, Utensils, Users, Mic2, Palette, MessageCircle, ClipboardList, Brush, HeartHandshake, Star } from 'lucide-react';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 
 const serviceCards = [
   {
@@ -152,6 +153,52 @@ const ServicesPage = () => {
                 )}
               </React.Fragment>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ACCORDION ── */}
+      <section className="services-faq" data-aos="fade-up">
+        <div className="container">
+          <div className="section-header">
+            <p className="section-subtitle">FAQs</p>
+            <h2 className="section-title">Frequently Asked Questions</h2>
+            <div className="section-divider"><span></span><div className="diamond"></div><span></span></div>
+          </div>
+
+          <div className="faq-accordion-wrapper">
+            <Accordion type="single" collapsible className="w-full">
+              <AccordionItem value="q1">
+                <AccordionTrigger>How far in advance should I book a wedding planner?</AccordionTrigger>
+                <AccordionContent>
+                  We recommend booking at least 12–18 months in advance for large weddings. For intimate ceremonies, 6–9 months is usually sufficient. The earlier you book, the better your venue and vendor options will be.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q2">
+                <AccordionTrigger>Do you handle destination weddings outside India?</AccordionTrigger>
+                <AccordionContent>
+                  Yes! We specialize in destination weddings across India as well as international locations like Bali, Thailand, Sri Lanka, and Dubai. Our team manages all logistics, travel, and coordination on your behalf.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q3">
+                <AccordionTrigger>Can I customize a package based on my budget?</AccordionTrigger>
+                <AccordionContent>
+                  Absolutely. All our packages are fully customizable. During your free consultation, we'll understand your vision and budget, then create a bespoke plan tailored specifically to your needs.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q4">
+                <AccordionTrigger>What does "full wedding planning" include?</AccordionTrigger>
+                <AccordionContent>
+                  Our full planning package covers venue scouting, vendor coordination, decor design, catering, entertainment, invitations, day-of coordination, and post-wedding support — essentially everything from your first planning call to the last dance.
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="q5">
+                <AccordionTrigger>Is the initial consultation really free?</AccordionTrigger>
+                <AccordionContent>
+                  Yes! Your first consultation is completely free with no obligation. It's simply a friendly conversation to understand your dream wedding and see how we can help make it a reality.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </div>
       </section>

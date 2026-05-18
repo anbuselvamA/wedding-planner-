@@ -1,5 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './Gallery.css';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from '@/components/ui/carousel';
 
 const Gallery = () => {
   const images = [
@@ -9,17 +16,6 @@ const Gallery = () => {
     { id: 4, src: '/images/gallery_4.png', alt: 'Outdoor Wedding Setup' },
     { id: 5, src: '/images/gallery_5.png', alt: 'Wedding Decoration' },
   ];
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const scrollContainerRef = useRef(null);
-
-  const handleScroll = () => {
-    if (scrollContainerRef.current) {
-      const { scrollLeft, clientWidth } = scrollContainerRef.current;
-      const index = Math.round(scrollLeft / clientWidth);
-      setActiveIndex(index);
-    }
-  };
 
   return (
     <section className="gallery">
@@ -34,21 +30,35 @@ const Gallery = () => {
           </div>
         </div>
 
-        <div className="gallery-wrapper" data-aos="fade-up" data-aos-delay="200">
-          <div className="gallery-counter">
-            {activeIndex + 1} / {images.length}
-          </div>
-          <div 
-            className="gallery-grid" 
-            ref={scrollContainerRef} 
-            onScroll={handleScroll}
-          >
-            {images.map((img) => (
-              <div className="gallery-item" key={img.id}>
-                <img src={img.src} alt={img.alt} />
-              </div>
-            ))}
-          </div>
+        {/* Desktop: Grid layout (unchanged) */}
+        <div className="gallery-grid-desktop" data-aos="fade-up" data-aos-delay="200">
+          {images.map((img) => (
+            <div className="gallery-item hover-lift" key={img.id}>
+              <img src={img.src} alt={img.alt} />
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile: shadcn Carousel */}
+        <div className="gallery-carousel-mobile" data-aos="fade-up" data-aos-delay="200">
+          <Carousel opts={{ align: 'start', loop: true }} className="w-full">
+            <CarouselContent>
+              {images.map((img) => (
+                <CarouselItem key={img.id}>
+                  <div className="rounded-xl overflow-hidden aspect-[4/5]">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2" />
+            <CarouselNext className="right-2" />
+          </Carousel>
+          {/* Slide counter is shown by embla — simple indicator dots */}
         </div>
 
         <div className="gallery-action" data-aos="fade-up" data-aos-delay="300">
