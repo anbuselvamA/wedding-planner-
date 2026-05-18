@@ -1,8 +1,8 @@
-import React from 'react';
+﻿import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
-const SITE_URL  = 'https://ippowedding.com';
-const SITE_NAME = 'IPPO Wedding Planner';
+const SITE_URL  = 'https://rrwedding.com';
+const SITE_NAME = 'RR Wedding Planner';
 const DEFAULT_IMG = `${SITE_URL}/images/hero_couple.webp`;
 
 /**
@@ -18,7 +18,7 @@ const DEFAULT_IMG = `${SITE_URL}/images/hero_couple.webp`;
  */
 const SEO = ({
   title       = 'Dream Weddings in Chennai, Tamil Nadu',
-  description = 'IPPO Wedding Planner crafts unforgettable weddings in Chennai & across India. Full planning, decor, photography, catering and more. Book your free consultation today.',
+  description = 'RR Wedding Planner crafts unforgettable weddings in Chennai & across India. Full planning, decor, photography, catering and more. Book your free consultation today.',
   path        = '/',
   image       = DEFAULT_IMG,
   type        = 'website',

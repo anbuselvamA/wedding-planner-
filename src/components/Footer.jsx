@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import './Footer.css';
 import { Phone, Mail, MapPin, Send, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ const Footer = () => {
                 </svg>
               </div>
               <div className="logo-text">
-                <h2>IPPO</h2>
+                <h2>RR</h2>
                 <span>WEDDING PLANNER</span>
               </div>
             </div>
@@ -62,7 +62,7 @@ const Footer = () => {
               </li>
               <li>
                 <Mail size={16} color="var(--primary-color)" />
-                <span>hello@ippowedding.com</span>
+                <span>hello@rrwedding.com</span>
               </li>
               <li>
                 <MapPin size={16} color="var(--primary-color)" />
@@ -84,7 +84,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2024 Ippo Wedding Planner. All Rights Reserved.</p>
+          <p>&copy; 2024 RR Wedding Planner. All Rights Reserved.</p>
           <div className="footer-bottom-links">
             <a href="#">Privacy Policy</a>
             <span>|</span>

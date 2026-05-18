@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import SEO from '../components/SEO';
 import { BreadcrumbSchema } from '../components/Schema';
 import { Link } from 'react-router-dom';
@@ -26,8 +26,8 @@ const AboutPage = () => {
   return (
     <div className="about-page">
       <SEO
-        title="About Us – IPPO Wedding Planner"
-        description="Learn about IPPO Wedding Planner – a Chennai-based luxury wedding planning company. Over 500 weddings crafted with love, precision, and elegance across India."
+        title="About Us – RR Wedding Planner"
+        description="Learn about RR Wedding Planner – a Chennai-based luxury wedding planning company. Over 500 weddings crafted with love, precision, and elegance across India."
         path="/about"
       />
       <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'About Us', path: '/about' }]} />
@@ -53,7 +53,7 @@ const AboutPage = () => {
             </div>
             
             <p className="about-desc">
-              At IPPO Wedding Planner, we believe every love story deserves 
+              At RR Wedding Planner, we believe every love story deserves 
               a celebration as unique and beautiful as the couple themselves.
               <br /><br />
               From the smallest details to the grandest dreams, 
@@ -84,7 +84,7 @@ const AboutPage = () => {
             </div>
             
             <p className="story-desc">
-              IPPO was born from a simple idea – to create stress-free, joyful and 
+              RR was born from a simple idea – to create stress-free, joyful and 
               seamless weddings that reflect your personality and love story.
               <br /><br />
               With creativity, precision and heart, we take care of everything 

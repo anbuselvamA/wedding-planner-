@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 /**
@@ -12,14 +12,14 @@ export const LocalBusinessSchema = () => {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://ippowedding.com/#business',
-    name: 'IPPO Wedding Planner',
+    '@id': 'https://rrwedding.com/#business',
+    name: 'RR Wedding Planner',
     description: 'Premium wedding planning services in Chennai, Tamil Nadu. Full wedding planning, decor, photography, catering, and more.',
-    url: 'https://ippowedding.com',
+    url: 'https://rrwedding.com',
     telephone: '+91-98765-43210',
-    email: 'hello@ippowedding.com',
-    image: 'https://ippowedding.com/images/hero_couple.webp',
-    logo: 'https://ippowedding.com/favicon.svg',
+    email: 'hello@rrwedding.com',
+    image: 'https://rrwedding.com/images/hero_couple.webp',
+    logo: 'https://rrwedding.com/favicon.svg',
     priceRange: '₹₹₹',
     currenciesAccepted: 'INR',
     paymentAccepted: 'Cash, Credit Card, Bank Transfer',
@@ -45,9 +45,9 @@ export const LocalBusinessSchema = () => {
       },
     ],
     sameAs: [
-      'https://instagram.com/ippowedding',
-      'https://facebook.com/ippowedding',
-      'https://pinterest.com/ippowedding',
+      'https://instagram.com/rrwedding',
+      'https://facebook.com/rrwedding',
+      'https://pinterest.com/rrwedding',
     ],
     serviceArea: {
       '@type': 'GeoCircle',
@@ -89,7 +89,7 @@ export const BreadcrumbSchema = ({ items }) => {
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: `https://ippowedding.com${item.path}`,
+      item: `https://rrwedding.com${item.path}`,
     })),
   };
 

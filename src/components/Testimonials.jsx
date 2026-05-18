@@ -6,7 +6,7 @@ const Testimonials = () => {
   const reviews = [
     {
       id: 1,
-      text: "Ippo Wedding Planner turned our dream wedding into reality. Every detail was perfectly managed. Highly recommended!",
+      text: "RR Wedding Planner turned our dream wedding into reality. Every detail was perfectly managed. Highly recommended!",
       name: "Ananya & Karthik",
       avatar: "/images/avatar_1.webp"
     },

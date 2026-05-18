@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import SEO from '../components/SEO';
 import { BreadcrumbSchema } from '../components/Schema';
 import Hero from '../components/Hero';
@@ -13,9 +13,9 @@ const HomePage = () => {
     <main>
       <SEO
         title="Dream Weddings in Chennai, Tamil Nadu"
-        description="IPPO Wedding Planner crafts unforgettable weddings in Chennai & across India. Full planning, decor, photography, catering and more. Book your free consultation today."
+        description="RR Wedding Planner crafts unforgettable weddings in Chennai & across India. Full planning, decor, photography, catering and more. Book your free consultation today."
         path="/"
-        image="https://ippowedding.com/images/hero_couple.webp"
+        image="https://rrwedding.com/images/hero_couple.webp"
       />
       <BreadcrumbSchema items={[{ name: 'Home', path: '/' }]} />
       <Hero />

@@ -185,7 +185,7 @@ const CTA = () => {
                         textTransform: 'uppercase',
                         color: '#bd6a71',
                         marginBottom: '2px',
-                      }}>IPPO WEDDING PLANNER</p>
+                      }}>RR Wedding Planner</p>
                       <p style={{
                         fontFamily: "'Playfair Display', serif",
                         fontSize: '22px',

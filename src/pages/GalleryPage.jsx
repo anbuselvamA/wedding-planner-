@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import SEO from '../components/SEO';
 import { BreadcrumbSchema } from '../components/Schema';
 import { Link } from 'react-router-dom';
@@ -30,7 +30,7 @@ const GalleryPage = () => {
     <div className="gallery-page">
       <SEO
         title="Wedding Portfolio & Gallery"
-        description="Browse our portfolio of beautiful weddings across India. See our stunning decor, venue setups, and real couple moments crafted by IPPO Wedding Planner."
+        description="Browse our portfolio of beautiful weddings across India. See our stunning decor, venue setups, and real couple moments crafted by RR Wedding Planner."
         path="/gallery"
       />
       <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'Gallery', path: '/gallery' }]} />

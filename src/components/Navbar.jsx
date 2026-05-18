@@ -43,7 +43,7 @@ const Navbar = () => {
         <NavLink to="/" className="navbar-logo" onClick={closeSheet}>
           <div className="logo-icon"><StarLogo size={24} /></div>
           <div className="logo-text">
-            <h2>IPPO</h2>
+            <h2>RR</h2>
             <span>WEDDING PLANNER</span>
           </div>
         </NavLink>
@@ -82,7 +82,7 @@ const Navbar = () => {
                   color: '#1a1a1a',
                   marginTop: '6px',
                   letterSpacing: '2px',
-                }}>IPPO</p>
+                }}>RR</p>
                 <p style={{
                   fontFamily: "'Inter', sans-serif",
                   fontSize: '9px',

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import SEO from '../components/SEO';
 import { BreadcrumbSchema } from '../components/Schema';
 import { Link } from 'react-router-dom';
@@ -15,7 +15,7 @@ const PackagesPage = () => {
     <div className="packages-page">
       <SEO
         title="Wedding Planning Packages & Pricing"
-        description="Choose from our bespoke wedding planning packages. Whether you need full-service planning, partial coordination, or day-of management, IPPO Wedding Planner has you covered."
+        description="Choose from our bespoke wedding planning packages. Whether you need full-service planning, partial coordination, or day-of management, RR Wedding Planner has you covered."
         path="/packages"
       />
       <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'Packages', path: '/packages' }]} />

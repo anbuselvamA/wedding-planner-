@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import SEO from '../components/SEO';
 import { BreadcrumbSchema } from '../components/Schema';
 import { 
@@ -20,7 +20,7 @@ const ContactPage = () => {
     <div className="contact-page">
       <SEO
         title="Contact Us – Get in Touch"
-        description="Contact IPPO Wedding Planner in Chennai. Call, email, or visit us to start planning your dream wedding. Free consultation available."
+        description="Contact RR Wedding Planner in Chennai. Call, email, or visit us to start planning your dream wedding. Free consultation available."
         path="/contact"
       />
       <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }]} />
@@ -79,7 +79,7 @@ const ContactPage = () => {
                   </div>
                   <div className="contact-info-text">
                     <h4>Email</h4>
-                    <p>hello@ippowedding.com</p>
+                    <p>hello@rrwedding.com</p>
                   </div>
                 </div>
 

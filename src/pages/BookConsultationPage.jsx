@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import SEO from '../components/SEO';
 import { BreadcrumbSchema } from '../components/Schema';
 import './BookConsultationPage.css';
@@ -41,7 +41,7 @@ const BookConsultationPage = () => {
     <div className="book-page">
       <SEO
         title="Book a Free Wedding Consultation"
-        description="Book your free wedding planning consultation with IPPO Wedding Planner. Tell us about your dream wedding and we’ll craft a bespoke plan just for you."
+        description="Book your free wedding planning consultation with RR Wedding Planner. Tell us about your dream wedding and we’ll craft a bespoke plan just for you."
         path="/book-consultation"
       />
       <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'Book Consultation', path: '/book-consultation' }]} />
@@ -315,7 +315,7 @@ const BookConsultationPage = () => {
                 </li>
                 <li>
                   <Mail size={18} color="#bd6a71" />
-                  <span>hello@ippowedding.com</span>
+                  <span>hello@rrwedding.com</span>
                 </li>
                 <li>
                   <MapPin size={18} color="#bd6a71" />
