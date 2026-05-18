@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import './CTA.css';
 import { Link } from 'react-router-dom';
 import { Phone, User, Calendar, MapPin, Users, IndianRupee, MessageSquare, Lock, Send } from 'lucide-react';
@@ -93,7 +93,7 @@ const CTA = () => {
   return (
     <section className="cta-section">
       <div className="container">
-        <div className="cta-banner" style={{ backgroundImage: "url('/images/cta_banner.png')" }}>
+        <div className="cta-banner" style={{ backgroundImage: "url('/images/cta_banner.webp')" }}>
           <div className="cta-content">
             <h2>Ready to start planning your dream wedding?</h2>
             <p>Let's create unforgettable memories together.</p>
@@ -118,7 +118,7 @@ const CTA = () => {
             {/* Desktop left panel */}
             <div className="hidden md:flex md:w-[42%] bg-[#fdf0f2] relative flex-col items-center shrink-0 overflow-hidden">
               <div className="relative w-full h-64 overflow-hidden">
-                <img src="/images/gallery_2.png" alt="Wedding"
+                <img loading="lazy" src="/images/gallery_2.webp" alt="Wedding"
                   className="w-full h-full object-cover"
                   style={{ borderRadius: '0 0 60% 0 / 0 0 40% 0' }} />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#fdf0f2]"
@@ -137,7 +137,7 @@ const CTA = () => {
                 <p className="text-sm text-[#666] leading-relaxed text-center">Share your details and our wedding specialist will get in touch within 24 hours.</p>
               </div>
               <div className="mt-auto w-full">
-                <img src="/images/floral_left_edge.png" alt="" className="w-full object-cover opacity-60"
+                <img loading="lazy" src="/images/floral_left_edge.webp" alt="" className="w-full object-cover opacity-60"
                   style={{ maxHeight: '100px', transform: 'scaleX(-1)' }} />
               </div>
             </div>
@@ -309,8 +309,8 @@ const CTA = () => {
                           />
                         </div>
                         {/* Floral bottom-right decoration */}
-                        <img
-                          src="/images/floral_left_edge.png"
+                        <img loading="lazy"
+                          src="/images/floral_left_edge.webp"
                           alt=""
                           style={{
                             position: 'absolute',

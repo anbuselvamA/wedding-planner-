@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import './Hero.css';
 import { Play, Star, Award, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="hero-container">
-        <img src="/images/floral_left_edge.png" alt="" className="floral-decoration float-anim" />
+        <img loading="lazy" src="/images/floral_left_edge.webp" alt="" className="floral-decoration float-anim" />
         <div className="hero-content">
           <p className="hero-subtitle" data-aos="fade-right" data-aos-duration="1000">WE PLAN. YOU CELEBRATE.</p>
           <h1 className="hero-title" data-aos="fade-up" data-aos-duration="1200">
@@ -55,7 +55,7 @@ const Hero = () => {
         </div>
         
         <div className="hero-image" data-aos="fade-left" data-aos-duration="1500">
-          <img src="/images/hero_couple.png" alt="Happy Indian Couple at Wedding" className="float-anim" />
+          <img loading="lazy" src="/images/hero_couple.webp" alt="Happy Indian Couple at Wedding" className="float-anim" />
         </div>
       </div>
     </section>

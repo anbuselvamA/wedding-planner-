@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import './BookConsultationPage.css';
 import { 
   User, Phone, Mail, MapPin, Calendar, 
@@ -37,7 +37,7 @@ const BookConsultationPage = () => {
 
   return (
     <div className="book-page">
-      <img src="/images/floral_left_edge.png" alt="" className="book-floral-bottom float-anim" />
+      <img loading="lazy" src="/images/floral_left_edge.webp" alt="" className="book-floral-bottom float-anim" />
       {/* HERO SECTION */}
       <section className="book-hero">
         <div className="book-hero-bg" data-aos="fade-down" data-aos-duration="1500"></div>

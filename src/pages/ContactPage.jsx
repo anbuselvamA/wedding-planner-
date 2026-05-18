@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { 
   Phone, 
   Mail, 
@@ -17,8 +17,8 @@ const ContactPage = () => {
   return (
     <div className="contact-page">
       {/* Background floral edges */}
-      <img src="/images/floral_left_edge.png" alt="" className="contact-floral-left" />
-      <img src="/images/floral_left_edge.png" alt="" className="contact-floral-right" />
+      <img loading="lazy" src="/images/floral_left_edge.webp" alt="" className="contact-floral-left" />
+      <img loading="lazy" src="/images/floral_left_edge.webp" alt="" className="contact-floral-right" />
 
       {/* ── HERO SECTION ── */}
       <section className="contact-hero">

@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import './Navbar.css';
 import { Menu, Calendar, Home, Scissors, Image, Gift, Users, Mail, ChevronRight, ArrowRight } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
@@ -204,8 +204,8 @@ const Navbar = () => {
 
               {/* ── Floral bottom image ── */}
               <div style={{ width: '100%', overflow: 'hidden', maxHeight: '90px', marginTop: 'auto' }}>
-                <img
-                  src="/images/floral_left_edge.png"
+                <img loading="lazy"
+                  src="/images/floral_left_edge.webp"
                   alt=""
                   style={{ width: '100%', objectFit: 'cover', objectPosition: 'top', transform: 'scaleX(-1)', opacity: 0.75 }}
                 />

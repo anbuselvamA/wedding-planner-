@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Heart, 
@@ -25,8 +25,8 @@ const AboutPage = () => {
     <div className="about-page">
       {/* ── ABOUT HERO ── */}
       <section className="about-hero">
-        <img src="/images/floral_left_edge.png" alt="" className="about-floral left-floral float-anim" />
-        <img src="/images/floral_left_edge.png" alt="" className="about-floral right-floral float-anim" style={{ transform: 'scaleX(-1)' }} />
+        <img loading="lazy" src="/images/floral_left_edge.webp" alt="" className="about-floral left-floral float-anim" />
+        <img loading="lazy" src="/images/floral_left_edge.webp" alt="" className="about-floral right-floral float-anim" style={{ transform: 'scaleX(-1)' }} />
         
         <div className="container" data-aos="zoom-in" data-aos-duration="1200">
           <div className="about-hero-content">
@@ -185,8 +185,8 @@ const AboutPage = () => {
       {/* ── CTA BANNER ── */}
       <section className="about-cta" data-aos="zoom-in" data-aos-duration="1000">
         <div className="about-cta-bg">
-          <img src="/images/svc_catering.png" alt="" className="cta-bg-left" />
-          <img src="/images/svc_catering.png" alt="" className="cta-bg-right" />
+          <img loading="lazy" src="/images/svc_catering.webp" alt="" className="cta-bg-left" />
+          <img loading="lazy" src="/images/svc_catering.webp" alt="" className="cta-bg-right" />
         </div>
         <div className="container about-cta-content">
           <h2>Let's Create Your Unforgettable Story</h2>

@@ -1,4 +1,4 @@
-/* ── HERO BANNER ── */
+﻿/* ── HERO BANNER ── */
 .svc-hero-banner {
   display: flex;
   min-height: 260px;
@@ -296,7 +296,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: url('/images/svc_catering.png') center/cover no-repeat;
+  background: url('/images/svc_catering.webp') center/cover no-repeat;
   opacity: 0.1;
 }
 

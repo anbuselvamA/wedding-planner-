@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './GalleryPage.css';
 
@@ -9,15 +9,15 @@ const GalleryPage = () => {
 
   // Using a mix of the new gallery images and fallback service images to complete the 9 image grid
   const galleryItems = [
-    { id: 1, src: '/images/gallery_page_1.png', category: 'Weddings', size: 'large' },
-    { id: 2, src: '/images/gallery_page_2.png', category: 'Decor', size: 'medium' },
-    { id: 3, src: '/images/gallery_page_3.png', category: 'Reception', size: 'medium' },
-    { id: 4, src: '/images/gallery_page_4.png', category: 'Decor', size: 'medium' },
-    { id: 5, src: '/images/gallery_page_5.png', category: 'Decor', size: 'small' },
-    { id: 6, src: '/images/gallery_page_6.png', category: 'Reception', size: 'small' },
-    { id: 7, src: '/images/svc_full_wedding.png', category: 'Weddings', size: 'medium' },
-    { id: 8, src: '/images/svc_bridal_makeup.png', category: 'Mehendi', size: 'medium' },
-    { id: 9, src: '/images/svc_entertainment.png', category: 'Reception', size: 'medium' },
+    { id: 1, src: '/images/gallery_page_1.webp', category: 'Weddings', size: 'large' },
+    { id: 2, src: '/images/gallery_page_2.webp', category: 'Decor', size: 'medium' },
+    { id: 3, src: '/images/gallery_page_3.webp', category: 'Reception', size: 'medium' },
+    { id: 4, src: '/images/gallery_page_4.webp', category: 'Decor', size: 'medium' },
+    { id: 5, src: '/images/gallery_page_5.webp', category: 'Decor', size: 'small' },
+    { id: 6, src: '/images/gallery_page_6.webp', category: 'Reception', size: 'small' },
+    { id: 7, src: '/images/svc_full_wedding.webp', category: 'Weddings', size: 'medium' },
+    { id: 8, src: '/images/svc_bridal_makeup.webp', category: 'Mehendi', size: 'medium' },
+    { id: 9, src: '/images/svc_entertainment.webp', category: 'Reception', size: 'medium' },
   ];
 
   const filteredItems = activeTab === 'All' 
@@ -28,8 +28,8 @@ const GalleryPage = () => {
     <div className="gallery-page">
       {/* ── HERO BANNER ── */}
       <section className="gallery-hero-banner">
-        <img src="/images/floral_left_edge.png" alt="floral" className="floral-edge floral-left float-anim" />
-        <img src="/images/floral_left_edge.png" alt="floral" className="floral-edge floral-right float-anim" />
+        <img loading="lazy" src="/images/floral_left_edge.webp" alt="floral" className="floral-edge floral-left float-anim" />
+        <img loading="lazy" src="/images/floral_left_edge.webp" alt="floral" className="floral-edge floral-right float-anim" />
         
         <div className="gallery-hero-content" data-aos="zoom-in" data-aos-duration="1200">
           <p className="gallery-hero-subtitle">OUR GALLERY</p>
@@ -71,7 +71,7 @@ const GalleryPage = () => {
           <div className="gallery-masonry">
             {filteredItems.map((item, index) => (
               <div className="gallery-masonry-item hover-lift" key={`${item.id}-${index}`} data-aos="zoom-in" data-aos-delay={(index % 3) * 100}>
-                <img src={item.src} alt={`Wedding ${item.category}`} />
+                <img loading="lazy" src={item.src} alt={`Wedding ${item.category}`} />
               </div>
             ))}
           </div>

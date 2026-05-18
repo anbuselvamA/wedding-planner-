@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import './Testimonials.css';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
@@ -8,19 +8,19 @@ const Testimonials = () => {
       id: 1,
       text: "Ippo Wedding Planner turned our dream wedding into reality. Every detail was perfectly managed. Highly recommended!",
       name: "Ananya & Karthik",
-      avatar: "/images/avatar_1.png"
+      avatar: "/images/avatar_1.webp"
     },
     {
       id: 2,
       text: "From planning to execution, everything was seamless and beautiful. We enjoyed our day stress-free!",
       name: "Meera & Arjun",
-      avatar: "/images/avatar_2.png"
+      avatar: "/images/avatar_2.webp"
     },
     {
       id: 3,
       text: "Their creativity and dedication made our wedding magical. Thank you for the best memories!",
       name: "Divya & Rohan",
-      avatar: "/images/avatar_3.png"
+      avatar: "/images/avatar_3.webp"
     }
   ];
 
@@ -53,7 +53,7 @@ const Testimonials = () => {
                 <p className="testimonial-text">{review.text}</p>
                 <div className="testimonial-footer">
                   <span className="testimonial-author">— {review.name}</span>
-                  <img src={review.avatar} alt={review.name} className="testimonial-avatar" />
+                  <img loading="lazy" src={review.avatar} alt={review.name} className="testimonial-avatar" />
                 </div>
               </div>
             ))}

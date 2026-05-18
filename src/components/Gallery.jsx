@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import './Gallery.css';
 import {
   Carousel,
@@ -10,11 +10,11 @@ import {
 
 const Gallery = () => {
   const images = [
-    { id: 1, src: '/images/gallery_1.png', alt: 'Wedding Mandap' },
-    { id: 2, src: '/images/gallery_2.png', alt: 'Wedding Reception' },
-    { id: 3, src: '/images/gallery_3.png', alt: 'Wedding Couple' },
-    { id: 4, src: '/images/gallery_4.png', alt: 'Outdoor Wedding Setup' },
-    { id: 5, src: '/images/gallery_5.png', alt: 'Wedding Decoration' },
+    { id: 1, src: '/images/gallery_1.webp', alt: 'Wedding Mandap' },
+    { id: 2, src: '/images/gallery_2.webp', alt: 'Wedding Reception' },
+    { id: 3, src: '/images/gallery_3.webp', alt: 'Wedding Couple' },
+    { id: 4, src: '/images/gallery_4.webp', alt: 'Outdoor Wedding Setup' },
+    { id: 5, src: '/images/gallery_5.webp', alt: 'Wedding Decoration' },
   ];
 
   return (
@@ -34,7 +34,7 @@ const Gallery = () => {
         <div className="gallery-grid-desktop" data-aos="fade-up" data-aos-delay="200">
           {images.map((img) => (
             <div className="gallery-item hover-lift" key={img.id}>
-              <img src={img.src} alt={img.alt} />
+              <img loading="lazy" src={img.src} alt={img.alt} />
             </div>
           ))}
         </div>
@@ -46,7 +46,7 @@ const Gallery = () => {
               {images.map((img) => (
                 <CarouselItem key={img.id}>
                   <div className="rounded-xl overflow-hidden aspect-[4/5]">
-                    <img
+                    <img loading="lazy"
                       src={img.src}
                       alt={img.alt}
                       className="w-full h-full object-cover"

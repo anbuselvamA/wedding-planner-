@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Award, Heart, ShieldCheck, Clock, CheckCircle2, XCircle, HeartHandshake, HeadphonesIcon } from 'lucide-react';
 import './PackagesPage.css';
@@ -54,7 +54,7 @@ const PackagesPage = () => {
             </div>
           </div>
           <div className="pkg-hero-right" data-aos="fade-left" data-aos-duration="1500">
-            <img src="/images/svc_catering.png" alt="Wedding Table Setup" className="float-anim" />
+            <img loading="lazy" src="/images/svc_catering.webp" alt="Wedding Table Setup" className="float-anim" />
           </div>
         </div>
       </section>

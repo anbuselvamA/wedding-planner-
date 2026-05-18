@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import './ServicesPage.css';
 import { Heart, Building2, Sparkles, Camera, Utensils, Users, Mic2, Palette, MessageCircle, ClipboardList, Brush, HeartHandshake, Star } from 'lucide-react';
@@ -9,56 +9,56 @@ const serviceCards = [
     id: 1,
     title: 'Full Wedding Planning',
     icon: <Heart size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_full_wedding.png',
+    image: '/images/svc_full_wedding.webp',
     description: 'End-to-end planning and management for a stress-free wedding experience.',
   },
   {
     id: 2,
     title: 'Venue Selection',
     icon: <Building2 size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_venue.png',
+    image: '/images/svc_venue.webp',
     description: 'We help you find the perfect venue that matches your style, budget and guest list.',
   },
   {
     id: 3,
     title: 'Decoration & Styling',
     icon: <Sparkles size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_decoration.png',
+    image: '/images/svc_decoration.webp',
     description: 'Beautiful themes and personalized décor that bring your dream wedding to life.',
   },
   {
     id: 4,
     title: 'Photography & Videography',
     icon: <Camera size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_photography.png',
+    image: '/images/svc_photography.webp',
     description: 'Capture every moment with creativity and turn your memories into timeless stories.',
   },
   {
     id: 5,
     title: 'Catering',
     icon: <Utensils size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_catering.png',
+    image: '/images/svc_catering.webp',
     description: 'Delicious menu options curated for you and your guests with perfection.',
   },
   {
     id: 6,
     title: 'Bridal Makeup & Styling',
     icon: <Palette size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_bridal_makeup.png',
+    image: '/images/svc_bridal_makeup.webp',
     description: 'Professional artists to make you look and feel your best on your big day.',
   },
   {
     id: 7,
     title: 'Entertainment',
     icon: <Mic2 size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_entertainment.png',
+    image: '/images/svc_entertainment.webp',
     description: 'From DJs to live performances, we create the perfect vibe for your celebration.',
   },
   {
     id: 8,
     title: 'Guest Management',
     icon: <Users size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_guest_management.png',
+    image: '/images/svc_guest_management.webp',
     description: 'We handle your guests with care, ensuring a smooth and joyful experience.',
   },
 ];
@@ -93,7 +93,7 @@ const ServicesPage = () => {
           </p>
         </div>
         <div className="svc-hero-right" data-aos="fade-left" data-aos-duration="1500">
-          <img src="/images/svc_hero_banner.png" alt="Wedding Table Setup" className="float-anim" />
+          <img loading="lazy" src="/images/svc_hero_banner.webp" alt="Wedding Table Setup" className="float-anim" />
         </div>
       </section>
 
@@ -115,7 +115,7 @@ const ServicesPage = () => {
                 <div className="svc-card-icon">{svc.icon}</div>
                 <h3 className="svc-card-title">{svc.title}</h3>
                 <div className="svc-card-image">
-                  <img src={svc.image} alt={svc.title} />
+                  <img loading="lazy" src={svc.image} alt={svc.title} />
                 </div>
                 <p className="svc-card-desc">{svc.description}</p>
                 <a href="#" className="svc-card-link">Learn More →</a>
