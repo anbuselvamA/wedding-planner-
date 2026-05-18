@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './CTA.css';
 import { Link } from 'react-router-dom';
-import { Phone, User, Calendar, MapPin, Users, IndianRupee, MessageSquare, Lock, Send, HeartHandshake } from 'lucide-react';
+import {
+  Phone, User, Calendar, MapPin, Users,
+  IndianRupee, MessageSquare, Lock, Send, HeartHandshake
+} from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 
-// ─── Trust Badge ────────────────────────────────────────────────────────────
+/* ─── Trust Badge ─────────────────────────────────────────────── */
 const TrustBadge = ({ icon, label, sub }) => (
   <div className="flex flex-col items-center gap-1">
     <div className="w-10 h-10 rounded-full border border-[#e8b4ba] flex items-center justify-center bg-white/80">
@@ -15,25 +18,32 @@ const TrustBadge = ({ icon, label, sub }) => (
   </div>
 );
 
-// ─── Form Field ─────────────────────────────────────────────────────────────
-const Field = ({ icon, children }) => (
-  <div className="flex items-center gap-2.5 bg-white border border-[#f0e4e6] rounded-xl px-3.5 py-2.5 md:px-4 md:py-3 focus-within:border-[#bd6a71] focus-within:shadow-sm transition-all">
-    <span className="text-[#bd6a71] shrink-0">{icon}</span>
-    {children}
+/* ─── Labeled Input Field ─────────────────────────────────────── */
+const LabelField = ({ icon, label, children }) => (
+  <div className="flex flex-col gap-1">
+    <label className="text-[11px] font-semibold uppercase tracking-wide text-[#bd6a71] pl-1">
+      {label}
+    </label>
+    <div className="flex items-center gap-3 bg-[#fdf8f8] border border-[#f0dde0] rounded-2xl px-4 py-3.5 focus-within:border-[#bd6a71] focus-within:bg-white focus-within:shadow-md transition-all duration-200">
+      <span className="text-[#bd6a71] shrink-0">{icon}</span>
+      {children}
+    </div>
   </div>
 );
 
-const inputCls = "flex-1 bg-transparent text-sm outline-none text-[#333] placeholder:text-[#bbb] min-w-0";
+const inputCls =
+  "flex-1 bg-transparent text-sm outline-none text-[#222] placeholder:text-[#ccc] min-w-0 font-medium";
 
-// ─── Section Label ───────────────────────────────────────────────────────────
-const SectionLabel = ({ children }) => (
-  <div className="text-center mb-4">
-    <p className="font-serif text-lg text-[#bd6a71]">{children}</p>
-    <span className="text-[#c9a367] text-sm">♥</span>
+/* ─── Section Divider ─────────────────────────────────────────── */
+const SectionDivider = ({ children }) => (
+  <div className="flex items-center gap-3 my-1">
+    <div className="flex-1 h-px bg-gradient-to-r from-transparent to-[#f0dde0]" />
+    <span className="text-[#bd6a71] font-serif text-sm font-medium whitespace-nowrap">{children} ♥</span>
+    <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#f0dde0]" />
   </div>
 );
 
-// ─── Main CTA Component ──────────────────────────────────────────────────────
+/* ─── Main CTA ────────────────────────────────────────────────── */
 const CTA = () => {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -73,27 +83,20 @@ const CTA = () => {
         </div>
       </div>
 
-      {/* ── Pixel-Perfect Quick Enquiry Dialog ── */}
+      {/* ── Quick Enquiry Dialog ── */}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-3xl bg-white p-0 h-[92vh] md:h-auto md:max-h-[92vh] overflow-y-auto">
-          <div className="flex flex-col md:flex-row min-h-0">
+        <DialogContent className="max-w-3xl bg-white p-0 h-[92vh] md:h-auto md:max-h-[92vh] overflow-hidden">
+          <div className="flex h-full md:h-auto">
 
-            {/* ── LEFT PANEL — hidden on mobile, shown on md+ ── */}
+            {/* ── LEFT PANEL — desktop only ── */}
             <div className="hidden md:flex md:w-[42%] bg-[#fdf0f2] relative flex-col items-center shrink-0 overflow-hidden">
-
-              {/* Top wedding photo */}
               <div className="relative w-full h-56 md:h-64 overflow-hidden">
-                <img
-                  src="/images/gallery_2.png"
-                  alt="Wedding decoration"
+                <img src="/images/gallery_2.png" alt="Wedding decoration"
                   className="w-full h-full object-cover"
-                  style={{ borderRadius: '0 0 60% 0 / 0 0 40% 0' }}
-                />
-                {/* gradient fade */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#fdf0f2]" style={{ borderRadius: '0 0 60% 0 / 0 0 40% 0' }} />
+                  style={{ borderRadius: '0 0 60% 0 / 0 0 40% 0' }} />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#fdf0f2]"
+                  style={{ borderRadius: '0 0 60% 0 / 0 0 40% 0' }} />
               </div>
-
-              {/* Wedding rings icon overlapping the photo */}
               <div className="relative -mt-10 z-10 w-20 h-20 rounded-full bg-white shadow-lg flex items-center justify-center border-2 border-[#f7d8dc]">
                 <svg viewBox="0 0 60 60" width="44" height="44" fill="none">
                   <circle cx="20" cy="30" r="12" stroke="#c9a367" strokeWidth="3" fill="none"/>
@@ -102,152 +105,142 @@ const CTA = () => {
                   <path d="M40 22 L42 18 L44 22" stroke="#c9a367" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
                 </svg>
               </div>
-
-              {/* Text content */}
               <div className="px-7 pt-4 pb-3 text-center flex flex-col items-center">
-                <p className="text-[10px] uppercase tracking-[3px] text-[#bd6a71] font-semibold mb-1">
-                  WE'D LOVE TO HEAR FROM YOU
-                </p>
+                <p className="text-[10px] uppercase tracking-[3px] text-[#bd6a71] font-semibold mb-1">WE'D LOVE TO HEAR FROM YOU</p>
                 <h2 className="font-serif text-3xl text-[#222] mb-1 leading-tight">Quick Enquiry</h2>
                 <div className="text-[#c9a367] text-sm mb-3">◆</div>
                 <p className="text-sm text-[#666] leading-relaxed text-center">
                   Share your details and our wedding specialist will get in touch with you within 24 hours.
                 </p>
               </div>
-
-              {/* Trust badges */}
               <div className="flex items-center justify-center gap-5 px-6 py-4">
-                <TrustBadge
-                  icon={<HeartHandshake size={18} color="#bd6a71" />}
-                  label="Expert"
-                  sub="Guidance"
-                />
-                <TrustBadge
-                  icon={
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#bd6a71" strokeWidth="2">
-                      <path d="M12 2L4 6v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V6l-8-4z"/>
-                    </svg>
-                  }
-                  label="100%"
-                  sub="Secure"
-                />
-                <TrustBadge
-                  icon={
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#bd6a71" strokeWidth="2">
-                      <circle cx="12" cy="12" r="10"/>
-                      <polyline points="12,6 12,12 16,14"/>
-                    </svg>
-                  }
-                  label="Quick"
-                  sub="Response"
-                />
+                <TrustBadge icon={<HeartHandshake size={18} color="#bd6a71" />} label="Expert" sub="Guidance" />
+                <TrustBadge icon={<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#bd6a71" strokeWidth="2"><path d="M12 2L4 6v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V6l-8-4z"/></svg>} label="100%" sub="Secure" />
+                <TrustBadge icon={<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#bd6a71" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>} label="Quick" sub="Response" />
               </div>
-
-              {/* Decorative pink roses at bottom */}
               <div className="mt-auto w-full">
-                <img
-                  src="/images/floral_left_edge.png"
-                  alt=""
-                  className="w-full object-cover opacity-60"
-                  style={{ maxHeight: '100px', transform: 'scaleX(-1) scaleY(1)' }}
-                />
+                <img src="/images/floral_left_edge.png" alt="" className="w-full object-cover opacity-60"
+                  style={{ maxHeight: '100px', transform: 'scaleX(-1)' }} />
               </div>
             </div>
 
             {/* ── RIGHT PANEL ── */}
-            <div className="flex-1 bg-white px-4 py-5 md:px-8 md:py-6 overflow-y-auto">
+            <div className="flex-1 flex flex-col bg-white overflow-hidden">
               {submitted ? (
-                <div className="flex flex-col items-center justify-center h-full py-16 gap-4">
-                  <div className="text-5xl">💌</div>
+                <div className="flex flex-col items-center justify-center h-full gap-4 p-8">
+                  <div className="text-6xl">💌</div>
                   <p className="font-serif text-2xl text-[#222]">Thank You!</p>
-                  <p className="text-sm text-[#888] text-center">Our wedding specialist will contact you within 24 hours.</p>
+                  <p className="text-sm text-[#888] text-center leading-relaxed">
+                    Our wedding specialist will<br/>contact you within 24 hours.
+                  </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
-
-                  {/* Mobile-only mini header */}
-                  <div className="flex md:hidden flex-col items-center mb-1">
-                    <p className="text-[10px] uppercase tracking-[3px] text-[#bd6a71] font-semibold">WE'D LOVE TO HEAR FROM YOU</p>
-                    <h2 className="font-serif text-2xl text-[#222] mt-0.5">Quick Enquiry</h2>
-                    <span className="text-[#c9a367] text-xs mt-0.5">◆</span>
+                <div className="flex flex-col h-full overflow-y-auto">
+                  {/* ── Mobile header (hidden on desktop) ── */}
+                  <div className="flex md:hidden items-center gap-3 px-5 pt-5 pb-4 bg-gradient-to-r from-[#fdf0f2] to-white border-b border-[#f0dde0]">
+                    <div className="w-10 h-10 rounded-full bg-white shadow border border-[#f7d8dc] flex items-center justify-center shrink-0">
+                      <svg viewBox="0 0 60 60" width="26" height="26" fill="none">
+                        <circle cx="20" cy="30" r="12" stroke="#c9a367" strokeWidth="3" fill="none"/>
+                        <circle cx="40" cy="30" r="12" stroke="#c9a367" strokeWidth="3" fill="none"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[2px] text-[#bd6a71] font-semibold leading-none mb-0.5">
+                        IPPO Wedding Planner
+                      </p>
+                      <p className="font-serif text-lg text-[#222] leading-tight">Quick Enquiry</p>
+                    </div>
                   </div>
 
-                  {/* Section: Tell us about you */}
-                  <SectionLabel>Tell us about you</SectionLabel>
+                  {/* ── Form ── */}
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-3.5 px-5 py-5 md:px-8 md:py-6">
 
-                  <Field icon={<User size={17} />}>
-                    <input name="name" placeholder="Your Name *" value={formData.name}
-                      onChange={handleChange} required className={inputCls} />
-                  </Field>
+                    <SectionDivider>Tell us about you</SectionDivider>
 
-                  <Field icon={<Phone size={17} />}>
-                    <input name="phone" type="tel" placeholder="Phone Number *" value={formData.phone}
-                      onChange={handleChange} required className={inputCls} />
-                  </Field>
+                    <LabelField icon={<User size={16} />} label="Full Name *">
+                      <input name="name" placeholder="Enter your full name"
+                        value={formData.name} onChange={handleChange} required className={inputCls} />
+                    </LabelField>
 
-                  <Field icon={<Calendar size={17} />}>
-                    <input name="date" type="date" placeholder="Wedding Date *" value={formData.date}
-                      onChange={handleChange} required
-                      className={`${inputCls} [color-scheme:light]`} />
-                  </Field>
+                    <LabelField icon={<Phone size={16} />} label="Phone Number *">
+                      <input name="phone" type="tel" placeholder="+91 98765 43210"
+                        value={formData.phone} onChange={handleChange} required className={inputCls} />
+                    </LabelField>
 
-                  <Field icon={<MapPin size={17} />}>
-                    <input name="location" placeholder="Wedding Location *" value={formData.location}
-                      onChange={handleChange} required className={inputCls} />
-                  </Field>
+                    <div className="grid grid-cols-2 gap-3">
+                      <LabelField icon={<Calendar size={16} />} label="Wedding Date *">
+                        <input name="date" type="date" value={formData.date}
+                          onChange={handleChange} required className={`${inputCls} [color-scheme:light] text-xs`} />
+                      </LabelField>
+                      <LabelField icon={<MapPin size={16} />} label="Location *">
+                        <input name="location" placeholder="City / Venue"
+                          value={formData.location} onChange={handleChange} required className={inputCls} />
+                      </LabelField>
+                    </div>
 
-                  {/* Section: Additional Details */}
-                  <SectionLabel>Additional Details</SectionLabel>
+                    <SectionDivider>Additional Details</SectionDivider>
 
-                  <Field icon={<Users size={17} />}>
-                    <select name="guests" value={formData.guests} onChange={handleChange}
-                      className={`${inputCls} cursor-pointer appearance-none`} required>
-                      <option value="" disabled>Guest Count (Approx.) *</option>
-                      <option value="50-100">50 – 100</option>
-                      <option value="100-300">100 – 300</option>
-                      <option value="300-500">300 – 500</option>
-                      <option value="500+">500+</option>
-                    </select>
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#bd6a71" strokeWidth="2" className="shrink-0">
-                      <polyline points="6,9 12,15 18,9"/>
-                    </svg>
-                  </Field>
+                    <div className="grid grid-cols-2 gap-3">
+                      <LabelField icon={<Users size={16} />} label="Guest Count *">
+                        <select name="guests" value={formData.guests} onChange={handleChange}
+                          className={`${inputCls} cursor-pointer appearance-none`} required>
+                          <option value="" disabled>Select</option>
+                          <option value="50-100">50 – 100</option>
+                          <option value="100-300">100 – 300</option>
+                          <option value="300-500">300 – 500</option>
+                          <option value="500+">500+</option>
+                        </select>
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#bd6a71" strokeWidth="2" className="shrink-0"><polyline points="6,9 12,15 18,9"/></svg>
+                      </LabelField>
+                      <LabelField icon={<IndianRupee size={16} />} label="Budget *">
+                        <select name="budget" value={formData.budget} onChange={handleChange}
+                          className={`${inputCls} cursor-pointer appearance-none`} required>
+                          <option value="" disabled>Select</option>
+                          <option value="below-5L">Below ₹5L</option>
+                          <option value="5-10L">₹5 – 10L</option>
+                          <option value="10-25L">₹10 – 25L</option>
+                          <option value="25-50L">₹25 – 50L</option>
+                          <option value="above-50L">Above ₹50L</option>
+                        </select>
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#bd6a71" strokeWidth="2" className="shrink-0"><polyline points="6,9 12,15 18,9"/></svg>
+                      </LabelField>
+                    </div>
 
-                  <Field icon={<IndianRupee size={17} />}>
-                    <select name="budget" value={formData.budget} onChange={handleChange}
-                      className={`${inputCls} cursor-pointer appearance-none`} required>
-                      <option value="" disabled>Budget Range *</option>
-                      <option value="below-5L">Below ₹5 Lakhs</option>
-                      <option value="5-10L">₹5 – 10 Lakhs</option>
-                      <option value="10-25L">₹10 – 25 Lakhs</option>
-                      <option value="25-50L">₹25 – 50 Lakhs</option>
-                      <option value="above-50L">Above ₹50 Lakhs</option>
-                    </select>
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#bd6a71" strokeWidth="2" className="shrink-0">
-                      <polyline points="6,9 12,15 18,9"/>
-                    </svg>
-                  </Field>
+                    <LabelField icon={<MessageSquare size={16} />} label="Special Requests">
+                      <textarea name="message" placeholder="Tell us about your dream wedding..."
+                        value={formData.message} onChange={handleChange} rows={3}
+                        className={`${inputCls} resize-none self-start w-full`} />
+                    </LabelField>
 
-                  <Field icon={<MessageSquare size={17} />}>
-                    <textarea name="message" placeholder="Anything special you'd like to tell us?"
-                      value={formData.message} onChange={handleChange} rows={3}
-                      className={`${inputCls} resize-none`} />
-                  </Field>
+                    {/* Submit */}
+                    <button type="submit"
+                      className="w-full h-14 rounded-2xl bg-gradient-to-r from-[#bd6a71] to-[#c97a82] hover:from-[#a2565c] hover:to-[#bd6a71] text-white font-semibold text-base flex items-center justify-center gap-2.5 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 mt-1">
+                      <Send size={18} />
+                      Send Enquiry ♡
+                    </button>
 
-                  {/* Submit */}
-                  <button type="submit"
-                    className="mt-1 w-full h-14 rounded-xl bg-[#bd6a71] hover:bg-[#a2565c] text-white font-semibold text-base flex items-center justify-center gap-2 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
-                    <Send size={18} />
-                    Send Enquiry ♡
-                  </button>
-
-                  {/* Privacy note */}
-                  <p className="flex items-center justify-center gap-1.5 text-[11px] text-[#aaa] text-center">
-                    <Lock size={12} /> Your information is safe with us. We respect your privacy.
-                  </p>
-                </form>
+                    {/* Trust row — mobile only */}
+                    <div className="flex md:hidden items-center justify-center gap-4 pt-1">
+                      <span className="flex items-center gap-1 text-[10px] text-[#aaa]">
+                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#bd6a71" strokeWidth="2"><path d="M12 2L4 6v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V6l-8-4z"/></svg>
+                        100% Secure
+                      </span>
+                      <span className="w-px h-3 bg-[#ececec]" />
+                      <span className="flex items-center gap-1 text-[10px] text-[#aaa]">
+                        <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#bd6a71" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                        Quick Response
+                      </span>
+                      <span className="w-px h-3 bg-[#ececec]" />
+                      <span className="flex items-center gap-1 text-[10px] text-[#aaa]">
+                        <Lock size={10} color="#bd6a71" />
+                        Private
+                      </span>
+                    </div>
+                  </form>
+                </div>
               )}
             </div>
+
           </div>
         </DialogContent>
       </Dialog>
