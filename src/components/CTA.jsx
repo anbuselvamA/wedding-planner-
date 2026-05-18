@@ -17,7 +17,7 @@ const TrustBadge = ({ icon, label, sub }) => (
 
 // ─── Form Field ─────────────────────────────────────────────────────────────
 const Field = ({ icon, children }) => (
-  <div className="flex items-center gap-3 bg-white border border-[#f0e4e6] rounded-xl px-4 py-3 focus-within:border-[#bd6a71] focus-within:shadow-sm transition-all">
+  <div className="flex items-center gap-2.5 bg-white border border-[#f0e4e6] rounded-xl px-3.5 py-2.5 md:px-4 md:py-3 focus-within:border-[#bd6a71] focus-within:shadow-sm transition-all">
     <span className="text-[#bd6a71] shrink-0">{icon}</span>
     {children}
   </div>
@@ -75,11 +75,11 @@ const CTA = () => {
 
       {/* ── Pixel-Perfect Quick Enquiry Dialog ── */}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-w-3xl bg-white p-0 max-h-[95vh] overflow-y-auto">
+        <DialogContent className="max-w-3xl bg-white p-0 h-[92vh] md:h-auto md:max-h-[92vh] overflow-y-auto">
           <div className="flex flex-col md:flex-row min-h-0">
 
-            {/* ── LEFT PANEL ── */}
-            <div className="relative w-full md:w-[42%] bg-[#fdf0f2] flex flex-col items-center shrink-0 overflow-hidden">
+            {/* ── LEFT PANEL — hidden on mobile, shown on md+ ── */}
+            <div className="hidden md:flex md:w-[42%] bg-[#fdf0f2] relative flex-col items-center shrink-0 overflow-hidden">
 
               {/* Top wedding photo */}
               <div className="relative w-full h-56 md:h-64 overflow-hidden">
@@ -155,7 +155,7 @@ const CTA = () => {
             </div>
 
             {/* ── RIGHT PANEL ── */}
-            <div className="flex-1 bg-white px-6 py-6 md:px-8 overflow-y-auto">
+            <div className="flex-1 bg-white px-4 py-5 md:px-8 md:py-6 overflow-y-auto">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center h-full py-16 gap-4">
                   <div className="text-5xl">💌</div>
@@ -163,7 +163,15 @@ const CTA = () => {
                   <p className="text-sm text-[#888] text-center">Our wedding specialist will contact you within 24 hours.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
+
+                  {/* Mobile-only mini header */}
+                  <div className="flex md:hidden flex-col items-center mb-1">
+                    <p className="text-[10px] uppercase tracking-[3px] text-[#bd6a71] font-semibold">WE'D LOVE TO HEAR FROM YOU</p>
+                    <h2 className="font-serif text-2xl text-[#222] mt-0.5">Quick Enquiry</h2>
+                    <span className="text-[#c9a367] text-xs mt-0.5">◆</span>
+                  </div>
+
                   {/* Section: Tell us about you */}
                   <SectionLabel>Tell us about you</SectionLabel>
 
