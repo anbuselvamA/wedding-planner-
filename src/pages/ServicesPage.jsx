@@ -1,8 +1,68 @@
-﻿import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ServicesPage.css';
-import { Heart, Building2, Sparkles, Camera, Utensils, Users, Mic2, Palette, MessageCircle, ClipboardList, Brush, HeartHandshake, Star } from 'lucide-react';
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import { Heart, Building2, Sparkles, Camera, Utensils, Users, Mic2, Palette, MessageCircle, ClipboardList, Brush, HeartHandshake, Star, ChevronUp, ChevronDown, Calendar, ArrowRight } from 'lucide-react';
+
+const faqs = [
+  { id: '01', q: 'How far in advance should I book a wedding planner?', a: 'We recommend booking your wedding planner 6–12 months in advance to ensure availability and enough time for perfect planning and execution.' },
+  { id: '02', q: 'Do you handle destination weddings outside India?', a: 'Yes! We specialize in destination weddings across India as well as international locations like Bali, Thailand, Sri Lanka, and Dubai. Our team manages all logistics, travel, and coordination on your behalf.' },
+  { id: '03', q: 'Can I customize a package based on my budget?', a: 'Absolutely. All our packages are fully customizable. During your free consultation, we will understand your vision and budget, then create a bespoke plan tailored specifically to your needs.' },
+  { id: '04', q: 'What does “full wedding planning” include?', a: 'Our full planning package covers venue scouting, vendor coordination, decor design, catering, entertainment, invitations, day-of coordination, and post-wedding support.' },
+  { id: '05', q: 'Is the initial consultation really free?', a: 'Yes! Your first consultation is completely free with no obligation. It is simply a friendly conversation to understand your dream wedding and see how we can help make it a reality.' },
+];
+
+const FaqSection = () => {
+  const [openId, setOpenId] = useState('01');
+  return (
+    <section style={{ background: '#fdf8f6', padding: '60px 0' }}>
+      <div className="container" style={{ maxWidth: '680px', margin: '0 auto', padding: '0 20px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '36px' }}>
+          <p style={{ fontFamily: "'Inter',sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase', color: '#c9a367', marginBottom: '4px' }}>F A Q S</p>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}><span style={{ color: '#c9a367', fontSize: '14px' }}>♥</span></div>
+          <h2 style={{ fontFamily: "'Playfair Display',serif", fontSize: 'clamp(22px,5vw,30px)', fontWeight: 600, color: '#bd6a71', marginBottom: '10px', lineHeight: 1.2 }}>Frequently Asked Questions</h2>
+          <p style={{ fontFamily: "'Inter',sans-serif", fontSize: '14px', color: '#888', maxWidth: '340px', margin: '0 auto', lineHeight: 1.6 }}>Everything you need to know about our wedding planning services</p>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {faqs.map((faq) => {
+            const isOpen = openId === faq.id;
+            return (
+              <div key={faq.id} style={{ background: 'white', borderRadius: '16px', border: isOpen ? '1.5px solid #f0dde0' : '1.5px solid #f5f0ee', boxShadow: isOpen ? '0 4px 20px rgba(189,106,113,0.10)' : '0 2px 8px rgba(0,0,0,0.04)', overflow: 'hidden', transition: 'box-shadow 0.3s,border-color 0.3s' }}>
+                <button onClick={() => setOpenId(isOpen ? null : faq.id)} style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '14px', padding: '18px', background: 'transparent', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
+                  <span style={{ minWidth: '36px', height: '36px', borderRadius: '10px', background: '#fdf0f2', border: '1px solid #f5dde0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Playfair Display',serif", fontSize: '13px', fontWeight: 600, color: '#bd6a71', flexShrink: 0 }}>{faq.id}</span>
+                  <span style={{ flex: 1, fontFamily: "'Inter',sans-serif", fontSize: '15px', fontWeight: 600, color: '#1a1a1a', lineHeight: 1.4 }}>{faq.q}</span>
+                  <span style={{ width: '32px', height: '32px', borderRadius: '50%', background: isOpen ? '#bd6a71' : 'transparent', border: isOpen ? 'none' : '1.5px solid #ececec', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: isOpen ? 'white' : '#999', transition: 'all 0.3s' }}>
+                    {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                  </span>
+                </button>
+                <div style={{ maxHeight: isOpen ? '400px' : '0', overflow: 'hidden', transition: 'max-height 0.35s ease' }}>
+                  <div style={{ padding: '0 18px 18px', position: 'relative' }}>
+                    <div style={{ textAlign: 'center', marginBottom: '10px', color: '#c9a367', fontSize: '13px' }}>✦</div>
+                    <p style={{ fontFamily: "'Inter',sans-serif", fontSize: '14px', color: '#666', lineHeight: 1.7, margin: 0 }}>{faq.a}</p>
+                    <img src="/images/floral_left_edge.webp" alt="" loading="lazy" style={{ position: 'absolute', bottom: 0, left: 0, width: '70px', opacity: 0.2, pointerEvents: 'none' }} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginTop: '16px' }}>
+                      <div style={{ flex: 1, height: '1px', background: '#f5dde0' }} />
+                      <span style={{ color: '#f0aab0', fontSize: '14px' }}>♥</span>
+                      <div style={{ flex: 1, height: '1px', background: '#f5dde0' }} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div style={{ marginTop: '28px', background: 'linear-gradient(135deg,#b85c63 0%,#c97a82 100%)', borderRadius: '18px', padding: '20px 22px', display: 'flex', alignItems: 'center', gap: '14px', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', border: '2px solid rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Calendar size={22} color="white" strokeWidth={1.5} /></div>
+          <div style={{ flex: 1 }}>
+            <p style={{ fontFamily: "'Inter',sans-serif", fontSize: '16px', fontWeight: 700, color: 'white', marginBottom: '2px' }}>Still have questions?</p>
+            <p style={{ fontFamily: "'Inter',sans-serif", fontSize: '12px', color: 'rgba(255,255,255,0.8)' }}>We’re here to help you!</p>
+          </div>
+          <Link to="/contact" style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'white', color: '#b85c63', padding: '10px 18px', borderRadius: '50px', fontFamily: "'Inter',sans-serif", fontSize: '13px', fontWeight: 600, textDecoration: 'none', whiteSpace: 'nowrap', flexShrink: 0, boxShadow: '0 2px 10px rgba(0,0,0,0.1)' }}>Contact Us <ArrowRight size={14} /></Link>
+          <img src="/images/floral_left_edge.webp" alt="" loading="lazy" style={{ position: 'absolute', right: '-10px', bottom: '-10px', width: '100px', opacity: 0.12, transform: 'scaleX(-1)', pointerEvents: 'none' }} />
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const serviceCards = [
   {
@@ -157,51 +217,9 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* ── FAQ ACCORDION ── */}
-      <section className="services-faq" data-aos="fade-up">
-        <div className="container">
-          <div className="section-header">
-            <p className="section-subtitle">FAQs</p>
-            <h2 className="section-title">Frequently Asked Questions</h2>
-            <div className="section-divider"><span></span><div className="diamond"></div><span></span></div>
-          </div>
+      {/* ── FAQ SECTION ── */}
+      <FaqSection />
 
-          <div className="faq-accordion-wrapper">
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="q1">
-                <AccordionTrigger>How far in advance should I book a wedding planner?</AccordionTrigger>
-                <AccordionContent>
-                  We recommend booking at least 12–18 months in advance for large weddings. For intimate ceremonies, 6–9 months is usually sufficient. The earlier you book, the better your venue and vendor options will be.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q2">
-                <AccordionTrigger>Do you handle destination weddings outside India?</AccordionTrigger>
-                <AccordionContent>
-                  Yes! We specialize in destination weddings across India as well as international locations like Bali, Thailand, Sri Lanka, and Dubai. Our team manages all logistics, travel, and coordination on your behalf.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q3">
-                <AccordionTrigger>Can I customize a package based on my budget?</AccordionTrigger>
-                <AccordionContent>
-                  Absolutely. All our packages are fully customizable. During your free consultation, we'll understand your vision and budget, then create a bespoke plan tailored specifically to your needs.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q4">
-                <AccordionTrigger>What does "full wedding planning" include?</AccordionTrigger>
-                <AccordionContent>
-                  Our full planning package covers venue scouting, vendor coordination, decor design, catering, entertainment, invitations, day-of coordination, and post-wedding support — essentially everything from your first planning call to the last dance.
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="q5">
-                <AccordionTrigger>Is the initial consultation really free?</AccordionTrigger>
-                <AccordionContent>
-                  Yes! Your first consultation is completely free with no obligation. It's simply a friendly conversation to understand your dream wedding and see how we can help make it a reality.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </div>
-      </section>
 
       {/* ── CTA BANNER ── */}
       <section className="services-cta" data-aos="zoom-in" data-aos-duration="1000">
