@@ -1,4 +1,6 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import SEO from '../components/SEO';
+import { BreadcrumbSchema } from '../components/Schema';
 import { Link } from 'react-router-dom';
 import { Award, Heart, ShieldCheck, Clock, CheckCircle2, XCircle, HeartHandshake, HeadphonesIcon } from 'lucide-react';
 import './PackagesPage.css';
@@ -11,6 +13,12 @@ const PackagesPage = () => {
 
   return (
     <div className="packages-page">
+      <SEO
+        title="Wedding Planning Packages & Pricing"
+        description="Choose from our bespoke wedding planning packages. Whether you need full-service planning, partial coordination, or day-of management, IPPO Wedding Planner has you covered."
+        path="/packages"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'Packages', path: '/packages' }]} />
       {/* ── HERO BANNER ── */}
       <section className="pkg-hero">
         <div className="pkg-hero-container">

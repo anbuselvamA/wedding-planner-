@@ -1,4 +1,6 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import SEO from '../components/SEO';
+import { BreadcrumbSchema } from '../components/Schema';
 import { Link } from 'react-router-dom';
 import { 
   Heart, 
@@ -23,6 +25,12 @@ const AboutPage = () => {
 
   return (
     <div className="about-page">
+      <SEO
+        title="About Us – IPPO Wedding Planner"
+        description="Learn about IPPO Wedding Planner – a Chennai-based luxury wedding planning company. Over 500 weddings crafted with love, precision, and elegance across India."
+        path="/about"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'About Us', path: '/about' }]} />
       {/* ── ABOUT HERO ── */}
       <section className="about-hero">
         <img loading="lazy" src="/images/floral_left_edge.webp" alt="" className="about-floral left-floral float-anim" />

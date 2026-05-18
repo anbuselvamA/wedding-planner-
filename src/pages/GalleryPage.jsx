@@ -1,4 +1,6 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
+import SEO from '../components/SEO';
+import { BreadcrumbSchema } from '../components/Schema';
 import { Link } from 'react-router-dom';
 import './GalleryPage.css';
 
@@ -26,6 +28,12 @@ const GalleryPage = () => {
 
   return (
     <div className="gallery-page">
+      <SEO
+        title="Wedding Portfolio & Gallery"
+        description="Browse our portfolio of beautiful weddings across India. See our stunning decor, venue setups, and real couple moments crafted by IPPO Wedding Planner."
+        path="/gallery"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'Gallery', path: '/gallery' }]} />
       {/* ── HERO BANNER ── */}
       <section className="gallery-hero-banner">
         <img loading="lazy" src="/images/floral_left_edge.webp" alt="floral" className="floral-edge floral-left float-anim" />

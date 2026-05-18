@@ -6,13 +6,12 @@ import 'aos/dist/aos.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import { LocalBusinessSchema } from './components/Schema';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import GalleryPage from './pages/GalleryPage';
-
 import PackagesPage from './pages/PackagesPage';
 import BookConsultationPage from './pages/BookConsultationPage';
-
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 
@@ -51,6 +50,7 @@ function App() {
 
   return (
     <Router>
+      <LocalBusinessSchema />
       <ScrollToTop />
       <Navbar />
       <Routes>

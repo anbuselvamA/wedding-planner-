@@ -1,4 +1,6 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import SEO from '../components/SEO';
+import { BreadcrumbSchema } from '../components/Schema';
 import './BookConsultationPage.css';
 import { 
   User, Phone, Mail, MapPin, Calendar, 
@@ -37,6 +39,12 @@ const BookConsultationPage = () => {
 
   return (
     <div className="book-page">
+      <SEO
+        title="Book a Free Wedding Consultation"
+        description="Book your free wedding planning consultation with IPPO Wedding Planner. Tell us about your dream wedding and we’ll craft a bespoke plan just for you."
+        path="/book-consultation"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'Book Consultation', path: '/book-consultation' }]} />
       <img loading="lazy" src="/images/floral_left_edge.webp" alt="" className="book-floral-bottom float-anim" />
       {/* HERO SECTION */}
       <section className="book-hero">

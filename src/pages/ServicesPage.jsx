@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import SEO from '../components/SEO';
+import { BreadcrumbSchema, FAQSchema } from '../components/Schema';
 import { Link } from 'react-router-dom';
 import './ServicesPage.css';
 import { Heart, Building2, Sparkles, Camera, Utensils, Users, Mic2, Palette, MessageCircle, ClipboardList, Brush, HeartHandshake, Star, ChevronUp, ChevronDown, Calendar, ArrowRight } from 'lucide-react';
@@ -134,6 +136,13 @@ const planningSteps = [
 const ServicesPage = () => {
   return (
     <div className="services-page">
+      <SEO
+        title="Wedding Services & Packages"
+        description="Explore our bespoke wedding planning services. From venue selection and decor to photography and catering, we handle every detail of your special day."
+        path="/services"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }]} />
+      <FAQSchema faqs={faqs} />
 
       {/* ── HERO BANNER ── */}
       <section className="svc-hero-banner">

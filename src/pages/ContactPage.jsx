@@ -1,4 +1,6 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import SEO from '../components/SEO';
+import { BreadcrumbSchema } from '../components/Schema';
 import { 
   Phone, 
   Mail, 
@@ -16,6 +18,12 @@ const ContactPage = () => {
 
   return (
     <div className="contact-page">
+      <SEO
+        title="Contact Us – Get in Touch"
+        description="Contact IPPO Wedding Planner in Chennai. Call, email, or visit us to start planning your dream wedding. Free consultation available."
+        path="/contact"
+      />
+      <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }]} />
       {/* Background floral edges */}
       <img loading="lazy" src="/images/floral_left_edge.webp" alt="" className="contact-floral-left" />
       <img loading="lazy" src="/images/floral_left_edge.webp" alt="" className="contact-floral-right" />
