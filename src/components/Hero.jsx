@@ -21,12 +21,12 @@ const Hero = () => {
           
           <div className="hero-actions" data-aos="fade-up" data-aos-delay="300">
             <Link to="/book-consultation" className="btn btn-primary hover-glow hover-lift">Book Free Consultation</Link>
-            <button className="btn-play hover-lift">
+            <Link to="/about" className="btn-play hover-lift">
               <span className="play-icon-wrapper">
                 <Play size={18} fill="var(--primary-color)" color="var(--primary-color)" />
               </span>
               Watch Our Story
-            </button>
+            </Link>
           </div>
           
           <div className="hero-stats" data-aos="fade-up" data-aos-delay="500">
