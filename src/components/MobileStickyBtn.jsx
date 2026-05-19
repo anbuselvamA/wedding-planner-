@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Calendar, ArrowRight } from 'lucide-react';
 import './MobileStickyBtn.css';
 
 const MobileStickyBtn = () => {
   const [visible, setVisible] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 350);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  if (location.pathname === '/book-consultation') {
+    return null;
+  }
 
   return (
     <div className={`mobile-sticky-btn${visible ? ' visible' : ''}`} aria-hidden={!visible}>
