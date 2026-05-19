@@ -6,7 +6,7 @@
 .gallery-hero-banner {
   position: relative;
   text-align: center;
-  padding: clamp(4rem, 8vw, 6rem) 1rem clamp(3rem, 6vw, 4rem);
+  padding: calc(clamp(4rem, 8vw, 6rem) + var(--navbar-height)) 1rem clamp(3rem, 6vw, 4rem);
   background: linear-gradient(180deg, var(--cream-alt) 0%, var(--cream) 100%);
   overflow: hidden;
 }

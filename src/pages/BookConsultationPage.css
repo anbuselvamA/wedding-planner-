@@ -24,7 +24,8 @@
 /* ── HERO BANNER ── */
 .book-hero {
   position: relative;
-  height: clamp(300px, 40vh, 450px);
+  height: calc(clamp(300px, 40vh, 450px) + var(--navbar-height));
+  padding-top: var(--navbar-height);
   background-color: var(--cream);
   overflow: hidden;
   margin-bottom: clamp(3rem, 6vw, 5rem);

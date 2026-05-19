@@ -1,11 +1,12 @@
 /* ── HERO BANNER ── */
 .svc-hero-banner {
   display: flex;
-  min-height: 280px;
-  max-height: 380px;
+  min-height: calc(280px + var(--navbar-height));
+  max-height: calc(380px + var(--navbar-height));
   overflow: hidden;
   background: linear-gradient(135deg, var(--cream) 0%, var(--cream-alt) 100%);
   border-bottom: 1px solid var(--border-gold);
+  padding-top: var(--navbar-height);
 }
 
 .svc-hero-left {

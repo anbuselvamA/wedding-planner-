@@ -5,7 +5,7 @@
 
 .pkg-hero {
   background: linear-gradient(135deg, var(--cream) 0%, var(--cream-alt) 100%);
-  padding: clamp(4rem, 8vw, 6rem) 0;
+  padding: calc(clamp(4rem, 8vw, 6rem) + var(--navbar-height)) 0 clamp(4rem, 8vw, 6rem);
   border-bottom: 1px solid var(--border-gold);
 }
 

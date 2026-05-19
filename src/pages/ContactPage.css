@@ -30,7 +30,7 @@
 
 /* ── HERO SECTION ── */
 .contact-hero {
-  padding: clamp(4rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 3rem);
+  padding: calc(clamp(4rem, 8vw, 6rem) + var(--navbar-height)) 0 clamp(2rem, 5vw, 3rem);
   text-align: center;
   position: relative;
   z-index: 1;
