@@ -39,10 +39,6 @@ function SheetContent({ className, children, side = "right", ...props }) {
         )}
         {...props}
       >
-        <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-[#bd6a71]">
-          <XIcon className="size-5 text-[#666]" />
-          <span className="sr-only">Close</span>
-        </DialogPrimitive.Close>
         {children}
       </DialogPrimitive.Content>
     </SheetPortal>
