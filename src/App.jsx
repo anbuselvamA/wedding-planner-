@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import MobileStickyBtn from './components/MobileStickyBtn';
 import { LocalBusinessSchema } from './components/Schema';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
@@ -17,7 +18,7 @@ import ContactPage from './pages/ContactPage';
 
 function App() {
   useEffect(() => {
-    // Initialize Lenis for buttery smooth Apple-like scroll
+    // Buttery smooth Lenis scroll
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -35,12 +36,13 @@ function App() {
     }
     requestAnimationFrame(raf);
 
-    // Initialize AOS for elegant reveal animations
+    // AOS reveal animations
     AOS.init({
-      duration: 1000,
+      duration: 900,
       easing: 'ease-out-cubic',
       once: true,
-      offset: 50,
+      offset: 60,
+      delay: 0,
     });
 
     return () => {
@@ -54,15 +56,17 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
-        <Route path="/packages" element={<PackagesPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/"                  element={<HomePage />} />
+        <Route path="/services"          element={<ServicesPage />} />
+        <Route path="/gallery"           element={<GalleryPage />} />
+        <Route path="/packages"          element={<PackagesPage />} />
+        <Route path="/about"             element={<AboutPage />} />
+        <Route path="/contact"           element={<ContactPage />} />
         <Route path="/book-consultation" element={<BookConsultationPage />} />
       </Routes>
       <Footer />
+      {/* Global floating elements */}
+      <MobileStickyBtn />
     </Router>
   );
 }

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import './CTA.css';
 import { Link } from 'react-router-dom';
 import { Phone, User, Calendar, MapPin, Users, IndianRupee, MessageSquare, Lock, Send } from 'lucide-react';
@@ -76,18 +76,34 @@ const CTA = () => {
     name: '', phone: '', date: '', location: '', guests: '', budget: '', message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) =>
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setOpen(false);
-      setSubmitted(false);
-      setFormData({ name: '', phone: '', date: '', location: '', guests: '', budget: '', message: '' });
-    }, 2500);
+    setIsSubmitting(true);
+    
+    try {
+      // Placeholder for n8n Webhook or API
+      const webhookUrl = 'https://your-n8n-domain.com/webhook/enquiry';
+      
+      // Simulate API call for demonstration
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      setSubmitted(true);
+      setTimeout(() => {
+        setOpen(false);
+        setSubmitted(false);
+        setFormData({ name: '', phone: '', date: '', location: '', guests: '', budget: '', message: '' });
+      }, 2500);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an issue sending your enquiry. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -328,6 +344,7 @@ const CTA = () => {
                     {/* Submit button */}
                     <button
                       type="submit"
+                      disabled={isSubmitting}
                       style={{
                         width: '100%',
                         height: '54px',
@@ -342,16 +359,21 @@ const CTA = () => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         gap: '10px',
-                        cursor: 'pointer',
+                        cursor: isSubmitting ? 'not-allowed' : 'pointer',
                         boxShadow: '0 6px 24px rgba(189,106,113,0.35)',
                         transition: 'transform 0.2s, box-shadow 0.2s',
                         marginTop: '4px',
+                        opacity: isSubmitting ? 0.8 : 1
                       }}
-                      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 30px rgba(189,106,113,0.4)'; }}
-                      onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(189,106,113,0.35)'; }}
+                      onMouseEnter={e => { if (!isSubmitting) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 30px rgba(189,106,113,0.4)'; } }}
+                      onMouseLeave={e => { if (!isSubmitting) { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(189,106,113,0.35)'; } }}
                     >
-                      <Send size={18} />
-                      Send Enquiry ♡
+                      {isSubmitting ? 'Sending...' : (
+                        <>
+                          <Send size={18} />
+                          Send Enquiry ♡
+                        </>
+                      )}
                     </button>
 
                     {/* Trust row */}

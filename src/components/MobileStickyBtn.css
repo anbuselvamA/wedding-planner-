@@ -1,0 +1,87 @@
+/* ═══════════════════════════════════════════════════
+   MOBILE STICKY BOOK CONSULTATION BUTTON
+   Hidden on desktop, slides up on mobile after scroll
+   ═══════════════════════════════════════════════════ */
+
+.mobile-sticky-btn {
+  display: none; /* hidden on desktop */
+}
+
+@media (max-width: 767px) {
+  .mobile-sticky-btn {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 997;
+    padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    background: linear-gradient(180deg, transparent 0%, rgba(253, 250, 246, 0.95) 30%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* Hidden state */
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.45s var(--ease-spring), opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  .mobile-sticky-btn.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-sticky-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 54px;
+    background: linear-gradient(135deg, var(--primary) 0%, #d4808a 60%, var(--gold) 100%);
+    background-size: 200% 100%;
+    background-position: 0% 0%;
+    color: #fff;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.925rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    box-shadow:
+      0 8px 28px rgba(189, 106, 113, 0.4),
+      0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.35s var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mobile-sticky-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.12);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+  }
+
+  .mobile-sticky-link:active::before {
+    opacity: 1;
+  }
+
+  .mobile-sticky-link:active {
+    transform: scale(0.98);
+  }
+
+  .sticky-icon {
+    flex-shrink: 0;
+  }
+
+  .sticky-arrow {
+    flex-shrink: 0;
+    opacity: 0.75;
+  }
+}

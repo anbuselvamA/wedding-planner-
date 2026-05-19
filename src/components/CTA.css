@@ -1,70 +1,118 @@
+/* ═══════════════════════════════════════════════════
+   PREMIUM CTA BANNER SECTION
+   ═══════════════════════════════════════════════════ */
+
 .cta-section {
-  padding: 0 0 clamp(3rem, 8vw, 5rem) 0;
-  background-color: var(--bg-section);
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-alt) 100%);
 }
 
 .cta-banner {
-  border-radius: 12px;
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
   background-size: cover;
   background-position: center;
-  position: relative;
-  overflow: hidden;
+  min-height: 340px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: clamp(3rem, 8vw, 4rem) clamp(1.5rem, 5vw, 2rem);
-  box-shadow: 0 10px 30px rgba(189, 106, 113, 0.2);
+  justify-content: center;
+  isolation: isolate;
 }
 
+/* Dark overlay */
 .cta-banner::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(198, 114, 122, 0.75); /* Overlay to make text readable */
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(28, 20, 18, 0.82) 0%,
+    rgba(44, 20, 10, 0.7) 50%,
+    rgba(201, 163, 103, 0.2) 100%
+  );
   z-index: 1;
+}
+
+/* Gold shimmer gradient overlay */
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 100% 50%,
+    rgba(201, 163, 103, 0.15) 0%,
+    transparent 60%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
 
 .cta-content {
   position: relative;
   z-index: 2;
   text-align: center;
-  color: white;
-  max-width: 600px;
+  padding: 3.5rem 2rem;
+  max-width: 640px;
 }
 
 .cta-content h2 {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
-  margin-bottom: 0.8rem;
-  color: white;
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: #fff;
+  margin-bottom: 1rem;
   line-height: 1.2;
+  font-weight: 600;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 
 .cta-content p {
-  font-size: clamp(1rem, 3vw, 1.1rem);
-  margin-bottom: 2rem;
-  opacity: 0.9;
-}
-
-.cta-btn {
-  background-color: white;
-  color: var(--primary-color);
-  border-color: white;
-  font-weight: 600;
-  padding: 1rem 2rem;
-}
-
-.cta-btn:hover {
-  background-color: transparent;
-  color: white;
-  border-color: white;
+  font-family: var(--font-sans);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
+  margin-bottom: 2.25rem;
+  line-height: 1.7;
+  font-weight: 300;
 }
 
 .cta-buttons {
   display: flex;
-  gap: 1rem;
+  align-items: center;
   justify-content: center;
+  gap: 1rem;
   flex-wrap: wrap;
+}
+
+.cta-btn {
+  min-width: 180px;
+}
+
+/* White outline variant for dark bg */
+.cta-btn.btn-outline {
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  color: #fff !important;
+}
+
+.cta-btn.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  color: #fff !important;
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 576px) {
+  .cta-banner {
+    border-radius: var(--radius-lg);
+    min-height: 280px;
+  }
+  .cta-content {
+    padding: 2.5rem 1.5rem;
+  }
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cta-btn {
+    width: 100%;
+  }
 }

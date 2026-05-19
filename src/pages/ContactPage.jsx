@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SEO from '../components/SEO';
 import { BreadcrumbSchema } from '../components/Schema';
 import { 
@@ -11,6 +11,47 @@ import {
 import './ContactPage.css';
 
 const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    date: '',
+    location: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    try {
+      // Placeholder for n8n Webhook or API
+      const webhookUrl = 'https://your-n8n-domain.com/webhook/enquiry';
+      
+      // Simulate API call for demonstration if no real webhook is present
+      // await fetch(webhookUrl, {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(formData)
+      // });
+      
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      alert('Thank you! Your message has been sent successfully.');
+      setFormData({ name: '', email: '', phone: '', date: '', location: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an issue sending your message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -126,21 +167,21 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              <form className="contact-form">
+              <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-row">
-                  <input type="text" placeholder="Your Name" className="form-input" />
-                  <input type="email" placeholder="Your Email" className="form-input" />
+                  <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} required className="form-input" />
+                  <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} required className="form-input" />
                 </div>
                 <div className="form-row">
-                  <input type="tel" placeholder="Phone Number" className="form-input" />
-                  <input type="date" placeholder="Event Date" className="form-input date-input" />
+                  <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required className="form-input" />
+                  <input type="date" name="date" placeholder="Event Date" value={formData.date} onChange={handleChange} className="form-input date-input" />
                 </div>
-                <input type="text" placeholder="Wedding Location" className="form-input full-width" />
-                <textarea placeholder="Tell us about your dream wedding..." rows="5" className="form-input form-textarea full-width"></textarea>
+                <input type="text" name="location" placeholder="Wedding Location" value={formData.location} onChange={handleChange} className="form-input full-width" />
+                <textarea name="message" placeholder="Tell us about your dream wedding..." rows="5" value={formData.message} onChange={handleChange} required className="form-input form-textarea full-width"></textarea>
                 
                 <div className="form-actions">
-                  <button type="submit" className="btn-send-message">
-                    Send Message <ArrowRight size={16} />
+                  <button type="submit" className="btn-send-message" disabled={isSubmitting}>
+                    {isSubmitting ? 'Sending...' : <>Send Message <ArrowRight size={16} /></>}
                   </button>
                 </div>
               </form>

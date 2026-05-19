@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SEO from '../components/SEO';
 import { BreadcrumbSchema } from '../components/Schema';
 import './BookConsultationPage.css';
@@ -25,16 +25,37 @@ const BookConsultationPage = () => {
     hearAboutUs: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form Submitted', formData);
-    alert('Thank you! Your consultation request has been received.');
+    setIsSubmitting(true);
+    
+    try {
+      // Placeholder for n8n Webhook or API
+      const webhookUrl = 'https://your-n8n-domain.com/webhook/enquiry';
+      
+      // Simulate API call for demonstration
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      console.log('Form Submitted', formData);
+      alert('Thank you! Your consultation request has been received.');
+      setFormData({
+        name: '', phone: '', email: '', city: '',
+        weddingDate: '', weddingLocation: '', guestCount: '',
+        hearAboutUs: '', message: ''
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an issue sending your request. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -247,9 +268,15 @@ const BookConsultationPage = () => {
               </div>
 
               {/* SUBMIT BUTTON */}
-              <button type="submit" className="book-submit-btn hover-glow hover-lift">
-                <CalendarCheck size={20} />
-                Book Consultation
+              <button type="submit" className="book-submit-btn hover-glow hover-lift" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  'Sending...'
+                ) : (
+                  <>
+                    <CalendarCheck size={20} />
+                    Book Consultation
+                  </>
+                )}
               </button>
 
               <div className="form-privacy">

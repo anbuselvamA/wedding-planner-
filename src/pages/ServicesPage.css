@@ -1,10 +1,11 @@
-﻿/* ── HERO BANNER ── */
+/* ── HERO BANNER ── */
 .svc-hero-banner {
   display: flex;
-  min-height: 260px;
-  max-height: 340px;
+  min-height: 280px;
+  max-height: 380px;
   overflow: hidden;
-  background: #fdf5f5;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-alt) 100%);
+  border-bottom: 1px solid var(--border-gold);
 }
 
 .svc-hero-left {
@@ -17,19 +18,19 @@
 
 .svc-hero-subtitle {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: var(--primary-color);
-  font-weight: 600;
+  color: var(--gold);
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .svc-hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 5vw, 2.4rem);
-  color: #222;
-  line-height: 1.2;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  color: var(--text-main);
+  line-height: 1.15;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -37,7 +38,10 @@
 .svc-hero-script {
   font-family: var(--font-script);
   font-size: clamp(2.2rem, 8vw, 3rem);
-  color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-weight: 400;
   display: block;
   margin-top: 0.2rem;
@@ -65,10 +69,12 @@
 }
 
 .svc-hero-desc {
+  font-family: var(--font-sans);
   font-size: 0.9rem;
-  color: #666;
-  line-height: 1.8;
-  max-width: 400px;
+  color: var(--text-muted);
+  line-height: 1.85;
+  max-width: 420px;
+  font-weight: 300;
 }
 
 .svc-hero-right {
@@ -86,12 +92,12 @@
 
 /* ── SERVICES SECTION ── */
 .services-page {
-  background-color: var(--bg-color);
+  background-color: var(--cream);
 }
 
 .services-section {
-  padding: clamp(3rem, 8vw, 5rem) 0 clamp(2rem, 5vw, 3rem);
-  background: #fff;
+  padding: clamp(4rem, 8vw, 6rem) 0 clamp(2rem, 5vw, 3rem);
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-alt) 100%);
 }
 
 .section-header {
@@ -135,7 +141,7 @@
 .services-grid-new {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 1.75rem;
 }
 
 .svc-card {
@@ -143,6 +149,11 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  transition: transform 0.4s var(--ease-spring);
+}
+
+.svc-card:hover {
+  transform: translateY(-6px);
 }
 
 .svc-card-icon {
@@ -165,10 +176,10 @@
 .svc-card-image {
   width: 100%;
   aspect-ratio: 4/3;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   margin-bottom: 1rem;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow-md);
 }
 
 .svc-card-image img {
@@ -183,33 +194,38 @@
 }
 
 .svc-card-desc {
-  font-size: 0.8rem;
-  color: #777;
-  line-height: 1.6;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.65;
   margin-bottom: 0.8rem;
+  font-weight: 300;
 }
 
 .svc-card-link {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--primary);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  transition: gap 0.3s ease;
+  gap: 5px;
+  transition: all 0.3s ease;
   font-family: var(--font-sans);
-  min-height: 44px; /* Touch target */
+  min-height: 44px;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(189,106,113,0.3);
 }
 
 .svc-card-link:hover {
-  gap: 8px;
+  gap: 10px;
+  border-bottom-color: var(--primary);
 }
 
 /* ── PLANNING PROCESS ── */
 .planning-process {
-  padding: clamp(3rem, 8vw, 5rem) 0;
-  background-color: #fdfaf8;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background: linear-gradient(180deg, var(--cream-alt) 0%, var(--cream) 100%);
 }
 
 .process-steps {
@@ -229,38 +245,50 @@
 }
 
 .process-icon-wrap {
-  width: 64px;
-  height: 64px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
-  border: 1px dashed rgba(189, 106, 113, 0.4);
+  border: 1.5px dashed rgba(201, 163, 103, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 0.8rem;
-  background: #fff;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(201,163,103,0.1);
+  transition: all 0.4s var(--ease-spring);
+}
+
+.process-step:hover .process-icon-wrap {
+  transform: scale(1.1) rotate(5deg);
+  border-color: var(--gold);
+  box-shadow: 0 8px 24px rgba(201,163,103,0.2);
 }
 
 .process-num {
   font-family: var(--font-sans);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  color: #c9a367;
-  letter-spacing: 2px;
+  color: var(--gold);
+  letter-spacing: 2.5px;
   margin-bottom: 0.3rem;
+  text-transform: uppercase;
 }
 
 .process-title {
   font-family: var(--font-serif);
-  font-size: 0.95rem;
-  color: #222;
-  font-weight: 500;
-  margin-bottom: 0.4rem;
+  font-size: 1rem;
+  color: var(--text-main);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .process-desc {
-  font-size: 0.75rem;
-  color: #888;
-  line-height: 1.5;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-weight: 300;
 }
 
 .process-connector {
@@ -286,10 +314,12 @@
 
 /* ── CTA BANNER ── */
 .services-cta {
-  background: linear-gradient(135deg, #c97a82 0%, #b5606a 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   position: relative;
   overflow: hidden;
-  padding: clamp(3rem, 8vw, 4rem) 1.5rem;
+  padding: clamp(3.5rem, 8vw, 5rem) 1.5rem;
+  border-radius: var(--radius-xl);
+  margin: 0 clamp(1rem, 4vw, 2rem) clamp(3rem, 6vw, 5rem);
 }
 
 .services-cta::before {
@@ -297,7 +327,17 @@
   position: absolute;
   inset: 0;
   background: url('/images/svc_catering.webp') center/cover no-repeat;
-  opacity: 0.1;
+  opacity: 0.08;
+  border-radius: inherit;
+}
+
+.services-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(201,163,103,0.2) 0%, transparent 60%);
+  pointer-events: none;
+  border-radius: inherit;
 }
 
 .services-cta-inner {
@@ -389,16 +429,18 @@
 
 /* FAQ Accordion Section */
 .services-faq {
-  padding: clamp(3rem, 8vw, 5rem) 0;
-  background-color: var(--bg-color);
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background: linear-gradient(180deg, var(--cream-alt) 0%, var(--cream) 100%);
 }
 
 .faq-accordion-wrapper {
-  max-width: 760px;
+  max-width: 780px;
   margin: 0 auto;
-  background: #fff;
-  border-radius: 16px;
-  border: 1px solid var(--border-color);
-  padding: 0.5rem 2rem;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,255,255,0.6);
+  padding: 0.75rem 2rem;
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.9);
 }
