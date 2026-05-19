@@ -203,9 +203,7 @@ const BookConsultationPage = () => {
                 <div className="input-group">
                   <label>Guest Count (Approx.)</label>
                   <div className="select-wrapper">
-                    <div className="input-icon-wrapper">
-                      <Users size={18} className="input-icon" />
-                    </div>
+                    <Users size={18} className="input-icon" />
                     <select 
                       name="guestCount" 
                       value={formData.guestCount}
@@ -224,9 +222,7 @@ const BookConsultationPage = () => {
                 <div className="input-group">
                   <label>How did you hear about us?</label>
                   <div className="select-wrapper">
-                    <div className="input-icon-wrapper">
-                      <Megaphone size={18} className="input-icon" />
-                    </div>
+                    <Megaphone size={18} className="input-icon" />
                     <select 
                       name="hearAboutUs" 
                       value={formData.hearAboutUs}
