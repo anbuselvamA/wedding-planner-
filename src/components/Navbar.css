@@ -230,3 +230,9 @@
     height: 68px;
   }
 }
+
+/* ─── Menu Open State ──────────────────────────────── */
+body.menu-open .navbar-logo {
+  opacity: 0;
+  pointer-events: none;
+}

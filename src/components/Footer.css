@@ -420,3 +420,10 @@
     font-size: 0.82rem;
   }
 }
+
+/* ─── Menu Open State ───────────────────────────── */
+body.menu-open .whatsapp-float {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.9);
+}

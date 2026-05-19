@@ -85,3 +85,10 @@
     opacity: 0.75;
   }
 }
+
+/* ─── Menu Open State ───────────────────────────── */
+body.menu-open .mobile-sticky-btn {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(100%) !important;
+}
