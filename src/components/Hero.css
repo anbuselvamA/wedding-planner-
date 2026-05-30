@@ -465,9 +465,7 @@
     padding-left: 1rem;
   }
 
-  .hero-image img {
-    max-width: 280px;
-    aspect-ratio: 3 / 4;
-    border-radius: 100px 100px 16px 16px;
+  .hero-image {
+    display: none;
   }
 }

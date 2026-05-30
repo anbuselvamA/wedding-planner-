@@ -12,8 +12,8 @@ const HomePage = () => {
   return (
     <main>
       <SEO
-        title="Dream Weddings in Chennai, Tamil Nadu"
-        description="RR Wedding Planner crafts unforgettable weddings in Chennai & across India. Full planning, decor, photography, catering and more. Book your free consultation today."
+        title="Dream Weddings in Virudhachalam, Tamil Nadu"
+        description="Boss Event Decorator crafts unforgettable weddings in Virudhachalam & across India. Full planning, decor, photography, catering and more. Book your free consultation today."
         path="/"
         image="https://rrwedding.com/images/hero_couple.webp"
       />

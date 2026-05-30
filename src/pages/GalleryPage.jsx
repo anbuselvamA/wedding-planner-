@@ -30,7 +30,7 @@ const GalleryPage = () => {
     <div className="gallery-page">
       <SEO
         title="Wedding Portfolio & Gallery"
-        description="Browse our portfolio of beautiful weddings across India. See our stunning decor, venue setups, and real couple moments crafted by RR Wedding Planner."
+        description="Browse our portfolio of beautiful weddings across India. See our stunning decor, venue setups, and real couple moments crafted by Boss Event Decorator."
         path="/gallery"
       />
       <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'Gallery', path: '/gallery' }]} />

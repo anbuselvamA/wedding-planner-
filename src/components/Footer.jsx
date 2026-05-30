@@ -46,7 +46,7 @@ const Footer = () => {
                 <StarLogo />
               </div>
               <div className="footer-logo-text">
-                <h2>RR</h2>
+                <h2>Boss Event Decorator</h2>
                 <span>Wedding Planner</span>
               </div>
             </div>
@@ -121,7 +121,7 @@ const Footer = () => {
               </li>
               <li>
                 <MapPin size={15} />
-                <span>Chennai, Tamil Nadu, India</span>
+                <span>Shakti Nagar, Aladi Road, Virudhachalam</span>
               </li>
             </ul>
           </div>
@@ -148,7 +148,7 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="footer-bottom">
-          <p>© 2024 RR Wedding Planner. All Rights Reserved. Made with ♥ in India.</p>
+          <p>© 2024 Boss Event Decorator. All Rights Reserved. Made with ♥ in India.</p>
           <div className="footer-bottom-links">
             <a href="#">Privacy Policy</a>
             <span>|</span>

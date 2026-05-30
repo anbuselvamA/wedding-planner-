@@ -5,9 +5,9 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 const reviews = [
   {
     id: 1,
-    text: "RR Wedding Planner turned our dream wedding into reality. Every single detail was perfectly managed. We couldn't have asked for a more magical day!",
+    text: "Boss Event Decorator turned our dream wedding into reality. Every single detail was perfectly managed. We couldn't have asked for a more magical day!",
     name: 'Ananya & Karthik',
-    role: 'Married · Chennai',
+    role: 'Married · Virudhachalam',
     avatar: '/images/avatar_1.webp',
   },
   {
@@ -19,7 +19,7 @@ const reviews = [
   },
   {
     id: 3,
-    text: "Their creativity, dedication and passion made our wedding truly magical. Thank you RR for creating the most beautiful memories of our lifetime.",
+    text: "Their creativity, dedication and passion made our wedding truly magical. Thank you Boss Event Decorator for creating the most beautiful memories of our lifetime.",
     name: 'Divya & Rohan',
     role: 'Married · Mumbai',
     avatar: '/images/avatar_3.webp',

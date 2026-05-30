@@ -2,7 +2,7 @@
 import { Helmet } from 'react-helmet-async';
 
 const SITE_URL  = 'https://rrwedding.com';
-const SITE_NAME = 'RR Wedding Planner';
+const SITE_NAME = 'Boss Event Decorator';
 const DEFAULT_IMG = `${SITE_URL}/images/hero_couple.webp`;
 
 /**
@@ -17,8 +17,8 @@ const DEFAULT_IMG = `${SITE_URL}/images/hero_couple.webp`;
  *   noindex     – set true to hide from search engines
  */
 const SEO = ({
-  title       = 'Dream Weddings in Chennai, Tamil Nadu',
-  description = 'RR Wedding Planner crafts unforgettable weddings in Chennai & across India. Full planning, decor, photography, catering and more. Book your free consultation today.',
+  title       = 'Dream Weddings in Virudhachalam, Tamil Nadu',
+  description = 'Boss Event Decorator crafts unforgettable weddings in Virudhachalam & across India. Full planning, decor, photography, catering and more. Book your free consultation today.',
   path        = '/',
   image       = DEFAULT_IMG,
   type        = 'website',

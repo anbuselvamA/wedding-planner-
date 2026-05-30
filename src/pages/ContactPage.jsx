@@ -61,7 +61,7 @@ const ContactPage = () => {
     <div className="contact-page">
       <SEO
         title="Contact Us – Get in Touch"
-        description="Contact RR Wedding Planner in Chennai. Call, email, or visit us to start planning your dream wedding. Free consultation available."
+        description="Contact Boss Event Decorator in Virudhachalam. Call, email, or visit us to start planning your dream wedding. Free consultation available."
         path="/contact"
       />
       <BreadcrumbSchema items={[{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }]} />
@@ -130,7 +130,7 @@ const ContactPage = () => {
                   </div>
                   <div className="contact-info-text">
                     <h4>Location</h4>
-                    <p>Chennai, Tamil Nadu, India</p>
+                    <p>Shakti Nagar, Aladi Road, Virudhachalam</p>
                   </div>
                 </div>
 
@@ -143,6 +143,15 @@ const ContactPage = () => {
                     <p>Mon - Sat: 10:00 AM – 7:00 PM</p>
                   </div>
                 </div>
+              </div>
+
+              <div className="contact-special-notes" style={{ marginTop: '2rem', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                <p style={{ marginBottom: '1rem' }}>
+                  <strong>Booking & Packages:</strong> For detailed contact details, packages, or to book services, you can check the Boss Event Decorator <a href="#" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>Justdial Profile</a>.
+                </p>
+                <p>
+                  <strong>Note:</strong> If you are looking for the popular men's clothing store, <em>Boss Men's Wear</em>, it is located on Junction Road near A1 Lodge in College Nagar, Virudhachalam.
+                </p>
               </div>
 
               <div className="follow-us-section">

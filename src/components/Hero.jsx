@@ -86,7 +86,7 @@ const Hero = () => {
           <img
             loading="eager"
             src="/images/hero_couple.webp"
-            alt="Happy Indian Couple at Their Dream Wedding by RR Wedding Planner"
+            alt="Happy Indian Couple at Their Dream Wedding by Boss Event Decorator"
             className="float-anim-slow"
           />
         </div>

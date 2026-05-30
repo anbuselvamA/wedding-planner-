@@ -47,12 +47,12 @@ const Navbar = () => {
       <div className="navbar-inner">
 
         {/* Logo */}
-        <NavLink to="/" className="navbar-logo" onClick={closeSheet} aria-label="RR Wedding Planner - Home">
+        <NavLink to="/" className="navbar-logo" onClick={closeSheet} aria-label="Boss Event Decorator - Home">
           <div className="logo-icon-ring">
             <StarLogo size={24} />
           </div>
           <div className="logo-text-block">
-            <span className="logo-brand">RR</span>
+            <span className="logo-brand">Boss Event Decorator</span>
             <span className="logo-tagline">Wedding Planner</span>
           </div>
         </NavLink>
@@ -118,7 +118,7 @@ const Navbar = () => {
                     <StarLogo size={30} />
                   </div>
                   <p style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.5rem', fontWeight: 600, color: '#c9a367', letterSpacing: '3px', lineHeight: 1 }}>
-                    RR
+                    Boss Event Decorator
                   </p>
                   <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '0.52rem', letterSpacing: '3.5px', color: '#bd6a71', fontWeight: 600, textTransform: 'uppercase' }}>
                     Wedding Planner
