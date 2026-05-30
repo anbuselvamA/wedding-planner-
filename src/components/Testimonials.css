@@ -206,11 +206,148 @@
 
 @media (max-width: 640px) {
   .testimonial-card {
-    flex: 0 0 calc(88vw - 2rem);
+    flex: 0 0 calc(88vw - 1.5rem);
+    padding: 1.5rem 1.25rem;
   }
-
+  .testimonial-quote {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .testimonial-text {
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+  .testimonial-avatar {
+    width: 44px;
+    height: 44px;
+  }
   .testimonials-carousel-wrapper {
     margin: 0 -1.125rem;
     padding: 1rem 1.125rem;
   }
+}
+
+/* ─── Write a Review Modal ─────────────────────── */
+.review-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.review-modal-content {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  animation: modalSlideUp 0.4s var(--ease-spring);
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.review-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.review-modal-close:hover {
+  color: #333;
+}
+
+.review-modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.review-modal-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.review-modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.star-rating-input {
+  display: flex;
+  gap: 4px;
+}
+
+.star-rating-input svg {
+  cursor: pointer;
+  transition: transform 0.2s ease, fill 0.2s ease;
+}
+
+.star-rating-input svg:hover {
+  transform: scale(1.15);
+}
+
+.review-thanks {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.review-thanks h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.review-thanks p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
 }

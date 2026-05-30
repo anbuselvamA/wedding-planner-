@@ -145,9 +145,7 @@
     display: none;
   }
 
-  .stat-block:nth-child(3)::after {
-    display: none;
-  }
+
 
   /* Horizontal dividers between rows */
   .stat-block:nth-child(1),

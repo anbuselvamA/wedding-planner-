@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './Testimonials.css';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Star, X, PenLine } from 'lucide-react';
 
 const reviews = [
   {
@@ -35,11 +35,17 @@ function getVisible() {
 }
 
 const Testimonials = () => {
+  const [reviewsList, setReviewsList] = useState(reviews);
   const [current, setCurrent] = useState(0);
   const [visible, setVisible] = useState(getVisible);
   const autoRef = useRef(null);
 
-  const maxIndex = reviews.length - visible;
+  // Review Modal State
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showThanks, setShowThanks] = useState(false);
+  const [newReview, setNewReview] = useState({ name: '', role: '', text: '', rating: 5 });
+
+  const maxIndex = Math.max(0, reviewsList.length - visible);
 
   const stopAuto = useCallback(() => clearInterval(autoRef.current), []);
   const startAuto = useCallback(() => {
@@ -89,6 +95,13 @@ const Testimonials = () => {
             <div className="diamond"></div>
             <span></span>
           </div>
+          <button 
+            onClick={() => setIsModalOpen(true)} 
+            className="btn btn-primary" 
+            style={{ marginTop: '1.2rem', display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '0.6rem 1.25rem', borderRadius: '30px', fontSize: '0.85rem' }}
+          >
+            <PenLine size={16} /> Write a Review
+          </button>
         </div>
 
         <div
@@ -103,11 +116,11 @@ const Testimonials = () => {
             style={{ transform: `translateX(${offset}%)` }}
             aria-live="polite"
           >
-            {reviews.map((review) => (
+            {reviewsList.map((review) => (
               <div className="testimonial-card" key={review.id} aria-label={`Review by ${review.name}`}>
                 <div className="testimonial-quote" aria-hidden="true">"</div>
                 <div className="stars" aria-label="5 out of 5 stars">
-                  {[...Array(5)].map((_, i) => (
+                  {[...Array(review.rating || 5)].map((_, i) => (
                     <Star key={i} size={15} fill="#e2a146" color="#e2a146" />
                   ))}
                 </div>
@@ -161,6 +174,75 @@ const Testimonials = () => {
           </button>
         </div>
       </div>
+
+      {/* Review Modal */}
+      {isModalOpen && (
+        <div className="review-modal-overlay" onClick={() => setIsModalOpen(false)}>
+          <div className="review-modal-content" onClick={e => e.stopPropagation()}>
+            <button className="review-modal-close" onClick={() => setIsModalOpen(false)}>
+              <X size={24} />
+            </button>
+            
+            {showThanks ? (
+              <div className="review-thanks">
+                <Star size={48} fill="var(--gold)" color="var(--gold)" style={{ marginBottom: '1rem', display: 'inline-block' }} />
+                <h3>Thank You!</h3>
+                <p>Your review has been added successfully.</p>
+                <button className="btn btn-primary" onClick={() => { setIsModalOpen(false); setShowThanks(false); }}>Close</button>
+              </div>
+            ) : (
+              <>
+                <h3 className="review-modal-title">Write a Review</h3>
+                <p className="review-modal-subtitle">Share your magical experience with us.</p>
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  const submittedReview = {
+                    id: Date.now(),
+                    text: newReview.text,
+                    name: newReview.name,
+                    role: newReview.role || 'Client',
+                    rating: newReview.rating,
+                    avatar: '/images/avatar_1.webp'
+                  };
+                  setReviewsList(prev => [submittedReview, ...prev]);
+                  setShowThanks(true);
+                  setNewReview({ name: '', role: '', text: '', rating: 5 });
+                  setCurrent(0);
+                }}>
+                  <div className="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" required value={newReview.name} onChange={e => setNewReview({...newReview, name: e.target.value})} placeholder="e.g. Priya & Rahul" />
+                  </div>
+                  <div className="form-group">
+                    <label>Event Type / Location</label>
+                    <input type="text" value={newReview.role} onChange={e => setNewReview({...newReview, role: e.target.value})} placeholder="e.g. Married · Chennai" />
+                  </div>
+                  <div className="form-group">
+                    <label>Rating</label>
+                    <div className="star-rating-input">
+                      {[1,2,3,4,5].map(star => (
+                        <Star 
+                          key={star} 
+                          size={24} 
+                          fill={star <= newReview.rating ? "#e2a146" : "none"} 
+                          color={star <= newReview.rating ? "#e2a146" : "#ccc"} 
+                          style={{ cursor: 'pointer', marginRight: '4px' }}
+                          onClick={() => setNewReview({...newReview, rating: star})}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label>Your Review *</label>
+                    <textarea required rows="4" value={newReview.text} onChange={e => setNewReview({...newReview, text: e.target.value})} placeholder="Tell us about your experience..."></textarea>
+                  </div>
+                  <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '1rem', padding: '0.8rem' }}>Submit Review</button>
+                </form>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 };

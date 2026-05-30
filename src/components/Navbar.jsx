@@ -15,9 +15,7 @@ const StarLogo = ({ size = 26 }) => (
 /* ── Nav items ─────────────────────────────────────────────────────────── */
 const navItems = [
   { to: '/',         label: 'Home',      icon: <Home      size={18} strokeWidth={1.6} /> },
-  { to: '/services', label: 'Services',  icon: <Scissors  size={18} strokeWidth={1.6} /> },
   { to: '/gallery',  label: 'Gallery',   icon: <Image     size={18} strokeWidth={1.6} /> },
-  { to: '/packages', label: 'Packages',  icon: <Gift      size={18} strokeWidth={1.6} /> },
   { to: '/about',    label: 'About Us',  icon: <Users     size={18} strokeWidth={1.6} /> },
   { to: '/contact',  label: 'Contact',   icon: <Mail      size={18} strokeWidth={1.6} /> },
 ];
@@ -48,12 +46,21 @@ const Navbar = () => {
 
         {/* Logo */}
         <NavLink to="/" className="navbar-logo" onClick={closeSheet} aria-label="Boss Event Decorator - Home">
-          <div className="logo-icon-ring">
-            <StarLogo size={24} />
+          <div className="brand-logo-wrapper" style={{ position: 'relative', display: 'flex' }}>
+            <div className="b-logo-ring">
+              <span className="b-logo-text">&B</span>
+            </div>
           </div>
           <div className="logo-text-block">
-            <span className="logo-brand">Boss Event Decorator</span>
-            <span className="logo-tagline">Wedding Planner</span>
+            <div className="logo-brand-row">
+              <span className="boss-script">Boss</span>
+              <span className="event-decorator">EVENT DECORATOR</span>
+            </div>
+            <div className="logo-tagline-row">
+              <div className="tagline-line"></div>
+              <span className="logo-tagline">WEDDING PLANNER</span>
+              <div className="tagline-line"></div>
+            </div>
           </div>
         </NavLink>
 
@@ -61,9 +68,15 @@ const Navbar = () => {
         <ul className="navbar-links" role="list">
           {navItems.map(({ to, label }) => (
             <li key={to}>
-              <NavLink to={to} className={({ isActive }) => isActive ? 'active' : ''}>
-                {label}
-              </NavLink>
+              {to.startsWith('/#') ? (
+                <a href={to} className="nav-link" onClick={closeSheet}>
+                  {label}
+                </a>
+              ) : (
+                <NavLink to={to} className={({ isActive }) => isActive ? 'active' : ''}>
+                  {label}
+                </NavLink>
+              )}
             </li>
           ))}
         </ul>
@@ -83,8 +96,8 @@ const Navbar = () => {
           <Sheet open={open} onOpenChange={setOpen}>
             <button
               className={`menu-btn${open ? ' open' : ''}`}
-              onClick={() => setOpen(true)}
-              aria-label="Open navigation menu"
+              onClick={() => setOpen(!open)}
+              aria-label="Toggle navigation menu"
               aria-expanded={open}
             >
               <span className="menu-btn-bar" />
@@ -107,70 +120,67 @@ const Navbar = () => {
                 borderBottom: '1px solid #f5ebe8',
                 background: 'linear-gradient(135deg, #fdf0f2 0%, #fffcfa 100%)',
               }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
-                  <div style={{
-                    width: '54px', height: '54px', borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #fdf0f2, #f9f3ee)',
-                    border: '1.5px solid rgba(201,163,103,0.3)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    boxShadow: '0 4px 14px rgba(189,106,113,0.15)',
-                  }}>
-                    <StarLogo size={30} />
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div className="brand-logo-wrapper" style={{ position: 'relative', display: 'flex', marginBottom: '12px' }}>
+                    <div className="b-logo-ring" style={{ width: '54px', height: '54px', borderWidth: '1.5px', borderColor: '#a6824a', boxShadow: '0 4px 14px rgba(189,106,113,0.15)', background: '#fff' }}>
+                      <span className="b-logo-text" style={{ fontSize: '1.8rem', color: '#a6824a', textShadow: '0 1px 1px rgba(0,0,0,0.05)' }}>&B</span>
+                    </div>
                   </div>
-                  <p style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.5rem', fontWeight: 600, color: '#c9a367', letterSpacing: '3px', lineHeight: 1 }}>
-                    Boss Event Decorator
-                  </p>
-                  <p style={{ fontFamily: "'Poppins', sans-serif", fontSize: '0.52rem', letterSpacing: '3.5px', color: '#bd6a71', fontWeight: 600, textTransform: 'uppercase' }}>
-                    Wedding Planner
-                  </p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '8px' }}>
-                    <div style={{ width: '32px', height: '1px', background: 'linear-gradient(90deg, transparent, #f0dde0)' }} />
-                    <span style={{ color: '#c9a367', fontSize: '12px' }}>♥</span>
-                    <div style={{ width: '32px', height: '1px', background: 'linear-gradient(90deg, #f0dde0, transparent)' }} />
+                  <div className="logo-text-block" style={{ alignItems: 'center' }}>
+                    <div className="logo-brand-row" style={{ justifyContent: 'center' }}>
+                      <span className="boss-script" style={{ fontSize: '1.8rem', color: '#a6824a', fontWeight: 600, textShadow: '0 1px 1px rgba(0,0,0,0.05)' }}>Boss</span>
+                      <span className="event-decorator" style={{ fontSize: '1.1rem', color: '#a6824a', fontWeight: 700 }}>EVENT DECORATOR</span>
+                    </div>
+                    <div className="logo-tagline-row" style={{ justifyContent: 'center', marginTop: '6px' }}>
+                      <div className="tagline-line" style={{ background: '#f0dde0' }}></div>
+                      <span className="logo-tagline" style={{ color: '#bd6a71' }}>WEDDING PLANNER</span>
+                      <div className="tagline-line" style={{ background: '#f0dde0' }}></div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Nav Links */}
-              <nav style={{ flex: 1 }}>
+              <nav style={{ flex: 1, padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {navItems.map(({ to, label, icon }) => (
-                  <NavLink
-                    key={to}
-                    to={to}
-                    onClick={closeSheet}
-                    style={({ isActive }) => ({
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '14px',
-                      padding: '15px 20px',
-                      borderBottom: '1px solid #f5ebe8',
-                      textDecoration: 'none',
-                      color: isActive ? '#bd6a71' : '#2a2320',
-                      fontFamily: "'Poppins', sans-serif",
-                      fontSize: '0.9rem',
-                      fontWeight: isActive ? 600 : 400,
-                      background: isActive ? 'rgba(253, 240, 242, 0.6)' : 'transparent',
-                      transition: 'all 0.2s ease',
-                      borderLeft: isActive ? '3px solid #bd6a71' : '3px solid transparent',
-                    })}
-                  >
-                    <span style={{
-                      width: '34px', height: '34px',
-                      borderRadius: '10px',
-                      background: 'linear-gradient(135deg, #fdf0f2, #fff)',
-                      border: '1px solid #f0dde0',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: '#bd6a71', flexShrink: 0,
-                      boxShadow: '0 2px 6px rgba(189,106,113,0.08)',
-                    }}>
-                      {icon}
-                    </span>
-                    <span style={{ flex: 1 }}>{label}</span>
-                    <ArrowRight size={14} style={{ color: '#bd6a71', opacity: 0.5 }} />
-                  </NavLink>
+                  <li key={to} style={{ width: '100%', listStyle: 'none' }}>
+                    {to.startsWith('/#') ? (
+                      <a
+                        href={to}
+                        onClick={closeSheet}
+                        style={{
+                          display: 'flex', alignItems: 'center', gap: '14px',
+                          padding: '12px 16px', borderRadius: '12px',
+                          textDecoration: 'none', color: '#333',
+                          fontFamily: "'Inter', sans-serif", fontSize: '0.95rem', fontWeight: 500,
+                          background: 'white', border: '1px solid #f5ebe8',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
+                        }}
+                      >
+                        <div style={{ color: '#bd6a71', display: 'flex' }}>{icon}</div>
+                        {label}
+                      </a>
+                    ) : (
+                      <NavLink
+                        to={to}
+                        onClick={closeSheet}
+                        style={({ isActive }) => ({
+                          display: 'flex', alignItems: 'center', gap: '14px',
+                          padding: '12px 16px', borderRadius: '12px',
+                          textDecoration: 'none', color: isActive ? '#bd6a71' : '#333',
+                          fontFamily: "'Inter', sans-serif", fontSize: '0.95rem', fontWeight: 500,
+                          background: isActive ? '#fdf0f2' : 'white',
+                          border: isActive ? '1px solid #f5dde0' : '1px solid #f5ebe8',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
+                        })}
+                      >
+                        <div style={{ color: '#bd6a71', display: 'flex' }}>{icon}</div>
+                        {label}
+                      </NavLink>
+                    )}
+                  </li>
                 ))}
               </nav>
-
               {/* Book Consultation Card */}
               <div style={{ padding: '16px' }}>
                 <div style={{

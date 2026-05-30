@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hero.css';
-import { Play, Star, Award, MapPin } from 'lucide-react';
+import { Play, Star, Award, MapPin, Calendar, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
@@ -38,8 +38,10 @@ const Hero = () => {
 
           {/* Actions */}
           <div className="hero-actions" data-aos="fade-up" data-aos-delay="250" data-aos-duration="900">
-            <Link to="/book-consultation" className="btn btn-primary hover-glow" id="hero-book-btn">
+            <Link to="/book-consultation" className="btn btn-primary hover-glow" id="hero-book-btn" style={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: 'center' }}>
+              <Calendar size={18} style={{ opacity: 0.9 }} />
               Book Free Consultation
+              <ArrowRight size={18} style={{ opacity: 0.9 }} />
             </Link>
             <Link to="/about" className="btn-play">
               <span className="play-icon-wrapper">
@@ -49,36 +51,7 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Stats */}
-          <div className="hero-stats" data-aos="fade-up" data-aos-delay="400" data-aos-duration="900">
-            <div className="stat-item">
-              <div className="stat-icon-wrapper">
-                <Star size={18} color="var(--gold)" strokeWidth={1.5} />
-              </div>
-              <div className="stat-text">
-                <h4>500+</h4>
-                <p>Weddings Planned</p>
-              </div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-icon-wrapper">
-                <Award size={18} color="var(--gold)" strokeWidth={1.5} />
-              </div>
-              <div className="stat-text">
-                <h4>5+</h4>
-                <p>Years Experience</p>
-              </div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-icon-wrapper">
-                <MapPin size={18} color="var(--gold)" strokeWidth={1.5} />
-              </div>
-              <div className="stat-text">
-                <h4>Pan India</h4>
-                <p>Services Available</p>
-              </div>
-            </div>
-          </div>
+
         </div>
 
         {/* ── Image ── */}
@@ -92,11 +65,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll hint */}
-      <div className="hero-scroll-hint" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
-        <div className="scroll-mouse" />
-        <span>Scroll</span>
-      </div>
     </section>
   );
 };

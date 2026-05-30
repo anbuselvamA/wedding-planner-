@@ -6,7 +6,7 @@
   padding: clamp(4rem, 8vw, 6rem) 0;
   background: linear-gradient(180deg, var(--cream) 0%, var(--cream-alt) 100%);
   position: relative;
-  overflow: hidden;
+  overflow: clip;
 }
 
 /* Subtle top-right blob */
@@ -22,174 +22,137 @@
   pointer-events: none;
 }
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-/* ─── Service Card ──────────────────────────────── */
-.service-card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem 1.75rem;
-  text-align: center;
-  transition: all 0.45s var(--ease-spring);
-  box-shadow:
-    0 4px 16px rgba(44, 20, 10, 0.04),
-    inset 0 1px 0 rgba(255,255,255,0.9);
+/* ─── Horizontal Menu Layout ─────────────────── */
+.services-horizontal-layout {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  overflow: hidden;
-  cursor: default;
+  gap: 4rem;
+  width: 100%;
 }
 
-/* Hover gold border glow */
-.service-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 1.5px solid transparent;
-  background: linear-gradient(135deg, rgba(201,163,103,0.4), rgba(189,106,113,0.3)) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.45s ease;
+.services-menu-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: nowrap;
 }
 
-.service-card:hover::before {
-  opacity: 1;
+.service-menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
-/* Shimmer overlay */
-.service-card::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -60%;
-  width: 40%;
-  height: 200%;
-  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%);
-  transform: skewX(-10deg);
-  transition: left 0.7s ease;
-  pointer-events: none;
-}
-
-.service-card:hover::after {
-  left: 140%;
-}
-
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow:
-    0 24px 60px rgba(189, 106, 113, 0.1),
-    0 8px 20px rgba(44, 20, 10, 0.06),
-    inset 0 1px 0 rgba(255,255,255,0.9);
-  background: rgba(255, 255, 255, 0.92);
-}
-
-/* Icon circle */
-.service-icon-circle {
+.service-menu-icon {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold-pale) 0%, var(--primary-light) 100%);
-  border: 1.5px solid rgba(201, 163, 103, 0.25);
+  background: #fff;
+  border: 1px solid rgba(201, 163, 103, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(189, 106, 113, 0.1);
   transition: all 0.4s var(--ease-spring);
-  box-shadow: 0 4px 14px rgba(201, 163, 103, 0.15);
+  position: relative;
 }
 
-.service-card:hover .service-icon-circle {
-  transform: scale(1.12) rotate(5deg);
-  background: linear-gradient(135deg, var(--primary-light) 0%, var(--gold-pale) 100%);
-  box-shadow: 0 8px 24px rgba(189, 106, 113, 0.2);
+.service-menu-icon::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 163, 103, 0.2);
+  opacity: 0;
+  transition: all 0.4s ease;
+  transform: scale(0.9);
 }
 
-.service-title {
-  font-size: 1.05rem;
-  color: var(--text-main);
-  margin-bottom: 0.75rem;
-  font-family: var(--font-serif);
-  line-height: 1.3;
-  font-weight: 600;
+.service-menu-item:hover .service-menu-icon {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(201, 163, 103, 0.2);
 }
 
-.service-desc {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  font-family: var(--font-sans);
-  font-weight: 400;
+.service-menu-item:hover .service-menu-icon::before {
+  opacity: 1;
+  transform: scale(1);
 }
 
-.services-action {
-  text-align: center;
+.menu-diamond {
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.service-menu-item:hover .menu-diamond {
+  opacity: 1;
+  transform: rotate(45deg) scale(1.5);
+}
+
+.service-menu-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.service-menu-item:hover .service-menu-label {
+  color: var(--primary);
+}
+
+.services-action-inline {
+  display: flex;
+  justify-content: center;
 }
 
 /* ─── Responsive ────────────────────────────────── */
-@media (max-width: 1100px) {
-  .services-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-}
-
 @media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.125rem;
+  .services-horizontal-layout {
+    gap: 3rem;
   }
-
-  .service-card {
-    padding: 2rem 1.25rem;
+  .services-menu-list {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    max-width: 500px;
   }
-
-  .service-icon-circle {
+  .service-menu-icon {
     width: 60px;
     height: 60px;
+  }
+  .service-menu-label {
+    font-size: 0.65rem;
   }
 }
 
 @media (max-width: 480px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .services-horizontal-layout {
+    gap: 2rem;
   }
-
-  .service-card {
-    flex-direction: row;
-    text-align: left;
-    padding: 1.25rem 1.25rem;
-    gap: 1rem;
+  .services-menu-list {
+    gap: 1.5rem 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
   }
-
-  .service-icon-circle {
-    width: 52px;
-    height: 52px;
-    flex-shrink: 0;
-    margin-bottom: 0;
+  .service-menu-item {
+    width: 30%;
   }
-
-  .service-card-text {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  .service-menu-icon {
+    width: 55px;
+    height: 55px;
   }
-
-  .service-title {
-    margin-bottom: 0;
-    font-size: 1rem;
+  .service-menu-label {
+    font-size: 0.6rem;
+    text-align: center;
   }
 }

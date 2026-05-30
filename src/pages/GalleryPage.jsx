@@ -1,26 +1,26 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import SEO from '../components/SEO';
 import { BreadcrumbSchema } from '../components/Schema';
 import { Link } from 'react-router-dom';
 import './GalleryPage.css';
-
 const GalleryPage = () => {
   const [activeTab, setActiveTab] = useState('All');
 
   const tabs = ['All', 'Weddings', 'Decor', 'Engagement', 'Mehendi', 'Haldi', 'Reception', 'Destination Weddings'];
 
-  // Using a mix of the new gallery images and fallback service images to complete the 9 image grid
+  // Your exact photos will appear here once you upload them!
   const galleryItems = [
-    { id: 1, src: '/images/gallery_page_1.webp', category: 'Weddings', size: 'large' },
-    { id: 2, src: '/images/gallery_page_2.webp', category: 'Decor', size: 'medium' },
-    { id: 3, src: '/images/gallery_page_3.webp', category: 'Reception', size: 'medium' },
-    { id: 4, src: '/images/gallery_page_4.webp', category: 'Decor', size: 'medium' },
-    { id: 5, src: '/images/gallery_page_5.webp', category: 'Decor', size: 'small' },
-    { id: 6, src: '/images/gallery_page_6.webp', category: 'Reception', size: 'small' },
-    { id: 7, src: '/images/svc_full_wedding.webp', category: 'Weddings', size: 'medium' },
-    { id: 8, src: '/images/svc_bridal_makeup.webp', category: 'Mehendi', size: 'medium' },
-    { id: 9, src: '/images/svc_entertainment.webp', category: 'Reception', size: 'medium' },
+    { id: 1,  src: '/images/gallery_page_7.jpg',  alt: 'Birthday Stage - Mickey Theme Balloon Decor',        category: 'Decor' },
+    { id: 2,  src: '/images/gallery_page_8.jpg',  alt: 'Floral Wedding Stage - Pink & Green Setup',          category: 'Weddings' },
+    { id: 3,  src: '/images/gallery_page_9.jpg',  alt: 'Wedding Stage - Heart Arch Floral Decor',            category: 'Weddings' },
+    { id: 4,  src: '/images/gallery_page_10.jpg', alt: 'Traditional Wedding Stage - Gold Pillars & Flowers', category: 'Weddings' },
+    { id: 5,  src: '/images/gallery_page_11.jpg', alt: 'Wedding Entrance Gate - White Carved Pillars',       category: 'Decor' },
+    { id: 6,  src: '/images/gallery_page_12.jpg', alt: 'Wedding Stage - White Drapes & Ring Light',          category: 'Weddings' },
+    { id: 7,  src: '/images/gallery_page_13.png', alt: 'Wedding Stage - Purple Lights & Chandelier',         category: 'Weddings' },
+    { id: 8,  src: '/images/gallery_page_14.png', alt: 'Birthday Stage - Happy Birthday Neon & Balloons',    category: 'Decor' },
   ];
+
+
 
   const filteredItems = activeTab === 'All' 
     ? galleryItems 

@@ -3,7 +3,7 @@ import SEO from '../components/SEO';
 import { BreadcrumbSchema, FAQSchema } from '../components/Schema';
 import { Link } from 'react-router-dom';
 import './ServicesPage.css';
-import { Heart, Building2, Sparkles, Camera, Utensils, Users, Mic2, Palette, MessageCircle, ClipboardList, Brush, HeartHandshake, Star, ChevronUp, ChevronDown, Calendar, ArrowRight } from 'lucide-react';
+import { Heart, Gift, Music, GlassWater, Gem, Star, Users, Building2, Sparkles, Camera, Utensils, Palette, Mic2, MessageCircle, ClipboardList, Brush, HeartHandshake, ChevronUp, ChevronDown, Calendar, ArrowRight } from 'lucide-react';
 
 const faqs = [
   { id: '01', q: 'How far in advance should I book a wedding planner?', a: 'We recommend booking your wedding planner 6–12 months in advance to ensure availability and enough time for perfect planning and execution.' },
@@ -69,69 +69,63 @@ const FaqSection = () => {
 const serviceCards = [
   {
     id: 1,
-    title: 'Full Wedding Planning',
-    icon: <Heart size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_full_wedding.webp',
-    description: 'End-to-end planning and management for a stress-free wedding experience.',
+    title: 'Wedding',
+    subtitle: 'Luxury Wedding Planning',
+    icon: <Heart size={20} strokeWidth={1.5} color="var(--gold)" />,
+    image: '/images/wedding.jpg',
+    description: 'Complete planning and coordination for your dream wedding.',
   },
   {
     id: 2,
-    title: 'Venue Selection',
-    icon: <Building2 size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_venue.webp',
-    description: 'We help you find the perfect venue that matches your style, budget and guest list.',
+    title: 'Birthday',
+    subtitle: 'Memorable Celebrations',
+    icon: <Gift size={20} strokeWidth={1.5} color="var(--gold)" />,
+    image: '/images/birthday.jpg',
+    description: 'Make birthdays unforgettable with our creative touch.',
   },
   {
     id: 3,
-    title: 'Decoration & Styling',
-    icon: <Sparkles size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_decoration.webp',
-    description: 'Beautiful themes and personalized décor that bring your dream wedding to life.',
+    title: 'Party',
+    subtitle: 'Fun & Energetic Setups',
+    icon: <Music size={20} strokeWidth={1.5} color="var(--gold)" />,
+    image: '/images/reception.jpg',
+    description: 'From theme parties to private celebrations, we do it all.',
   },
   {
     id: 4,
-    title: 'Photography & Videography',
-    icon: <Camera size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_photography.webp',
-    description: 'Capture every moment with creativity and turn your memories into timeless stories.',
+    title: 'Engagement',
+    subtitle: 'Beautiful Beginnings',
+    icon: <Gem size={20} strokeWidth={1.5} color="var(--gold)" />,
+    image: '/images/engagement.jpg',
+    description: 'Beautiful setups for your most precious beginnings.',
   },
   {
     id: 5,
-    title: 'Catering',
-    icon: <Utensils size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_catering.webp',
-    description: 'Delicious menu options curated for you and your guests with perfection.',
+    title: 'Anniversary',
+    subtitle: 'Celebrate Your Journey',
+    icon: <Star size={20} strokeWidth={1.5} color="var(--gold)" />,
+    image: '/images/anniversary.jpg',
+    description: 'Celebrate your milestones with romantic and elegant setups.',
   },
   {
     id: 6,
-    title: 'Bridal Makeup & Styling',
-    icon: <Palette size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_bridal_makeup.webp',
-    description: 'Professional artists to make you look and feel your best on your big day.',
+    title: 'Festivals',
+    subtitle: 'Vibrant & Traditional',
+    icon: <Star size={20} strokeWidth={1.5} color="var(--gold)" />,
+    image: '/images/house-warming.jpg',
+    description: 'Make every festival celebration bright and memorable.',
   },
   {
     id: 7,
-    title: 'Entertainment',
-    icon: <Mic2 size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_entertainment.webp',
-    description: 'From DJs to live performances, we create the perfect vibe for your celebration.',
-  },
-  {
-    id: 8,
-    title: 'Guest Management',
-    icon: <Users size={36} strokeWidth={1.5} color="var(--primary-color)" />,
-    image: '/images/svc_guest_management.webp',
-    description: 'We handle your guests with care, ensuring a smooth and joyful experience.',
+    title: 'Functions',
+    subtitle: 'Professional & Seamless',
+    icon: <Users size={20} strokeWidth={1.5} color="var(--gold)" />,
+    image: '/images/corporate.jpg',
+    description: 'We handle corporate & private functions seamlessly.',
   },
 ];
 
-const planningSteps = [
-  { num: '01', title: 'Consultation', desc: 'We understand your vision and needs', icon: <MessageCircle size={28} strokeWidth={1.5} color="var(--primary-color)" /> },
-  { num: '02', title: 'Planning', desc: 'We plan every detail with perfection', icon: <ClipboardList size={28} strokeWidth={1.5} color="var(--primary-color)" /> },
-  { num: '03', title: 'Design & Execution', desc: 'We bring your dream to life', icon: <Brush size={28} strokeWidth={1.5} color="var(--primary-color)" /> },
-  { num: '04', title: 'Coordination', desc: 'We manage everything seamlessly', icon: <HeartHandshake size={28} strokeWidth={1.5} color="var(--primary-color)" /> },
-  { num: '05', title: 'You Celebrate', desc: 'Relax and enjoy your beautiful moments', icon: <Star size={28} strokeWidth={1.5} color="var(--primary-color)" /> },
-];
+
 
 const ServicesPage = () => {
   return (
@@ -178,53 +172,34 @@ const ServicesPage = () => {
             </div>
           </div>
 
-          <div className="services-grid-new">
+          <div className="services-bento-grid">
             {serviceCards.map((svc, index) => (
-              <div className="svc-card hover-lift" key={svc.id} data-aos="fade-up" data-aos-delay={index * 100}>
-                <div className="svc-card-icon">{svc.icon}</div>
-                <h3 className="svc-card-title">{svc.title}</h3>
-                <div className="svc-card-image">
-                  <img loading="lazy" src={svc.image} alt={svc.title} />
+              <div
+                className={`service-bento-card ${index === 0 ? 'bento-large' : 'bento-small'}`}
+                key={svc.id}
+                data-aos="fade-up"
+                data-aos-delay={index * 50}
+              >
+                <div className="bento-bg-image" style={{ backgroundImage: `url(${svc.image})` }}></div>
+                <div className="bento-content">
+                  <div className="bento-icon-wrapper">
+                    {svc.icon}
+                  </div>
+                  <h3 className="bento-title">{svc.title}</h3>
+                  <h4 className="bento-subtitle">{svc.subtitle}</h4>
+                  <div className="bento-divider">
+                    <span></span><div className="bento-diamond"></div><span></span>
+                  </div>
+                  <p className="bento-desc">{svc.description}</p>
+                  <Link to="/contact" className="bento-btn">View Details →</Link>
                 </div>
-                <p className="svc-card-desc">{svc.description}</p>
-                <a href="#" className="svc-card-link">Learn More →</a>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── PLANNING PROCESS ── */}
-      <section className="planning-process">
-        <div className="container">
-          <div className="section-header" data-aos="fade-up">
-            <p className="section-subtitle">OUR PLANNING PROCESS</p>
-            <div className="section-divider">
-              <span></span>
-              <div className="diamond-gold">♦</div>
-              <span></span>
-            </div>
-          </div>
 
-          <div className="process-steps">
-            {planningSteps.map((step, index) => (
-              <React.Fragment key={step.num}>
-                <div className="process-step hover-lift" data-aos="fade-up" data-aos-delay={index * 150}>
-                  <div className="process-icon-wrap">{step.icon}</div>
-                  <p className="process-num">{step.num}</p>
-                  <h4 className="process-title">{step.title}</h4>
-                  <p className="process-desc">{step.desc}</p>
-                </div>
-                {index < planningSteps.length - 1 && (
-                  <div className="process-connector">
-                    <span className="connector-line"></span>
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── FAQ SECTION ── */}
       <FaqSection />

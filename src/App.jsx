@@ -11,10 +11,17 @@ import { LocalBusinessSchema } from './components/Schema';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import GalleryPage from './pages/GalleryPage';
-import PackagesPage from './pages/PackagesPage';
+
 import BookConsultationPage from './pages/BookConsultationPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+
+const WhatsAppRedirect = ({ message }) => {
+  useEffect(() => {
+    window.location.replace(`https://wa.me/919600654784?text=${encodeURIComponent(message)}`);
+  }, [message]);
+  return null;
+};
 
 function App() {
   useEffect(() => {
@@ -57,11 +64,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/"                  element={<HomePage />} />
-        <Route path="/services"          element={<ServicesPage />} />
         <Route path="/gallery"           element={<GalleryPage />} />
-        <Route path="/packages"          element={<PackagesPage />} />
+
         <Route path="/about"             element={<AboutPage />} />
-        <Route path="/contact"           element={<ContactPage />} />
+        <Route path="/contact"           element={<WhatsAppRedirect message="Hello Boss Event Decorator! I have an enquiry." />} />
         <Route path="/book-consultation" element={<BookConsultationPage />} />
       </Routes>
       <Footer />

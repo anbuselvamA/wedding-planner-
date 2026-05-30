@@ -101,16 +101,12 @@
 .hero-title-script {
   font-family: var(--font-script);
   font-size: clamp(3.5rem, 8vw, 6rem);
-  color: var(--primary);
+  color: #c0485a; /* Solid rose color instead of clipped gradient to prevent overlap artifacts */
   font-weight: 400;
   display: block;
   line-height: 1.1;
   margin-top: 0.25rem;
   margin-left: 1.5rem;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   pointer-events: none;
   user-select: none;
   -webkit-user-select: none;

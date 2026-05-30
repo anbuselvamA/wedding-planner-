@@ -19,10 +19,9 @@ const BookConsultationPage = () => {
     phone: '',
     email: '',
     city: '',
-    weddingDate: '',
-    weddingLocation: '',
-    guestCount: '',
-    hearAboutUs: '',
+    eventType: '',
+    eventDate: '',
+    eventLocation: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,18 +36,32 @@ const BookConsultationPage = () => {
     setIsSubmitting(true);
     
     try {
-      // Placeholder for n8n Webhook or API
-      const webhookUrl = 'https://your-n8n-domain.com/webhook/enquiry';
+      const waMessage = `🎉 *Pudhu ${formData.eventType || 'Event'} Consultation Request*
+
+👤 *Client Name:* ${formData.name}
+📞 *Mobile Number:* ${formData.phone}
+✉️ *Email:* ${formData.email}
+📍 *City:* ${formData.city}
+
+💍 *Event Type:* ${formData.eventType || 'Not specified'}
+📅 *Event Date:* ${formData.eventDate || 'Not specified'}
+📍 *Event Location:* ${formData.eventLocation || 'Not specified'}
+
+💬 *Message:*
+${formData.message || 'No message provided'}
+
+Indha client website moolama Book Consultation form anupirukanga.
+📞 Seekiram contact panni details discuss pannunga.`;
+
+      const waUrl = `https://wa.me/919600654784?text=${encodeURIComponent(waMessage)}`;
       
-      // Simulate API call for demonstration
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Small delay for UI feedback
+      await new Promise(resolve => setTimeout(resolve, 800));
+      window.open(waUrl, '_blank');
       
-      console.log('Form Submitted', formData);
-      alert('Thank you! Your consultation request has been received.');
       setFormData({
         name: '', phone: '', email: '', city: '',
-        weddingDate: '', weddingLocation: '', guestCount: '',
-        hearAboutUs: '', message: ''
+        eventType: '', eventDate: '', eventLocation: '', message: ''
       });
     } catch (error) {
       console.error('Error submitting form:', error);
@@ -165,77 +178,60 @@ const BookConsultationPage = () => {
                 </div>
               </div>
 
-              {/* WEDDING DETAILS */}
+              {/* EVENT DETAILS */}
               <div className="form-section mt-4">
                 <div className="form-section-header">
-                  <h3>WEDDING DETAILS</h3>
+                  <h3>EVENT DETAILS</h3>
                   <Heart size={12} className="section-heart" fill="#c9a367" color="#c9a367" />
                   <div className="section-line"></div>
                 </div>
 
                 <div className="input-group">
-                  <label>Wedding Date</label>
+                  <label>Event Type</label>
+                  <div className="select-wrapper">
+                    <Award size={18} className="input-icon" />
+                    <select 
+                      name="eventType" 
+                      value={formData.eventType}
+                      onChange={handleChange}
+                    >
+                      <option value="" disabled hidden>Select event type</option>
+                      <option value="Wedding">Wedding</option>
+                      <option value="Birthday">Birthday</option>
+                      <option value="Party">Party</option>
+                      <option value="Anniversary">Anniversary</option>
+                      <option value="Engagement">Engagement</option>
+                      <option value="Festivals">Festivals</option>
+                      <option value="Corporate/Functions">Corporate / Functions</option>
+                    </select>
+                    <ChevronDown size={18} className="select-arrow" />
+                  </div>
+                </div>
+
+                <div className="input-group">
+                  <label>Event Date</label>
                   <div className="input-wrapper">
                     <Calendar size={18} className="input-icon" />
                     <input 
                       type="date" 
-                      name="weddingDate" 
-                      value={formData.weddingDate}
+                      name="eventDate" 
+                      value={formData.eventDate}
                       onChange={handleChange}
                     />
                   </div>
                 </div>
 
                 <div className="input-group">
-                  <label>Wedding Location</label>
+                  <label>Event Location</label>
                   <div className="input-wrapper">
                     <MapPin size={18} className="input-icon" />
                     <input 
                       type="text" 
-                      name="weddingLocation" 
-                      placeholder="Enter your wedding location" 
-                      value={formData.weddingLocation}
+                      name="eventLocation" 
+                      placeholder="Enter your event location" 
+                      value={formData.eventLocation}
                       onChange={handleChange}
                     />
-                  </div>
-                </div>
-
-                <div className="input-group">
-                  <label>Guest Count (Approx.)</label>
-                  <div className="select-wrapper">
-                    <Users size={18} className="input-icon" />
-                    <select 
-                      name="guestCount" 
-                      value={formData.guestCount}
-                      onChange={handleChange}
-                    >
-                      <option value="" disabled hidden>Select guest count</option>
-                      <option value="50-100">50 - 100</option>
-                      <option value="100-300">100 - 300</option>
-                      <option value="300-500">300 - 500</option>
-                      <option value="500+">500+</option>
-                    </select>
-                    <ChevronDown size={18} className="select-arrow" />
-                  </div>
-                </div>
-
-                <div className="input-group">
-                  <label>How did you hear about us?</label>
-                  <div className="select-wrapper">
-                    <Megaphone size={18} className="input-icon" />
-                    <select 
-                      name="hearAboutUs" 
-                      value={formData.hearAboutUs}
-                      onChange={handleChange}
-                    >
-                      <option value="" disabled hidden>Select an option</option>
-                      <option value="instagram">Instagram</option>
-                      <option value="facebook">Facebook</option>
-                      <option value="google">Google Search</option>
-                      <option value="friend">Friend / Family</option>
-                      <option value="other">Other</option>
-                    </select>
-                    <ChevronDown size={18} className="select-arrow" />
                   </div>
                 </div>
               </div>

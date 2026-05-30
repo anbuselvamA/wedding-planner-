@@ -8,10 +8,27 @@ const MobileStickyBtn = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 350);
+    const onScroll = () => {
+      const show = window.scrollY > 350;
+      setVisible(show);
+      if (show && location.pathname !== '/book-consultation') {
+        document.body.classList.add('sticky-btn-visible');
+      } else {
+        document.body.classList.remove('sticky-btn-visible');
+      }
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    
+    // Also remove the class immediately if location changes to book-consultation
+    if (location.pathname === '/book-consultation') {
+      document.body.classList.remove('sticky-btn-visible');
+    }
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      document.body.classList.remove('sticky-btn-visible');
+    };
+  }, [location.pathname]);
 
   if (location.pathname === '/book-consultation') {
     return null;

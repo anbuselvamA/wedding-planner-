@@ -34,7 +34,7 @@ const StatBlock = ({ icon, value, suffix, text, label, started }) => {
     <div className="stat-block">
       <div className="stat-icon">{icon}</div>
       <h3>
-        {value !== null ? <><span>{count}</span>{suffix}</> : text}
+        {value !== null ? <><span>{count}</span>{suffix}</> : <span style={{ fontSize: '0.7em', color: '#c9a367', display: 'inline-block', transform: 'translateY(-2px)' }}>{text}</span>}
       </h3>
       <p>{label}</p>
     </div>

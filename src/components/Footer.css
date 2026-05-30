@@ -68,11 +68,8 @@
 }
 
 .footer-logo-text h2 {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 3px;
+  display: flex;
+  align-items: baseline;
   line-height: 1;
   margin: 0;
 }
@@ -302,40 +299,58 @@
   color: rgba(255, 255, 255, 0.12);
 }
 
-/* ─── WhatsApp Float ────────────────────────────── */
-.whatsapp-float {
+/* ─── Floating Buttons ────────────────────────────── */
+.floating-buttons-wrapper {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 998;
+  transition: bottom 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.float-btn {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
   cursor: pointer;
   transition: all 0.4s var(--ease-spring);
-  z-index: 998;
-  animation: pulse-green 3s ease-in-out infinite;
   text-decoration: none;
+  animation: pulse-green 3s ease-in-out infinite;
 }
 
-.whatsapp-float:hover {
+.float-btn:hover {
   transform: translateY(-4px) scale(1.08);
-  box-shadow: 0 12px 36px rgba(37, 211, 102, 0.5);
   animation: none;
 }
 
-/* Tooltip */
-.whatsapp-float::before {
-  content: 'Chat with us';
+.whatsapp-float {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+}
+.whatsapp-float:hover {
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+}
+
+.phone-float {
+  background: linear-gradient(135deg, #e5b976 0%, #a6824a 100%);
+  box-shadow: 0 4px 16px rgba(201, 163, 103, 0.4);
+  animation: none; /* Only whatsapp pulses */
+}
+.phone-float:hover {
+  box-shadow: 0 8px 24px rgba(201, 163, 103, 0.5);
+}
+
+/* Tooltips */
+.float-btn::before {
   position: absolute;
-  right: 70px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 60px;
   background: rgba(30, 30, 30, 0.85);
   color: #fff;
   font-family: var(--font-sans);
@@ -350,7 +365,10 @@
   backdrop-filter: blur(8px);
 }
 
-.whatsapp-float:hover::before {
+.whatsapp-float::before { content: 'Chat with us'; }
+.phone-float::before { content: 'Call us'; }
+
+.float-btn:hover::before {
   opacity: 1;
 }
 
@@ -392,11 +410,22 @@
     gap: 0.75rem;
     text-align: center;
   }
-  .whatsapp-float {
-    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)); /* above mobile sticky btn */
+  .floating-buttons-wrapper {
+    /* Default: bottom of screen */
+    bottom: 1.5rem;
     right: 1.25rem;
-    width: 54px;
-    height: 54px;
+  }
+  .float-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .float-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+  .float-btn::before {
+    right: 56px;
+    font-size: 0.72rem;
   }
 }
 
@@ -422,8 +451,16 @@
 }
 
 /* ─── Menu Open State ───────────────────────────── */
-body.menu-open .whatsapp-float {
+body.menu-open .floating-buttons-wrapper {
   opacity: 0;
   pointer-events: none;
   transform: translateY(20px) scale(0.9);
+}
+
+/* ─── Sticky Book Btn Active (mobile only) ───────── */
+@media (max-width: 767px) {
+  body.sticky-btn-visible .floating-buttons-wrapper {
+    /* Move above the sticky Book Consultation bar (~80px tall) */
+    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
 }

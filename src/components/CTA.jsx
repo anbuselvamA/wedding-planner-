@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './CTA.css';
 import { Link } from 'react-router-dom';
-import { Phone, User, Calendar, MapPin, Users, IndianRupee, MessageSquare, Lock, Send } from 'lucide-react';
+import { Phone, User, Calendar, MapPin, Heart, Send } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 /* ── Divider with text ─────────────────────────────────────────────────────── */
@@ -73,7 +73,7 @@ const inputStyle = {
 const CTA = () => {
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
-    name: '', phone: '', date: '', location: '', guests: '', budget: '', message: ''
+    name: '', phone: '', eventType: 'Wedding', date: '', location: ''
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -81,29 +81,44 @@ const CTA = () => {
   const handleChange = (e) =>
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    try {
-      // Placeholder for n8n Webhook or API
-      const webhookUrl = 'https://your-n8n-domain.com/webhook/enquiry';
-      
-      // Simulate API call for demonstration
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      setSubmitted(true);
-      setTimeout(() => {
-        setOpen(false);
-        setSubmitted(false);
-        setFormData({ name: '', phone: '', date: '', location: '', guests: '', budget: '', message: '' });
-      }, 2500);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an issue sending your enquiry. Please try again later.');
-    } finally {
+
+    // Format date nicely
+    const dateObj = formData.date ? new Date(formData.date + 'T00:00:00') : null;
+    const formattedDate = dateObj
+      ? dateObj.toLocaleDateString('en-IN', { day: '2-digit', month: 'long', year: 'numeric' })
+      : 'Not specified';
+
+    // Build the WhatsApp message exactly like the professional template
+    const msg = [
+      `🎉 *Pudhu ${formData.eventType} Enquiry Vandhiruku*`,
+      ``,
+      `👤 *Client Name:* ${formData.name}`,
+      `📞 *Mobile Number:* ${formData.phone}`,
+      `💍 *Event Type:* ${formData.eventType}`,
+      `📅 *Event Date:* ${formattedDate}`,
+      `📍 *Location:* ${formData.location}`,
+      ``,
+      `Indha client website moolama enquiry anupirukanga.`,
+      ``,
+      `📞 Seekiram contact panni details discuss pannunga.`,
+      ``,
+      `— Boss Event Decorator Website`,
+    ].join('\n');
+
+    const waUrl = `https://wa.me/919600654784?text=${encodeURIComponent(msg)}`;
+
+    // Show success state briefly, then open WhatsApp
+    setSubmitted(true);
+    setTimeout(() => {
+      setOpen(false);
+      setSubmitted(false);
+      setFormData({ name: '', phone: '', eventType: 'Wedding', date: '', location: '' });
       setIsSubmitting(false);
-    }
+      window.open(waUrl, '_blank');
+    }, 1000);
   };
 
   return (
@@ -237,10 +252,31 @@ const CTA = () => {
                       </InputBox>
                     </div>
 
+                    {/* Event Type */}
+                    <div>
+                      <FieldLabel>Event Type *</FieldLabel>
+                      <InputBox icon={<Heart size={16} />}>
+                        <select name="eventType" value={formData.eventType} onChange={handleChange} required
+                          style={{ ...inputStyle, appearance: 'none', cursor: 'pointer' }}>
+                          <option value="Wedding">💍 Wedding</option>
+                          <option value="Engagement">💎 Engagement</option>
+                          <option value="Birthday">🎂 Birthday</option>
+                          <option value="Anniversary">🥂 Anniversary</option>
+                          <option value="Reception">🌸 Reception</option>
+                          <option value="Party">🎉 Party</option>
+                          <option value="Festival">✨ Festival</option>
+                          <option value="Corporate Function">🏢 Corporate Function</option>
+                        </select>
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#bd6a71" strokeWidth="2" style={{ flexShrink: 0 }}>
+                          <polyline points="6,9 12,15 18,9"/>
+                        </svg>
+                      </InputBox>
+                    </div>
+
                     {/* Date + Location — 2 col */}
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                       <div>
-                        <FieldLabel>Wedding Date *</FieldLabel>
+                        <FieldLabel>Event Date *</FieldLabel>
                         <InputBox icon={<Calendar size={16} />}>
                           <input name="date" type="date" value={formData.date}
                             onChange={handleChange} required
@@ -257,89 +293,6 @@ const CTA = () => {
                       </div>
                     </div>
 
-                    {/* Guest + Budget — 2 col */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                      <div>
-                        <FieldLabel>Guest Count *</FieldLabel>
-                        <InputBox icon={<Users size={16} />}>
-                          <select name="guests" value={formData.guests} onChange={handleChange} required
-                            style={{ ...inputStyle, appearance: 'none', cursor: 'pointer' }}>
-                            <option value="" disabled>Select guest count</option>
-                            <option value="50-100">50 – 100</option>
-                            <option value="100-300">100 – 300</option>
-                            <option value="300-500">300 – 500</option>
-                            <option value="500+">500+</option>
-                          </select>
-                          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#bd6a71" strokeWidth="2" style={{ flexShrink: 0 }}>
-                            <polyline points="6,9 12,15 18,9"/>
-                          </svg>
-                        </InputBox>
-                      </div>
-                      <div>
-                        <FieldLabel>Budget *</FieldLabel>
-                        <InputBox icon={<IndianRupee size={16} />}>
-                          <select name="budget" value={formData.budget} onChange={handleChange} required
-                            style={{ ...inputStyle, appearance: 'none', cursor: 'pointer' }}>
-                            <option value="" disabled>Select budget</option>
-                            <option value="below-5L">Below ₹5L</option>
-                            <option value="5-10L">₹5–10L</option>
-                            <option value="10-25L">₹10–25L</option>
-                            <option value="25-50L">₹25–50L</option>
-                            <option value="above-50L">Above ₹50L</option>
-                          </select>
-                          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#bd6a71" strokeWidth="2" style={{ flexShrink: 0 }}>
-                            <polyline points="6,9 12,15 18,9"/>
-                          </svg>
-                        </InputBox>
-                      </div>
-                    </div>
-
-                    <FormDivider>Additional Details</FormDivider>
-
-                    {/* Special Requests — with floral decoration */}
-                    <div>
-                      <FieldLabel>Special Requests</FieldLabel>
-                      <div style={{
-                        position: 'relative',
-                        background: 'white',
-                        border: '1.5px solid #f0dde0',
-                        borderRadius: '12px',
-                        overflow: 'hidden',
-                      }}>
-                        <div style={{ display: 'flex', gap: '10px', padding: '12px 14px 0' }}>
-                          <span style={{ color: '#bd6a71', flexShrink: 0, marginTop: '2px' }}>
-                            <MessageSquare size={17} />
-                          </span>
-                          <textarea
-                            name="message"
-                            placeholder="Tell us about your dream wedding..."
-                            value={formData.message}
-                            onChange={handleChange}
-                            rows={4}
-                            style={{
-                              ...inputStyle,
-                              resize: 'none',
-                              width: '100%',
-                              paddingBottom: '40px',
-                            }}
-                          />
-                        </div>
-                        {/* Floral bottom-right decoration */}
-                        <img loading="lazy"
-                          src="/images/floral_left_edge.webp"
-                          alt=""
-                          style={{
-                            position: 'absolute',
-                            bottom: 0,
-                            right: 0,
-                            width: '90px',
-                            opacity: 0.35,
-                            pointerEvents: 'none',
-                            transform: 'scaleX(-1)',
-                          }}
-                        />
-                      </div>
-                    </div>
 
                     {/* Submit button */}
                     <button

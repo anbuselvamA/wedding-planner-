@@ -132,6 +132,10 @@ main {
   padding-top: var(--navbar-height);
 }
 
+section {
+  scroll-margin-top: calc(var(--navbar-height) + 2rem);
+}
+
 /* ─── Section Titles ──────────────────────────────── */
 .section-tag {
   display: inline-flex;
@@ -169,11 +173,15 @@ main {
 }
 
 .section-title {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.6rem, 5vw, 3rem);
   text-align: center;
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   color: var(--text-main);
   line-height: 1.15;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  width: 100%;
+  padding: 0 0.5rem;
 }
 
 .section-header {
@@ -244,14 +252,14 @@ main {
 .btn:hover::before { opacity: 1; }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, #d4808a 100%);
+  background: linear-gradient(135deg, #b5445c 0%, #d4758a 60%, #e59aa8 100%);
   color: #fff;
-  box-shadow: 0 6px 24px rgba(189, 106, 113, 0.35);
+  box-shadow: 0 6px 24px rgba(181, 68, 92, 0.35);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 36px rgba(189, 106, 113, 0.45);
+  box-shadow: 0 12px 36px rgba(181, 68, 92, 0.5);
 }
 
 .btn-primary:active { transform: translateY(-1px); }
