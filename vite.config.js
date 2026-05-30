@@ -14,4 +14,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  css: {
+    transformer: 'postcss',
+  },
+  build: {
+    cssMinify: false,
+  },
 })
